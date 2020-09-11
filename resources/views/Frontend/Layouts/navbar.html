@@ -1,0 +1,57 @@
+ <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">TravelCasteBangladesh </a>
+
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{{ URL::to('/') }}">Home</a>
+          </li>
+        <!--Dropdown-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" >Find best places</a>
+
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:  #77c2e1">
+              <a class="dropdown-item"  href="{{route('find.bestplace')}}" >Dhaka</a>
+              <a class="dropdown-item"  href="{{route('find.bestplace')}}">Sylhet</a>
+              <a class="dropdown-item"  href="{{route('find.bestplace')}}">Khulna</a>
+              <a class="dropdown-item"  href="{{route('find.bestplace')}}">Barisal</a>
+              <a class="dropdown-item"  href="{{route('find.bestplace')}}">Rangpur</a>
+              <a class="dropdown-item"  href="{{route('find.bestplace')}}">Rajshahi</a>
+              <a class="dropdown-item"  href="{{route('find.bestplace')}}">Chittagong</a>
+              <a class="dropdown-item"  href="{{route('find.bestplace')}}">Mymensingh</a>
+            </div>
+
+          </li>
+        <!--Dropdown-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" >Manage profile</a>
+
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:  #77c2e1">
+              <a class="dropdown-item"  href="{{route('my.profile')}}" >My profile</a>
+              <a class="dropdown-item"  href="{{route('share.experience')}}">Share experience</a>
+              <a class="dropdown-item"  href="{{route('create.event')}}">Create event</a>
+            </div>
+
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#">ProfileManage</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{{route('tour.events')}}">Tour events</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#">Sign in</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
