@@ -12,6 +12,7 @@
 <style type="text/css">
     body{
     background: -webkit-linear-gradient(left, #78e4d0, #ace5da);
+    height: auto;
 }
 .emp-profile{
     padding: 3%;
