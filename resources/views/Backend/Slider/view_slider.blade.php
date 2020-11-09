@@ -11,12 +11,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Manage Logo</h1>
+            <h1 class="m-0 text-dark">Manage Slider</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Logo</li>
+              <li class="breadcrumb-item active">slider</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -35,14 +35,12 @@
 
             <div class="card">
               <div class="card-header">
-                <h3>Logo list
-
-                  @if($countlogo<1)
-                  <a class="btn btn-success btn-sm float-right" href="{{ route('logos.add') }}">
+                <h3>Slider list
+                  <a class="btn btn-success btn-sm float-right" href="{{ route('sliders.add') }}">
                     <i class="fa fa-plus-circle"></i>
-                    Add Logo
+                    Add slider
                   </a>
-                  @endif
+                  
 
                 </h3>
               </div><!-- /.card-header -->
@@ -52,24 +50,30 @@
                       <thead>
                         <tr>
                           <th>SL.</th>
-                          <th>Logo</th>
+                          <th>Slider</th>
+                          <th>Short title</th>
+                          <th>Long title</th>
                           <th>Action</th>
                         </tr>
                       </thead>
 
                       <tbody>
 
-                      @foreach ($allData as $key=> $logo)
+                      @foreach ($allData as $key=> $slider)
                       <tr>
                         <td> {{$key+1}} </td>
-                        <td><img src="{{(!empty($logo->image))?url('public/Upload/Logo_images/'.$logo->image):
+                        <td><img src="{{(!empty($slider->image))?url('public/Upload/Slider_images/'.$slider->image):
                         url('public/Upload/no_image.png') }}" width="140px"; height="100px"></td>
+
+                        <td>{{$slider->short_title}}</td>
+                        <td>{{$slider->long_title}}</td>
                         <td>
-                          <a title="Edit" class="btn btn-sm btn-info" href="{{ route('logos.edit', $logo->id) }}">
+                          <a title="Edit" class="btn btn-sm btn-info"
+                           href="{{ route('sliders.edit', $slider->id) }}">
                           <i class="fa fa-edit"></i></a>
                           
                           <a title="Delete" id="delete" class="btn btn-sm btn-danger"
-                           href="{{ route('logos.delete', $logo->id) }}">
+                           href="{{ route('sliders.delete', $slider->id) }}">
                           <i class="fa fa-trash"></i></a>
                         </td>
                       </tr>

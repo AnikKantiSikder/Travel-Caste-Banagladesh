@@ -79,6 +79,41 @@ Route::get('/home', 'HomeController@index')->name('home');
 		Route::get('/delete/{id}','Backend\LogoController@delete')->name('logos.delete');
 	});
 
+	//Slider management routes
+	Route::prefix('sliders')->group(function(){
+
+		Route::get('/view','Backend\SliderController@view')->name('sliders.view');
+		Route::get('/add','Backend\SliderController@add')->name('sliders.add');
+		Route::post('/store','Backend\SliderController@store')->name('sliders.store');
+		Route::get('/edit/{id}','Backend\SliderController@edit')->name('sliders.edit');
+		Route::post('/update/{id}','Backend\SliderController@update')->name('sliders.update');
+		Route::get('/delete/{id}','Backend\SliderController@delete')->name('sliders.delete');
+	});
+
+	//Contact routes
+	Route::prefix('contacts')->group(function(){
+
+		Route::get('/view','Backend\ContactController@view')->name('contacts.view');
+		Route::get('/add','Backend\ContactController@add')->name('contacts.add');
+		Route::post('/store','Backend\ContactController@store')->name('contacts.store');
+		Route::get('/edit/{id}','Backend\ContactController@edit')->name('contacts.edit');
+		Route::post('/update/{id}','Backend\ContactController@update')->name('contacts.update');
+		Route::get('/delete/{id}','Backend\ContactController@delete')->name('contacts.delete');
+		Route::get('/view/communicate','Backend\ContactController@viewCommunicate')->name('contacts.communicate');
+		Route::get('/delete/communicate/{id}','Backend\ContactController@deleteCommunicate')->name('communicates.delete');
+	});
+
+	//About us routes
+	Route::prefix('abouts')->group(function(){
+
+		Route::get('/view','Backend\AboutController@view')->name('abouts.view');
+		Route::get('/add','Backend\AboutController@add')->name('abouts.add');
+		Route::post('/store','Backend\AboutController@store')->name('abouts.store');
+		Route::get('/edit/{id}','Backend\AboutController@edit')->name('abouts.edit');
+		Route::post('/update/{id}','Backend\AboutController@update')->name('abouts.update');
+		Route::get('/delete/{id}','Backend\AboutController@delete')->name('abouts.delete');
+	});
+
 	//Add new locations
 	Route::get('/add/new/location', 'Backend\AddNewLocationController@addNewLocation')->name('add.newlocation');
 

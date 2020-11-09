@@ -11,12 +11,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Manage Logo</h1>
+            <h1 class="m-0 text-dark">Manage About Us</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Logo</li>
+              <li class="breadcrumb-item active">about us</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -35,12 +35,11 @@
 
             <div class="card">
               <div class="card-header">
-                <h3>Logo list
-
-                  @if($countlogo<1)
-                  <a class="btn btn-success btn-sm float-right" href="{{ route('logos.add') }}">
+                <h3>About us list
+                  @if($countAbout<1)
+                  <a class="btn btn-success btn-sm float-right" href="{{ route('abouts.add') }}">
                     <i class="fa fa-plus-circle"></i>
-                    Add Logo
+                    Add about us
                   </a>
                   @endif
 
@@ -48,28 +47,31 @@
               </div><!-- /.card-header -->
 
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-hover" style="text-align: center;">
+                <table id="datatable" class="table table-bordered table-striped" style="text-align: center;">
                       <thead>
                         <tr>
                           <th>SL.</th>
-                          <th>Logo</th>
+                          <th>Description</th>
                           <th>Action</th>
                         </tr>
                       </thead>
 
                       <tbody>
 
-                      @foreach ($allData as $key=> $logo)
+                      @foreach ($allData as $key=> $about)
                       <tr>
                         <td> {{$key+1}} </td>
-                        <td><img src="{{(!empty($logo->image))?url('public/Upload/Logo_images/'.$logo->image):
-                        url('public/Upload/no_image.png') }}" width="140px"; height="100px"></td>
+
+                        <td style="text-align: justify;">{{$about->description}}</td>
+
+
                         <td>
-                          <a title="Edit" class="btn btn-sm btn-info" href="{{ route('logos.edit', $logo->id) }}">
-                          <i class="fa fa-edit"></i></a>
+                          <a title="Edit" class="btn btn-sm btn-info"
+                           href="{{ route('abouts.edit', $about->id) }}">
+                          <i class="fa fa-edit"></i></a><br><br>
                           
                           <a title="Delete" id="delete" class="btn btn-sm btn-danger"
-                           href="{{ route('logos.delete', $logo->id) }}">
+                           href="{{ route('abouts.delete', $about->id) }}">
                           <i class="fa fa-trash"></i></a>
                         </td>
                       </tr>

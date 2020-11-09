@@ -11,12 +11,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Manage Logo</h1>
+            <h1 class="m-0 text-dark">Manage Contact</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Logo</li>
+              <li class="breadcrumb-item active">contact</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -35,14 +35,12 @@
 
             <div class="card">
               <div class="card-header">
-                <h3>Logo list
-
-                  @if($countlogo<1)
-                  <a class="btn btn-success btn-sm float-right" href="{{ route('logos.add') }}">
+                <h3>Contact list
+                  <a class="btn btn-success btn-sm float-right" href="{{ route('contacts.add') }}">
                     <i class="fa fa-plus-circle"></i>
-                    Add Logo
+                    Add contact
                   </a>
-                  @endif
+                  
 
                 </h3>
               </div><!-- /.card-header -->
@@ -52,24 +50,38 @@
                       <thead>
                         <tr>
                           <th>SL.</th>
-                          <th>Logo</th>
+                          <th>Email</th>
+                          <th>Mobile</th>
+                          <th>Address</th>
+                          <th>Facebook</th>
+                          <th>Twitter</th>
+                          <th>Youtube</th>
+                          <th>Google plus</th>
                           <th>Action</th>
                         </tr>
                       </thead>
 
                       <tbody>
 
-                      @foreach ($allData as $key=> $logo)
+                      @foreach ($allData as $key=> $contact)
                       <tr>
                         <td> {{$key+1}} </td>
-                        <td><img src="{{(!empty($logo->image))?url('public/Upload/Logo_images/'.$logo->image):
-                        url('public/Upload/no_image.png') }}" width="140px"; height="100px"></td>
+
+                        <td>{{$contact->email}}</td>
+                        <td>{{$contact->mobile}}</td>
+                        <td>{{$contact->address}}</td>
+                        <td>{{$contact->facebook}}</td>
+                        <td>{{$contact->twitter}}</td>
+                        <td>{{$contact->youtube}}</td>
+                        <td>{{$contact->google_plus}}</td>
+
                         <td>
-                          <a title="Edit" class="btn btn-sm btn-info" href="{{ route('logos.edit', $logo->id) }}">
+                          <a title="Edit" class="btn btn-sm btn-info"
+                           href="{{ route('contacts.edit', $contact->id) }}">
                           <i class="fa fa-edit"></i></a>
                           
                           <a title="Delete" id="delete" class="btn btn-sm btn-danger"
-                           href="{{ route('logos.delete', $logo->id) }}">
+                           href="{{ route('contacts.delete', $contact->id) }}">
                           <i class="fa fa-trash"></i></a>
                         </td>
                       </tr>
