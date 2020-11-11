@@ -114,6 +114,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 		Route::get('/delete/{id}','Backend\AboutController@delete')->name('abouts.delete');
 	});
 
+	//About us routes
+	Route::prefix('locationtypes')->group(function(){
+
+		Route::get('/view','Backend\LocationTypeController@view')->name('locationtypes.view');
+		Route::get('/add','Backend\LocationTypeController@add')->name('locationtypes.add');
+		Route::post('/store','Backend\LocationTypeController@store')->name('locationtypes.store');
+		Route::get('/edit/{id}','Backend\LocationTypeController@edit')->name('locationtypes.edit');
+		Route::post('/update/{id}','Backend\LocationTypeController@update')->name('locationtypes.update');
+		Route::get('/delete/{id}','Backend\LocationTypeController@delete')->name('locationtypes.delete');
+	});
+
 	//Add new locations
 	Route::get('/add/new/location', 'Backend\AddNewLocationController@addNewLocation')->name('add.newlocation');
 
