@@ -129,7 +129,7 @@
 
                     <div class="col-md-6">
                       <div>
-                        <a class="btn btn-secondary btn-sm" href="{{ route('profiles.view')}}">
+                        <a class="btn btn-secondary btn-sm" href="{{ route('customerprofiles.view')}}">
                             <i class="fa fa-user"></i>
                             My profile
                         </a>

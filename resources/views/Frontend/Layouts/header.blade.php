@@ -24,7 +24,7 @@
               </div>
             </div>
             
-            <a href="{{ route('profiles.view') }}" class="nav-item nav-link" style="color: #DAEBE8;">Profile</a>
+            <a href="{{ route('customerprofiles.view') }}" class="nav-item nav-link" style="color: #DAEBE8;">Profile</a>
             <a href="{{ route('tour.events') }}" class="nav-item nav-link" style="color: #DAEBE8;">Tour events</a>
             <a href="{{ route('customer.login') }}" class="nav-item nav-link" style="color: #DAEBE8;">Login</a>
           </div>

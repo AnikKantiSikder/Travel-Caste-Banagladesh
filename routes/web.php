@@ -13,12 +13,12 @@ Route::get('/', 'Frontend\FrontendController@index');
 Route::get('/find-bestplace', 'Frontend\FrontendController@find')->name('find.best.places');
 
 //Profile routes---------------------------------------------------------------------
-Route::prefix('profiles')->group(function(){
+Route::prefix('customerprofiles')->group(function(){
 
-	Route::get('/view','Frontend\UserProfileController@viewProfile')->name('profiles.view');
-	Route::get('/edit','Frontend\UserProfileController@editProfile')->name('profiles.edit');
-	Route::get('/share-experience','Frontend\UserProfileController@shareExperience')->name('profiles.share.experience');
-	Route::get('/create-event','Frontend\UserProfileController@createEvent')->name('profiles.create.event');
+	Route::get('/view','Frontend\UserProfileController@viewProfile')->name('customerprofiles.view');
+	Route::get('/edit','Frontend\UserProfileController@editProfile')->name('customerprofiles.edit');
+	Route::get('/share-experience','Frontend\UserProfileController@shareExperience')->name('customerprofiles.share.experience');
+	Route::get('/create-event','Frontend\UserProfileController@createEvent')->name('customerprofiles.create.event');
 
 }); 
 
@@ -114,22 +114,38 @@ Route::get('/home', 'HomeController@index')->name('home');
 		Route::get('/delete/{id}','Backend\AboutController@delete')->name('abouts.delete');
 	});
 
-	//About us routes
-	Route::prefix('locationtypes')->group(function(){
+	//Category routes
+	Route::prefix('categories')->group(function(){
 
-		Route::get('/view','Backend\LocationTypeController@view')->name('locationtypes.view');
-		Route::get('/add','Backend\LocationTypeController@add')->name('locationtypes.add');
-		Route::post('/store','Backend\LocationTypeController@store')->name('locationtypes.store');
-		Route::get('/edit/{id}','Backend\LocationTypeController@edit')->name('locationtypes.edit');
-		Route::post('/update/{id}','Backend\LocationTypeController@update')->name('locationtypes.update');
-		Route::get('/delete/{id}','Backend\LocationTypeController@delete')->name('locationtypes.delete');
+		Route::get('/view','Backend\CategoryController@view')->name('categories.view');
+		Route::get('/add','Backend\CategoryController@add')->name('categories.add');
+		Route::post('/store','Backend\CategoryController@store')->name('categories.store');
+		Route::get('/edit/{id}','Backend\CategoryController@edit')->name('categories.edit');
+		Route::post('/update/{id}','Backend\CategoryController@update')->name('categories.update');
+		Route::get('/delete/{id}','Backend\CategoryController@delete')->name('categories.delete');
 	});
 
-	//Add new locations
-	Route::get('/add/new/location', 'Backend\AddNewLocationController@addNewLocation')->name('add.newlocation');
 
-	//Add new hotels
-	Route::get('/add/new/hotel', 'Backend\AddNewHotelController@addNewHotel')->name('add.newhotel');
+	//Hotel routes
+	Route::prefix('hotels')->group(function(){
 
-	//New post requests
-	Route::get('/new/post/request', 'Backend\NewPostRequestController@newPostRequest')->name('post.request');
+		Route::get('/view','Backend\HotelController@view')->name('hotels.view');
+		Route::get('/add','Backend\HotelController@add')->name('hotels.add');
+		Route::post('/store','Backend\HotelController@store')->name('hotels.store');
+		Route::get('/edit/{id}','Backend\HotelController@edit')->name('hotels.edit');
+		Route::post('/update/{id}','Backend\HotelController@update')->name('hotels.update');
+		Route::get('/delete/{id}','Backend\HotelController@delete')->name('hotels.delete');
+	});
+
+	//Location routes
+	Route::prefix('locations')->group(function(){
+
+		Route::get('/view','Backend\LocationController@view')->name('locations.view');
+		Route::get('/add','Backend\LocationController@add')->name('locations.add');
+		Route::post('/store','Backend\LocationController@store')->name('locations.store');
+		Route::get('/edit/{id}','Backend\LocationController@edit')->name('locations.edit');
+		Route::post('/update/{id}','Backend\LocationController@update')->name('locations.update');
+		Route::get('/delete/{id}','Backend\LocationController@delete')->name('locations.delete');
+		Route::get('/details/{id}','Backend\LocationController@details')->name('locations.details');
+	});
+

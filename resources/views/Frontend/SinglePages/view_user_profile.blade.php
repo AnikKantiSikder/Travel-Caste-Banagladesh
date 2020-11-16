@@ -139,11 +139,11 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="btn btn primary"
-                                    href="{{ route('profiles.share.experience') }}" role="tab" aria-controls="profile" aria-selected="false">Share experience</a>
+                                    href="{{ route('customerprofiles.share.experience') }}" role="tab" aria-controls="profile" aria-selected="false">Share experience</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="btn"
-                                    href="{{ route('profiles.create.event') }}" role="tab" aria-controls="profile" aria-selected="false">Create event</a>
+                                    href="{{ route('customerprofiles.create.event') }}" role="tab" aria-controls="profile" aria-selected="false">Create event</a>
                                 </li>
                             </ul>
                         </div>
@@ -152,7 +152,7 @@
                 {{-- Edit your profile --}}
                     <div class="col-md-2">
 
-                  <a class="btn btn-secondary btn-sm float-right" href="{{ route('profiles.edit')}}">
+                  <a class="btn btn-secondary btn-sm float-right" href="{{ route('customerprofiles.edit')}}">
                     <i class="fa fa-user"></i>
                     Edit profile
                   </a>

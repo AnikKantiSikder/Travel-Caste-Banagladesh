@@ -138,26 +138,71 @@ $route= Route:: current()->getName();
             </ul>
           </li>
 
-        <!-- Manage location type -->
-          <li class="nav-item has-treeview {{($prefix=='/locationtypes.view')?'menu-open':''}}">
+        <!-- Manage category -->
+          <li class="nav-item has-treeview {{($prefix=='/categories.view')?'menu-open':''}}">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Manage location type
+                Manage category
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('locationtypes.view') }}"
-                class="nav-link {{($route=='locationtypes.view')?'active':''}}">
+                <a href="{{ route('categories.view') }}"
+                class="nav-link {{($route=='categories.view')?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View location type</p>
+                  <p>View category</p>
                 </a>
               </li>
 
             </ul>
           </li>
+
+        <!-- Manage hotel -->
+          <li class="nav-item has-treeview {{($prefix=='/hotels.view')?'menu-open':''}}">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Manage hotel
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('hotels.view') }}"
+                class="nav-link {{($route=='hotels.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View hotels</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+        <!-- Manage location -->
+          <li class="nav-item has-treeview {{($prefix=='/locations.view')?'menu-open':''}}">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Manage location
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('locations.view') }}"
+                class="nav-link {{($route=='locations.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View locations</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+
+
 <!-- Layout options -->
 
         </ul>

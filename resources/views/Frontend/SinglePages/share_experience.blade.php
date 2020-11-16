@@ -139,7 +139,7 @@
                 {{-- Edit your profile --}}
                     <div class="col-md-2">
 
-                  <a class="btn btn-secondary btn-sm float-right" href="{{ route('profiles.view')}}">
+                  <a class="btn btn-secondary btn-sm float-right" href="{{ route('customerprofiles.view')}}">
                     <i class="fa fa-user"></i>
                     My profile
                   </a>

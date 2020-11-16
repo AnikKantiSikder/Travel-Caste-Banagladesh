@@ -11,12 +11,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Manage Location Type</h1>
+            <h1 class="m-0 text-dark">Manage Category</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">location type</li>
+              <li class="breadcrumb-item active">category</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -35,10 +35,10 @@
 
             <div class="card">
               <div class="card-header">
-                <h3>Location type list
-                  <a class="btn btn-success btn-sm float-right" href="{{ route('locationtypes.add') }}">
+                <h3>Category list
+                  <a class="btn btn-success btn-sm float-right" href="{{ route('categories.add') }}">
                     <i class="fa fa-plus-circle"></i>
-                    Add location type
+                    Add category
                   </a>
 
                 </h3>
@@ -49,27 +49,27 @@
                       <thead>
                         <tr>
                           <th>SL.</th>
-                          <th>Location type</th>
+                          <th>Category</th>
                           <th>Action</th>
                         </tr>
                       </thead>
 
                       <tbody>
 
-                      @foreach ($allData as $key=> $type)
+                      @foreach ($allData as $key=> $category)
                       <tr>
                         <td> {{$key+1}} </td>
 
-                        <td style="text-align: center;">{{$type->name}}</td>
+                        <td style="text-align: center;">{{$category->name}}</td>
 
 
                         <td>
                           <a title="Edit" class="btn btn-sm btn-info"
-                           href="{{ route('locationtypes.edit', $type->id) }}">
+                           href="{{ route('categories.edit', $category->id) }}">
                           <i class="fa fa-edit"></i></a>
                           
                           <a title="Delete" id="delete" class="btn btn-sm btn-danger"
-                           href="{{ route('locationtypes.delete', $type->id) }}">
+                           href="{{ route('categories.delete', $category->id) }}">
                           <i class="fa fa-trash"></i></a>
                         </td>
                       </tr>

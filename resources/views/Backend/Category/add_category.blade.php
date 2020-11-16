@@ -11,12 +11,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Manage Location Type</h1>
+            <h1 class="m-0 text-dark">Manage Category</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">location type</li>
+              <li class="breadcrumb-item active">category</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -37,12 +37,12 @@
               <div class="card-header">
                 <h3>
                   @if (isset($editData))
-                    Edit location type
+                    Edit category
                   @else
-                  Add location type
+                  Add category
                   @endif
                   
-                  <a class="btn btn-success btn-sm float-right" href="{{ route('locationtypes.view') }}">
+                  <a class="btn btn-success btn-sm float-right" href="{{ route('categories.view') }}">
                     <i class="fa fa-list"></i>
                     Category list
                   </a>
@@ -55,9 +55,9 @@
                 <form method="POST"
                    action="
                     @if (isset($editData))
-                      {{ route('locationtypes.update',$editData->id) }}
+                      {{ route('categories.update',$editData->id) }}
                     @else
-                      {{ route('locationtypes.store') }}
+                      {{ route('categories.store') }}
                      
                    @endif" 
                     id="myForm" enctype="multipart/form-data">
@@ -70,8 +70,8 @@
                       <div class="row">
 
                         <div class="col-md-6">
-                          <label for="description">Location type</label>
-                          <input type="text" name="name" value="{{@$editData->name}}" class="form-control" placeholder="Write location type">
+                          <label for="description">Category</label>
+                          <input type="text" name="name" value="{{@$editData->name}}" class="form-control" placeholder="Write location category">
 
                           <font color="red">
                             {{

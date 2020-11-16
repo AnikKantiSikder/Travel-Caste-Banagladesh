@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LocationtypeRequest extends FormRequest
+class CategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,12 +25,11 @@ class LocationtypeRequest extends FormRequest
     {
         if (isset($this->id)) {
             return [
-                'name' => 'required|unique:locationtypes,name,'.$this->id
+                'name' => 'required|unique:categories,name,'.$this->id
             ];
         }
         return [
-                'name' => 'required|unique:locationtypes'
+                'name' => 'required|unique:categories'
         ];
-
     }
 }
