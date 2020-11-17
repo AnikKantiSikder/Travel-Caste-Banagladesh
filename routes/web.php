@@ -33,6 +33,11 @@ Route::get('/customer-login', 'Frontend\CheckoutController@customerLogin')->name
 Route::get('/customer-signup', 'Frontend\CheckoutController@customersignup')->name('customer.signup');
 
 
+//About us and contact us
+Route::get('/about-us', 'Frontend\FrontendController@aboutUs')->name('about.us');
+Route::get('/contact-us', 'Frontend\FrontendController@contactUs')->name('contact.us');
+Route::post('/contact-store', 'Frontend\FrontendController@storeContact')->name('contact.store');
+
 
 
 Auth::routes();

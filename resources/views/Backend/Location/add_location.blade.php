@@ -95,7 +95,6 @@
                                 @endforeach
                               </select>
                               
-
                               <font color="red">
                                 {{
                                   ($errors->has('category_id'))?($errors->first('category_id')):''

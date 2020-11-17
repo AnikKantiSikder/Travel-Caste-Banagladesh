@@ -14,6 +14,7 @@ class ContactController extends Controller
     //View contact-----------------------------------------------------------------------
     public function view(){
 
+        $data['countContact']= Contact::count();
     	$data['allData']= Contact::all();
 
     	return view('Backend.Contact.view_contact', $data);

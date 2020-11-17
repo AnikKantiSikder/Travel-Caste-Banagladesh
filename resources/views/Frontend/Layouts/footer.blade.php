@@ -1,19 +1,29 @@
   <!-- Footer Part -->
   <section class="footer_part">
     <div class="container">
+
       <div class="row">
-        <div class="col-md-8">
+
+        <div class="col-md-4">
           <h4 style="color: white">Contact Us</h4>
-          <p style="color: white">Address: Dhanmondi 32,Dhaka, Mobile: 01521451993, Email: travelcastebangladesh@gmail.com</p>
+          <p style="color: white">Address: {{$contact->address}}<br> Mobile: {{$contact->mobile}}<br>
+            Email: {{$contact->email}}</p><br>
+          <a class="btn btn-success" href="{{ route('contact.us') }}">Click here</a>
         </div>
+
+        <div class="col-md-4">
+          <h4 style="color: white">About Us</h4><br>
+          <a class="btn btn-success" href="{{ route('about.us') }}">Click here</a>
+        </div>
+
         <div class="col-md-4">
           <h4 style="color: white">Follow Us</h4>
           <div class="social">
             <ul>
-              <li><a href="https://www.facebook.com/popularsoftbd/?modal=admin_todo_tour" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
-              <li><a href=""><i class="fa fa-twitter-square"></i></a></li>
-              <li><a href="https://www.youtube.com/channel/UCiO1LbMZH6E4vSEoaqS5erA/playlists" target="_blank"><i class="fa fa-youtube-square"></i></a></li>
-              <li><a href=""><i class="fa fa-google-plus-square"></i></a></li>
+              <li><a href="{{$contact->facebook}}" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+              <li><a href="{{$contact->twitter}}" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
+              <li><a href="{{$contact->youtube}}" target="_blank"><i class="fa fa-youtube-square"></i></a></li>
+              <li><a href="{{$contact->google_plus}}" target="_blank"><i class="fa fa-google-plus-square"></i></a></li>
             </ul>
           </div>
         </div>

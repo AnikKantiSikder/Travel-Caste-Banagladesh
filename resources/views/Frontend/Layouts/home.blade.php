@@ -5,13 +5,65 @@
   @section('content')
     @include('Frontend.Layouts.slider')
 
+    <style type="text/css">
+      .notice .container{
+        height: auto;
+        padding: 20px;
+        margin-bottom: 50px;
+        background-color: #7DC242;
+      }
+      .notice h2{
+        color: black;
+      }
+      .notice .date{
+        color: black;
+        text-align: right;
+      }
+      .notice .infoOne{
+        color: black;
+        text-align: justify;
+      }
+      .notice .infoTwo{
+        color: black;
+        text-align: justify;
+      }
+      .notice .infoTwo h3{
+        color: white;
+      }
+    </style>
     <br><br>
+
+  <section class="notice">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="text-center">Noticeboard</h2>
+          </div>
+          <div class="col-md-12 date">Date: <b>{{date('d-m-Y')}}</b></div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 infoOne">
+            <h3>Covid 19 (Bangladesh)</h3><hr>
+            Confirmed: 436,684<br>New cases: +2,212<br>Recovered: 352,895<br>Death: +6,254 
+          </div>
+
+          <div class="col-md-6 infoTwo">
+            <h3>Notice 1:</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h3>Notice 2:</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+
+        </div>
+      </div>
+  </section>
 
   <!-- Explore Bangladesh -->
   <section class="mission_vision">
     <div class="container">
-
-
           <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase"><b>Explore Bangladesh</b></h2>
             <h3 class="section-subheading text-muted">welcome to heaven</h3>
@@ -120,11 +172,7 @@
       <!--Container ends here-->
     </div><br><br><br><br>
 
-
   </section>
-
-
-
 
 <!-- Tourevents -->
     <section class="page-section" id="tourevents">
@@ -171,40 +219,6 @@
       </div>
     </section>
 
-
-
-  <!-- Services -->
-  <section class="our_services">
-    <div class="container" style="padding-top: 15px">
-      <!-- Nav tab -->
-      <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a href="#service" class="nav-link active" data-toggle="tab">Our Services</a>
-        </li>
-        <li class="nav-item">
-          <a href="#expertise" class="nav-link" data-toggle="tab">Our Expertise</a>
-        </li>
-        <li class="nav-item">
-          <a href="#prouduct" class="nav-link" data-toggle="tab">Our Products</a>
-        </li>
-      </ul>
-      <!-- Tab Content -->
-      <div class="tab-content">
-        <div id="service" class="container tab-pane active">
-          <h3>Our Services</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-        </div>
-        <div id="expertise" class="container tab-pane fade">
-          <h3>Our Expertise</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-        </div>
-        <div id="prouduct" class="container tab-pane fade">
-          <h3>Our Product</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   @endsection
 

@@ -67,10 +67,10 @@
                        <td width="20%"><b>Division</b></td>
                        <td width="80%">{{$detailsData->division_name}}</td>
                      </tr>
-                     <tr>
+                    <tr>
                        <td width="20%"><b>District</b></td>
                        <td width="80%">{{$detailsData->district_name}}</td>
-                     </tr>
+                    </tr>
                     <tr style="text-align: justify;">
                        <td width="20%"><b>Description</b></td>
                        <td width="80%" class="data">{{$detailsData->description}}</td>
@@ -78,15 +78,28 @@
                     <tr style="text-align: justify;">
                        <td width="20%"><b>Suggestion</b></td>
                        <td width="80%" class="data">{{$detailsData->suggestion}}</td>
-                     </tr>
-                     <tr>
+                    </tr>
+                    <tr style="text-align: justify;">
+                       <td width="20%"><b>Nearby hotels</b></td>
+                       <td width="80%">
+                         @php
+                           $hotels= App\Model\Hotel::where('location_id', $detailsData->id)->get();
+                         @endphp
+
+                         @foreach ($hotels as $hotel)
+                           <b>Name: </b>{{$hotel->hotel_name}} | <b>Address: </b>{{$hotel->hotel_address}} |
+                           <b>Type: </b>{{$hotel->hotel_type}} <br>
+                         @endforeach
+                       </td>
+                    </tr>
+                    <tr>
                        <td width="20%"><b>Image</b></td>
                        <td width="80%">
                          <img src="{{(!empty($detailsData->image))?url('public/Upload/Location_images/'.$detailsData->image):
                          url('public/Upload/no_image.png') }}"
                          style="height: 100px; width: 150px; border: 1px solid #000;" alt="location">
                        </td>
-                     </tr>
+                    </tr>
                      <tr>
                        <td><b>Additional images</b></td>
                        <td>

@@ -4,7 +4,9 @@
     <div class="container-fluid" style="background-color: #137257;">
       <nav class="navbar navbar-expand-md navbar-light ">
 
-        <a href="" class="navbar-brand"><h3 style="color: white;"><i>TravelCasteBangladesh</i></h3></a>
+        <a href="{{ url('') }}" class="navbar-brand">
+          <img src="{{url('public/Upload/Logo_images/'.$logo->image)}}" style="height: 65px;">
+        </a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
           <div class="navbar-nav popular">

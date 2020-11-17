@@ -70,6 +70,27 @@
                       <div class="row">
 
                         <div class="col-md-6">
+                          <label for="location">Location</label>
+                          <select name="location_id" class="form-control">
+                            <option>Select location</option>
+
+                            @foreach ($locations as $location)
+                              <option value="{{$location->id}}"
+                                {{(@$editData->location_id==$location->id)?"selected":""}}>
+                                {{$location->location_name}}
+                              </option>
+                            @endforeach
+                          </select>
+                          
+
+                          <font color="red">
+                            {{
+                              ($errors->has('category_id'))?($errors->first('category_id')):''
+                            }}
+                          </font>
+                        </div>
+
+                        <div class="col-md-6">
                           <label for="description">Hotel name</label>
                           <input type="text" name="hotel_name" value="{{@$editData->hotel_name}}" class="form-control" placeholder="Write hotel name">
 
@@ -92,17 +113,22 @@
                         </div>
 
                         <div class="col-md-6">
-                        <label for="hotel type">Hotel type</label>
-                        <select name="hotel_type" class="form-control">
+                          <label for="hotel type">Hotel type</label>
+                          <select name="hotel_type" class="form-control">
 
-                          <option value="">Select type</option>
-                          <option value="One star" {{(@$editData->hotel_type =="One star")?"selected":""}} >One star</option>
-                          <option value="Two star" {{(@$editData->hotel_type =="Two star")?"selected":""}}>Two star</option>
-                          <option value="Three star" {{(@$editData->hotel_type =="Three star")?"selected":""}}>Three star</option>
-                          <option value="Four star" {{(@$editData->hotel_type =="Four star")?"selected":""}}>Four star</option>
-                          <option value="Five star" {{(@$editData->hotel_type =="Five star")?"selected":""}}>Five star</option>
+                            <option value="">Select type</option>
+                            <option value="One star" {{(@$editData->hotel_type =="One star")?"selected":""}} >One star</option>
+                            <option value="Two star" {{(@$editData->hotel_type =="Two star")?"selected":""}}>Two star</option>
+                            <option value="Three star" {{(@$editData->hotel_type =="Three star")?"selected":""}}>Three star</option>
+                            <option value="Four star" {{(@$editData->hotel_type =="Four star")?"selected":""}}>Four star</option>
+                            <option value="Five star" {{(@$editData->hotel_type =="Five star")?"selected":""}}>Five star</option>
 
-                        </select>
+                          </select>
+                            <font color="red">
+                            {{
+                              ($errors->has('hotel_type'))?($errors->first('hotel_type')):''
+                            }}
+                          </font>
                         </div>
 
                         <div class="col-md-6" >

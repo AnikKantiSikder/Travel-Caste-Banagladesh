@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 use App\Model\Hotel;
+use App\Model\Location;
 use App\Http\Requests\HotelRequest;
 
 class HotelController extends Controller
@@ -20,13 +21,16 @@ class HotelController extends Controller
 
     //Add hotels
     public function add(){
-    	return view('Backend.Hotel.add_hotel');
+
+        $data['locations']= Location::all();
+    	return view('Backend.Hotel.add_hotel', $data);
     }
 
     //Store hotels
     public function store(Request $request){
 
     	$this->validate($request,[
+            'location_id'=> 'required',
     		'hotel_name' => 'required|unique:hotels,hotel_name', 
     		'hotel_address' => 'required',
     		'hotel_type' => 'required'
@@ -34,7 +38,7 @@ class HotelController extends Controller
     	]);
 
     	$data= new Hotel();
-
+        $data->location_id= $request->location_id;
     	$data->hotel_name= $request->hotel_name;
     	$data->hotel_address= $request->hotel_address;
     	$data->hotel_type= $request->hotel_type;
@@ -48,9 +52,13 @@ class HotelController extends Controller
     //Edit hotels----------------------------------------------------------------------------
     public function edit($id){
 
-       $editData= Hotel:: find($id);
+        // $editData= Hotel:: find($id);
+
+        $data['editData']= Hotel:: find($id);
+        $data['locations']= Location::all();
        
-    	return view('Backend.Hotel.add_hotel', compact('editData'));
+        return view('Backend.Hotel.add_hotel', $data);
+    	// return view('Backend.Hotel.add_hotel', compact('editData'));
     	//Add and edit in under one page
     }
 
@@ -59,7 +67,7 @@ class HotelController extends Controller
     public function update(HotelRequest $request, $id){
 
     	$data= Hotel::find($id);
-
+        $data->location_id= $request->location_id;
     	$data->hotel_name= $request->hotel_name;
     	$data->hotel_address= $request->hotel_address;
     	$data->hotel_type= $request->hotel_type;

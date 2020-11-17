@@ -99,7 +99,6 @@ class LocationController extends Controller
     public function edit($id){
 
         $location['editLocationData']= Location:: find($id);
-
         $location['categories']= Category::all();
 
         return view('Backend.Location.add_location', $location);
@@ -110,11 +109,6 @@ class LocationController extends Controller
     public function update(LocationRequest $request, $id){
 
         DB::transaction(function() use($request, $id){
-
-        // $this->validate($request,[
-        //     'color_id'=> 'required',
-        //     'size_id'=> 'required',
-        // ]);
 
         $location= Location::find($id);
 
