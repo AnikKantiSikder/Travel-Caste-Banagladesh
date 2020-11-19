@@ -46,9 +46,20 @@ class FrontendController extends Controller
         $data['contact']= Contact::first();
         $data['categories']= Location::select('category_id')->groupBy('category_id')->get();
         $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
-        $data['locations']= Location::orderBy('id','desc')->paginate(12);
+        $data['locations']= Location::where('category_id', $category_id)->orderBy('id','desc')->get();
 
         return view('Frontend.SinglePages.category_wise_location_list',$data);
+    }
+
+    //Division wise location list
+    public function divisionWiseLocationList($division_id){
+        $data['logo']= Logo::first();
+        $data['contact']= Contact::first();
+        $data['categories']= Location::select('category_id')->groupBy('category_id')->get();
+        $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
+        $data['locations']= Location::where('division_id', $division_id)->orderBy('id','desc')->get();
+
+        return view('Frontend.SinglePages.division_wise_location_list',$data);
     }
 
     //Find best places

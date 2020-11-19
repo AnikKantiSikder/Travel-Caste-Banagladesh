@@ -17,7 +17,8 @@
               <div class="dropdown-menu" style="background: #BADDFB;">
 
                 @foreach ($divisions as $divisionData)
-                  <a href="" class="dropdown-item">{{$divisionData['division']['name']}}</a>
+                  <a href="{{ route('division.wise.location',$divisionData->division_id ) }}" class="dropdown-item">
+                    {{$divisionData['division']['name']}}</a>
                 @endforeach
                 
               </div>

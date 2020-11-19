@@ -15,6 +15,9 @@ Route::get('/see-post-details', 'Frontend\FrontendController@seePostDetails')->n
 Route::get('/location-list', 'Frontend\FrontendController@locationList')->name('locations.list');
 Route::get('/location-category/{category_id}', 'Frontend\FrontendController@categoryWiseLocationList')
 			->name('category.wise.location');
+			
+Route::get('/location-division/{division_id}', 'Frontend\FrontendController@divisionWiseLocationList')
+			->name('division.wise.location');
 
 
 //Profile routes----------------------------------------------------------------------------------------
