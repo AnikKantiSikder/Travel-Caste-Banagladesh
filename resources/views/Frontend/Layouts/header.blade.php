@@ -15,14 +15,11 @@
             <div class="nav-item dropdown">
               <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" style="color: #DAEBE8;">Find best places</a>
               <div class="dropdown-menu" style="background: #BADDFB;">
-                <a href="{{ route('find.best.places') }}" class="dropdown-item">Dhaka</a>
-                <a href="" class="dropdown-item">Sylhet</a>
-                <a href="" class="dropdown-item">Khulna</a>
-                <a href="" class="dropdown-item">Barishal</a>
-                <a href="" class="dropdown-item">Rangpur</a>
-                <a href="" class="dropdown-item">Rajshahi</a>
-                <a href="" class="dropdown-item">Chittagong</a>
-                <a href="" class="dropdown-item">Mymensingh</a>
+
+                @foreach ($divisions as $divisionData)
+                  <a href="" class="dropdown-item">{{$divisionData['division']['name']}}</a>
+                @endforeach
+                
               </div>
             </div>
             
@@ -33,9 +30,9 @@
           <div class="navbar-nav">
             <form class="form-inline">
               <div class="input-group">
-                <input type="text" name="search" placeholder="Search">
+                <input type="text" name="search" placeholder="Search" style="width: 25vh;">
                 <div class="input-group-append">
-                  <button type="button" class="btn btn-secondary">Search</button>
+                  <button type="button" class="btn btn-warning">Search</button>
                 </div>
               </div>
             </form>

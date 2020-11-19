@@ -11,8 +11,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'Frontend\FrontendController@index');
 
 Route::get('/find-bestplace', 'Frontend\FrontendController@find')->name('find.best.places');
+Route::get('/see-post-details', 'Frontend\FrontendController@seePostDetails')->name('see.post.details');
+Route::get('/location-list', 'Frontend\FrontendController@locationList')->name('locations.list');
+Route::get('/location-category/{category_id}', 'Frontend\FrontendController@categoryWiseLocationList')
+			->name('category.wise.location');
 
-//Profile routes---------------------------------------------------------------------
+
+//Profile routes----------------------------------------------------------------------------------------
 Route::prefix('customerprofiles')->group(function(){
 
 	Route::get('/view','Frontend\UserProfileController@viewProfile')->name('customerprofiles.view');
@@ -22,16 +27,17 @@ Route::prefix('customerprofiles')->group(function(){
 
 }); 
 
-Route::get('/see-post-details', 'Frontend\FrontendController@seePostDetails')->name('see.post.details');
+//Tour event routes------------------------------------------------------------------------------------
+Route::prefix('tour')->group(function(){
 
-Route::get('/tour-event', 'Frontend\FrontendController@tourEvent')->name('tour.events');
-Route::get('/tour-event-details', 'Frontend\FrontendController@tourEventDetails')->name('tour.event.details');
+	Route::get('/event', 'Frontend\TourEventController@tourEvent')->name('tour.events');
+	Route::get('/event-details', 'Frontend\TourEventController@tourEventDetails')->name('tour.event.details');
 
+}); 
 
 //Customer dashboard(Login/signup)
 Route::get('/customer-login', 'Frontend\CheckoutController@customerLogin')->name('customer.login');
 Route::get('/customer-signup', 'Frontend\CheckoutController@customersignup')->name('customer.signup');
-
 
 //About us and contact us
 Route::get('/about-us', 'Frontend\FrontendController@aboutUs')->name('about.us');
@@ -117,6 +123,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 		Route::get('/edit/{id}','Backend\AboutController@edit')->name('abouts.edit');
 		Route::post('/update/{id}','Backend\AboutController@update')->name('abouts.update');
 		Route::get('/delete/{id}','Backend\AboutController@delete')->name('abouts.delete');
+	});
+
+	//Division routes
+	Route::prefix('divisions')->group(function(){
+
+		Route::get('/view','Backend\DivisionController@view')->name('divisions.view');
+		Route::get('/add','Backend\DivisionController@add')->name('divisions.add');
+		Route::post('/store','Backend\DivisionController@store')->name('divisions.store');
+		Route::get('/edit/{id}','Backend\DivisionController@edit')->name('divisions.edit');
+		Route::post('/update/{id}','Backend\DivisionController@update')->name('divisions.update');
+		Route::get('/delete/{id}','Backend\DivisionController@delete')->name('divisions.delete');
 	});
 
 	//Category routes

@@ -8,16 +8,18 @@ use DB;
 use Auth;
 use App\Model\Location;
 use App\Model\Category;
+use App\Model\Division;
 use App\Model\LocationCategory;
 use App\Model\LocationSubImage;
 use App\Http\Requests\LocationRequest;
+
 
 class LocationController extends Controller
 {
     //View location-----------------------------------------------------------------------
     public function view(){
 
-    	$data['allData']= Location::all();
+    	$data['allData']= Location::orderBy('id','desc')->get();
 
     	return view('Backend.Location.view_location', $data);
     }
@@ -27,6 +29,7 @@ class LocationController extends Controller
     public function add(){
 
     	$data['categories']= Category::all();
+        $data['divisions']= Division::all();
     	return view('Backend.Location.add_location', $data);
     }
 
@@ -38,19 +41,18 @@ class LocationController extends Controller
     		$this->validate($request,[
     		'location_name' => 'required|unique:locations,location_name',
     		'category_id'=> 'required',
-    		'division_name'=> 'required',
+            'division_id'=> 'required',
     		'district_name'=> 'required',
     		'description'=> 'required',
     		'suggestion'=> 'required',
     	]);
 
     	$location= new Location();
-    	//dd($request->all(), implode(',',$request->color_id));
 
     	$location->location_name= $request->location_name;
-        // $location->slug= str_slug($request->name);
+        $location->slug= str_slug($request->location_name);
     	$location->category_id= $request->category_id;
-    	$location->division_name= $request->division_name;
+        $location->division_id= $request->division_id;
     	$location->district_name= $request->district_name;
     	$location->description= $request->description;
     	$location->suggestion= $request->suggestion;
@@ -100,6 +102,7 @@ class LocationController extends Controller
 
         $location['editLocationData']= Location:: find($id);
         $location['categories']= Category::all();
+        $location['divisions']= Division::all();
 
         return view('Backend.Location.add_location', $location);
     }
@@ -113,9 +116,9 @@ class LocationController extends Controller
         $location= Location::find($id);
 
     	$location->location_name= $request->location_name;
-        // $location->slug= str_slug($request->name);
+        $location->slug= str_slug($request->location_name);
     	$location->category_id= $request->category_id;
-    	$location->division_name= $request->division_name;
+        $location->division_id= $request->division_id;
     	$location->district_name= $request->district_name;
     	$location->description= $request->description;
     	$location->suggestion= $request->suggestion;

@@ -138,6 +138,27 @@ $route= Route:: current()->getName();
             </ul>
           </li>
 
+          <!-- Manage division -->
+          <li class="nav-item has-treeview {{($prefix=='/divisions.view')?'menu-open':''}}">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Manage division
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('divisions.view') }}"
+                class="nav-link {{($route=='divisions.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View division</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
         <!-- Manage category -->
           <li class="nav-item has-treeview {{($prefix=='/categories.view')?'menu-open':''}}">
             <a href="#" class="nav-link">

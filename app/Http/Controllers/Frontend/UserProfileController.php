@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Model\Logo;
 use App\Model\Slider;
 use App\Model\Contact;
+use App\Model\Location;
 
 class UserProfileController extends Controller
 {
@@ -14,14 +15,16 @@ class UserProfileController extends Controller
     public function viewProfile(){
         $data['logo']= Logo::first();
         $data['contact']= Contact::first();
-        return view('Frontend.SinglePages.view_user_profile',$data);
+        $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
+        return view('Frontend.Customerprofile.view_user_profile',$data);
     }
 
     //Edit user profile
     public function editProfile(){
         $data['logo']= Logo::first();
         $data['contact']= Contact::first();
-        return view('Frontend.SinglePages.edit_user_profile',$data);
+        $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
+        return view('Frontend.Customerprofile.edit_user_profile',$data);
     }
 
 
@@ -29,13 +32,15 @@ class UserProfileController extends Controller
     public function shareExperience(){
         $data['logo']= Logo::first();
         $data['contact']= Contact::first();
-    	return view('Frontend.SinglePages.share_experience',$data);
+        $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
+    	return view('Frontend.Customerprofile.share_experience',$data);
     }
 
     //Create event
     public function createEvent(){
         $data['logo']= Logo::first();
         $data['contact']= Contact::first();
-    	return view('Frontend.SinglePages.create_event',$data);
+        $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
+    	return view('Frontend.Customerprofile.create_event',$data);
     }
 }

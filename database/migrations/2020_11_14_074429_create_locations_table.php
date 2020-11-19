@@ -16,7 +16,9 @@ class CreateLocationsTable extends Migration
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
             $table->integer('category_id');
+            $table->integer('division_id');
             $table->string('location_name')->unique();
+            $table->string('slug')->nullable();
             $table->string('division_name');
             $table->string('district_name');
             $table->longText('description');

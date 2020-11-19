@@ -65,7 +65,7 @@
                      </tr>
                      <tr>
                        <td width="20%"><b>Division</b></td>
-                       <td width="80%">{{$detailsData->division_name}}</td>
+                       <td width="80%">{{$detailsData['division']['name'] }}</td>
                      </tr>
                     <tr>
                        <td width="20%"><b>District</b></td>

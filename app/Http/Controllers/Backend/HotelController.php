@@ -14,7 +14,7 @@ class HotelController extends Controller
     //View hotels
     public function view(){
 
-    	$data['allData']= Hotel::all();
+    	$data['allData']= Hotel::orderBy('id','desc')->get();
 
     	return view('Backend.Hotel.view_hotel', $data);
     }

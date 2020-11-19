@@ -7,23 +7,25 @@ use Illuminate\Http\Request;
 use App\Model\Logo;
 use App\Model\Slider;
 use App\Model\Contact;
+use App\Model\About;
 use App\Model\Location;
 
-class CheckoutController extends Controller
+
+class TourEventController extends Controller
 {
-    //Customer login
-    public function customerLogin(){
-    	$data['logo']= Logo::first();
+    //Tour events
+    public function tourEvent(){
+        $data['logo']= Logo::first();
         $data['contact']= Contact::first();
         $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
-    	return view('Frontend.Checkout.customer_login',$data);
+    	return view('Frontend.Tourevent.tour_events',$data);
     }
 
-    //Customer signup
-    public function customersignup(){
-    	$data['logo']= Logo::first();
+    //Tour event details
+    public function tourEventDetails(){
+        $data['logo']= Logo::first();
         $data['contact']= Contact::first();
         $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
-    	return view('Frontend.Checkout.customer_signup',$data);
+    	return view('Frontend.Tourevent.tour_events_details',$data);
     }
 }

@@ -101,8 +101,28 @@
                                 }}
                               </font>
                             </div>
-      <!--Division name----------------------------------------------------------------------------------->
+      <!--Division----------------------------------------------------------------------------------------------->
                             <div class="col-md-6">
+                              <label for="division">Division</label>
+                              <select name="division_id" class="form-control">
+                                <option>Select division</option>
+
+                                @foreach ($divisions as $division)
+                                  <option value="{{$division->id}}"
+                                    {{(@$editLocationData->division_id==$division->id)?"selected":""}}>
+                                    {{$division->name}}
+                                  </option>
+                                @endforeach
+                              </select>
+                              
+                              <font color="red">
+                                {{
+                                  ($errors->has('division_id'))?($errors->first('division_id')):''
+                                }}
+                              </font>
+                            </div>
+      <!--Division name-->
+                            {{-- <div class="col-md-6">
                               <label for="division">Division name</label>
                               <input type="text" name="division_name" value="{{@$editLocationData->division_name }}"
                               class="form-control" placeholder="Write division name">
@@ -112,7 +132,7 @@
                                   ($errors->has('division_name'))?($errors->first('division_name')):''
                                 }}
                               </font>
-                            </div>
+                            </div> --}}
       <!--District name------------------------------------------------------------------------------------------->
                             <div class="col-md-6">
                               <label for="district">District name</label>
