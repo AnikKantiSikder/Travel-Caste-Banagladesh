@@ -42,6 +42,9 @@ Route::prefix('tour')->group(function(){
 //Customer dashboard(Login/signup)
 Route::get('/customer-login', 'Frontend\CheckoutController@customerLogin')->name('customer.login');
 Route::get('/customer-signup', 'Frontend\CheckoutController@customersignup')->name('customer.signup');
+Route::post('/customer-signup-store', 'Frontend\CheckoutController@signupStore')->name('signup.store');
+Route::get('/customer-email-verify', 'Frontend\CheckoutController@emailVerify')->name('email.verify');
+Route::post('/verification-store', 'Frontend\CheckoutController@storeVerification')->name('store.verification');
 
 //About us and contact us
 Route::get('/about-us', 'Frontend\FrontendController@aboutUs')->name('about.us');
@@ -58,7 +61,7 @@ Auth::routes();
 
 
 
-//Backend routes-------------------------------------------------------------------------------------------
+//Backend routes------------------------------------------------------------------------------
 
 Route::get('/home', 'HomeController@index')->name('home');
 

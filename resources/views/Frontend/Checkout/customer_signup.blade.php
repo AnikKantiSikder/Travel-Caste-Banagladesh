@@ -30,29 +30,31 @@
 	            <div id="login-row" class="row justify-content-center align-items-center">
 	                <div id="login-column" class="col-md-6">
 	                    <div id="login-box" class="col-md-12">
-	                        <form id="login-form" class="form" action="" method="post">
+	                        <form id="login-form" class="form" action="{{ route('signup.store') }}" method="post">
+	                        	@csrf
+	                        	
 	                            <h3 class="text-center text-info">Sign up</h3>
 
 
                             <div class="form-group">
                                 <label class="text-info">Full name:</label><br>
                                 <input type="text" name="name" id="name" class="form-control">
-                                {{-- <font color="red">{{($errors->has('name'))?($errors->first('name')):''}}</font> --}}
+                                <font color="red">{{($errors->has('name'))?($errors->first('name')):''}}</font>
                             </div>
                             <div class="form-group">
                                 <label class="text-info">Email:</label><br>
                                 <input type="email" name="email" id="email" class="form-control">
-                                
+                                <font color="red">{{($errors->has('email'))?($errors->first('email')):''}}</font>
                             </div>
                             <div class="form-group">
                                 <label class="text-info">Mobile no:</label><br>
                                 <input type="text" name="mobile" id="mobile" class="form-control">
-                            
+                                <font color="red">{{($errors->has('mobile'))?($errors->first('mobile')):''}}</font>
                             </div>
                             <div class="form-group">
                                 <label class="text-info">Password:</label><br>
                                 <input type="password" name="password" id="password" class="form-control">
-                                
+                                <font color="red">{{($errors->has('password'))?($errors->first('password')):''}}</font>
                             </div>
                             <div class="form-group">
                                 <label class="text-info">Confirm password:</label><br>
@@ -74,5 +76,71 @@
 	        </div>
         </div>
 </body>
+
+<!-- Jquery validation -->
+<script>
+$(function () {
+  
+  $('#login-form').validate({
+    rules: {
+
+      name: {
+        required: true,
+      },
+      email: {
+        required: true,
+        email: true,
+      },
+      mobile: {
+        required: true,
+      },
+      password: {
+        required: true,
+        minlength: 8
+      },
+      confirmation_password: {
+        required: true,
+        equalTo: '#password'
+      },
+    },
+    messages: {
+
+      name: {
+        required: "Please enter your full name",
+        
+      },
+      email: {
+        required: "Please enter a email address",
+        email: "Please enter a vaild email address"
+      },
+      mobile: {
+        required: "Please enter your mobile number",
+        
+      },
+      password: {
+        required: "Please provide a password",
+        minlength: "Your password must be at least 8 characters long"
+      },
+      confirmation_password: {
+        required: "Please provide confirm password",
+        equalTo: "Your confirm password doesn't match"
+      },
+      
+
+    },
+    errorElement: 'span',
+    errorPlacement: function (error, element) {
+      error.addClass('invalid-feedback');
+      element.closest('.form-group').append(error);
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).addClass('is-invalid');
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).removeClass('is-invalid');
+    }
+  });
+});
+</script>
 
 @endsection

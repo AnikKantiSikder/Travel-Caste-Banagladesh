@@ -28,6 +28,18 @@
   <link rel="stylesheet" type="text/css" href="{{asset('public/Frontend/ProductDetail')}}/css/main.css">
   {{-- For product details --}}
 
+  <!-- <script src="js/jquery-3.2.1.slim.min.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Notify js -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+  
+  <style type="text/css">
+    .notify-corner{
+      z-index: 10000 !important;
+    }
+  </style>
+
 </head>
 <body>
 
@@ -50,8 +62,8 @@
   </div>
 
 
-  <!-- <script src="js/jquery-3.2.1.slim.min.js"></script> -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
   <script type="text/javascript">
     $(document).ready(function(){
       $(window).scroll(function(){
@@ -68,9 +80,6 @@
   </script>
   <script src="{{asset('public/Frontend/js/popper.min.js')}}"></script>
   <script src="{{asset('public/Frontend/js/bootstrap.min.js')}}"></script>
-
-
-
 
 </body>
 
@@ -127,6 +136,9 @@
   </script>
   <script src="{{asset('public/Frontend/ProductDetail')}}/vendor/isotope/isotope.pkgd.min.js"></script>
   <script src="{{asset('public/Frontend/ProductDetail')}}/vendor/sweetalert/sweetalert.min.js"></script>
+  <!-- jquery-validation -->
+  <script src="{{asset('public/Backend')}}/plugins/jquery-validation/jquery.validate.min.js"></script>
+
   <script>
     $('.js-addwish-b2').on('click', function(e){
       e.preventDefault();
@@ -180,7 +192,23 @@
     });
   </script>
   <script src="{{asset('public/Frontend/ProductDetail')}}/js/main.js"></script>
-{{-- For product details --}}
+
+{{-- Notify js message --}}
+    @if(session()->has('success'))
+      <script type="text/javascript">
+        $(function(){
+          $.notify("{{session()->get('success')}}", {globalPosition:'top right', className:'success'});
+        });
+      </script>
+    @endif
+
+    @if(session()->has('error'))
+      <script type="text/javascript">
+        $(function(){
+          $.notify("{{session()->get('error')}}", {globalPosition:'top right', className:'error'});
+        });
+      </script>
+   @endif
 
 
 
