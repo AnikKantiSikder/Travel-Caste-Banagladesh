@@ -10,14 +10,15 @@ use Illuminate\Support\Facades\Route;
 //Frontend routes---------------------------------------------------------------------------------------
 Route::get('/', 'Frontend\FrontendController@index');
 
-Route::get('/find-bestplace', 'Frontend\FrontendController@find')->name('find.best.places');
-Route::get('/see-post-details', 'Frontend\FrontendController@seePostDetails')->name('see.post.details');
+//Location routes
 Route::get('/location-list', 'Frontend\FrontendController@locationList')->name('locations.list');
 Route::get('/location-category/{category_id}', 'Frontend\FrontendController@categoryWiseLocationList')
 			->name('category.wise.location');
 			
 Route::get('/location-division/{division_id}', 'Frontend\FrontendController@divisionWiseLocationList')
 			->name('division.wise.location');
+			
+Route::get('/location-details/{slug}', 'Frontend\FrontendController@locationDetails')->name('location.details.info');
 
 
 //Profile routes----------------------------------------------------------------------------------------

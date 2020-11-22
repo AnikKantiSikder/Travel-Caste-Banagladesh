@@ -175,6 +175,18 @@
                               </font>
                             </div>
 
+      <!--Google map input------------------------------------------------------->                  
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label class="form-control-label" for="">Map</label>
+                              <input type="text" class="form-control form-control-alternative" id="searchmap" placeholder="Enter The Location">
+                              <div id="map" style="height:400px"></div>
+                            </div>
+                          </div>
+                          <input type="hidden" class="form-control input-sm"  name="latitude" id="latitude">
+                          <input type="hidden" class="form-control input-sm"  name="longitude" id="longitude">
+                       
+
       <!--Image------------------------------------------------------------->
                             <div class="col-md-4">
                               <label for="image">Image</label>
@@ -227,7 +239,6 @@
   </div>
   <!-- /.content-wrapper -->
 
-
 <script>
   
 $(function () {
@@ -258,6 +269,42 @@ $(function () {
   });
 });
 </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initGoogleMap" async defer></script>
+    <script type="text/javascript">
+      function initGoogleMap() {
+        var bd = {
+          lat: 23.81952496686278,
+          lng: 90.41794259257813
+          };
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 11,
+            center: bd
+          });
+          var marker = new google.maps.Marker({
+            position: bd,
+            map: map,
+            draggable: true,
+          });
+          var input = document.getElementById('searchmap');
+          var searchBox = new google.maps.places.SearchBox(input);
+          google.maps.event.addListener(searchBox,'places_changed', function() {
+          var places = searchBox.getPlaces();
+          var bounds = new google.maps.LatLngBounds();
+          var i,place;
+          for (i = 0; place = places[i]; i++) {
+            bounds.extend(place.geometry.location);
+            marker.setPosition(place.geometry.location);
+          }
+          });
+          google.maps.event.addListener(marker,'position_changed', function() {
+            var lat = marker.getPosition().lat();
+            var long = marker.getPosition().lng();
+            $('#latitude').val(lat);
+            $('#longitude').val(long);
+          });
+        }
+    </script>
 
 @endsection
 

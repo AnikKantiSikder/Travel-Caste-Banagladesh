@@ -28,7 +28,6 @@
   <link rel="stylesheet" type="text/css" href="{{asset('public/Frontend/ProductDetail')}}/css/main.css">
   {{-- For product details --}}
 
-
 </head>
 <body>
 

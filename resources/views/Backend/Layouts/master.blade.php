@@ -57,6 +57,8 @@
  {{--  <script type="text/javascript" src="{{asset('public/Backend')}}/sweetalert/sweetalert.js"></script>
   <link rel="stylesheet" type="text/css" href="{{asset('public/Backend')}}/sweetalert/sweetalert.css"> --}}
 
+  @stack('mapapi')
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">

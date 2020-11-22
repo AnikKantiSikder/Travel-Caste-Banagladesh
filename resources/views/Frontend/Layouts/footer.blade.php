@@ -1,23 +1,29 @@
+  <style type="text/css">
+    .footer{
+      margin-bottom: 10px;
+    }
+  </style>
+
   <!-- Footer Part -->
   <section class="footer_part">
     <div class="container">
 
       <div class="row">
 
-        <div class="col-md-4">
+        <div class="col-md-4 footer">
           <h4 style="color: white">Contact Us</h4>
           <p style="color: white">Address: {{$contact->address}}<br> Mobile: {{$contact->mobile}}<br>
             Email: {{$contact->email}}</p><br>
           <a class="btn btn-success" href="{{ route('contact.us') }}">Click here</a>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4 footer">
           <h4 style="color: white">About Us</h4><br>
           <a class="btn btn-success" href="{{ route('about.us') }}">Click here</a>
         </div>
 
         <div class="col-md-4">
-          <h4 style="color: white">Follow Us</h4>
+          <h4 style="color: white">Follow Us</h4><br>
           <div class="social">
             <ul>
               <li><a href="{{$contact->facebook}}" target="_blank"><i class="fa fa-facebook-square"></i></a></li>

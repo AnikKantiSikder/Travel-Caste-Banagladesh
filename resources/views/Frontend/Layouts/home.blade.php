@@ -98,9 +98,6 @@
   <!-- Explore Bangladesh -->
   <section class="">
     <div class="container">
-
-
-
       <div class="row">
         @foreach ($locations as $allLocationData)
           <div class="col-md-4">
@@ -112,14 +109,14 @@
                     <p class="card-text">{{str_limit($allLocationData->description)}}</p>
                   </div>
                   <div class="card-footer">
-                    <a class="btn btn-success" href="{{ route('see.post.details') }}">See details</a>
+                    <a class="btn btn-success" href="{{ route('location.details.info',$allLocationData->slug) }}">
+                      See details
+                    </a>
                   </div>
               </div>
           </div>
         @endforeach
-
       </div>
-      
       <!-- Paginate function -->
       {{$locations->links()}}
     </div>
@@ -132,12 +129,11 @@
     <section class="page-section" id="tourevents">
       <div class="container">
         <div class="row">
-          
           <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase"> <b>Tour events</b> </h2>
             <h3 class="section-subheading text-muted">See and join on the running tour events</h3>
           </div>
-        </div>
+        </div><hr>
 
      <div class="jumbotron text-center ">
         <div class="container">

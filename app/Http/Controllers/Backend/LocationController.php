@@ -56,6 +56,8 @@ class LocationController extends Controller
     	$location->district_name= $request->district_name;
     	$location->description= $request->description;
     	$location->suggestion= $request->suggestion;
+        $location->latitude= $request->latitude;
+        $location->longitude= $request->longitude;
     	$location->created_by= Auth::user()->id;
     	$img= $request->file('image');
 
@@ -122,6 +124,8 @@ class LocationController extends Controller
     	$location->district_name= $request->district_name;
     	$location->description= $request->description;
     	$location->suggestion= $request->suggestion;
+        $location->latitude= $request->latitude;
+        $location->longitude= $request->longitude;
     	$location->updated_by= Auth::user()->id;
     	$img= $request->file('image');
 

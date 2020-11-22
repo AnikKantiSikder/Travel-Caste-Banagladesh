@@ -12,18 +12,18 @@
 </style>
 
 
-  <!-- Location division -->
+  <!-- Location category -->
     <section>
       <div class="container">
         <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase"><b>Division wise location</b></h2>
+            <h2 class="section-heading text-uppercase"><b></b></h2>
         </div><br><br><hr>
 
         <div class="row" style="padding: 10px;">
           <div class="col-md-12">
 
-            <a href="{{ route('locations.list') }}" class="btn btn-danger">
-              <b>All locations</b>
+            <a href="{{ url(' ') }}" class="btn btn-secondary">
+              <b>Home</b>
             </a>
 
             @foreach ($categories as $category)
@@ -36,7 +36,7 @@
 
       </div>
     </section>
-  <!-- Location division -->
+  <!-- Location category -->
 
 
 
@@ -55,7 +55,7 @@
                     <p class="card-text">{{str_limit($allLocationData->description)}}</p>
                   </div>
                   <div class="card-footer">
-                    <a class="btn btn-success" href="{{ route('see.post.details') }}">See details</a>
+                    <a class="btn btn-success" href="{{ route('location.details.info',$allLocationData->slug) }}">See details</a>
                   </div>
               </div>
           </div>
