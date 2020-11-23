@@ -222,6 +222,35 @@ $route= Route:: current()->getName();
             </ul>
           </li>
 
+        <!--Manage customer-->
+          <li class="nav-item has-treeview {{($prefix=='/customers')?'menu-open':''}}">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Manage customer
+                <i class="fas fa-angle-left right"></i>
+                {{-- <span class="badge badge-info right">6</span> --}}
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+
+              <li class="nav-item">
+                <a href="{{ route('customers.view') }}" class="nav-link {{($route=='customers.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View customer</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('customers.draft.view') }}" class="nav-link {{($route=='customers.draft.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Draft customer</p>
+                </a>
+              </li>
+              <li class="nav-item"> <br><br> </li>
+
+            </ul>
+          </li>
+
 
 
 <!-- Layout options -->

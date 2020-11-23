@@ -65,6 +65,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::group(['middleware'=>'auth'], function(){
+
+
     //Manage user routes
 	Route::prefix('users')->group(function(){
 
@@ -178,3 +181,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 		Route::get('/details/{id}','Backend\LocationController@details')->name('locations.details');
 	});
 
+	//Manage customers routes
+	Route::prefix('customers')->group(function(){
+
+		Route::get('/view','Backend\CustomerController@view')->name('customers.view');
+		Route::get('/draft/view','Backend\CustomerController@draftView')->name('customers.draft.view');
+		Route::get('/delete/{id}','Backend\CustomerController@delete')->name('customers.delete');
+	});
+
+
+
+//Auth-admin
+});
