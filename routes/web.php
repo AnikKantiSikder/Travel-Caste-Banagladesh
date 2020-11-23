@@ -3,9 +3,6 @@
 use Illuminate\Support\Facades\Route;
 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 //Frontend routes---------------------------------------------------------------------------------------
 Route::get('/', 'Frontend\FrontendController@index');
@@ -21,15 +18,15 @@ Route::get('/location-division/{division_id}', 'Frontend\FrontendController@divi
 Route::get('/location-details/{slug}', 'Frontend\FrontendController@locationDetails')->name('location.details.info');
 
 
-//Profile routes----------------------------------------------------------------------------------------
-Route::prefix('customerprofiles')->group(function(){
+// //Profile routes----------------------------------------------------------------------------------------
+// Route::prefix('customerprofiles')->group(function(){
 
-	Route::get('/view','Frontend\UserProfileController@viewProfile')->name('customerprofiles.view');
-	Route::get('/edit','Frontend\UserProfileController@editProfile')->name('customerprofiles.edit');
-	Route::get('/share-experience','Frontend\UserProfileController@shareExperience')->name('customerprofiles.share.experience');
-	Route::get('/create-event','Frontend\UserProfileController@createEvent')->name('customerprofiles.create.event');
+// 	Route::get('/view','Frontend\UserProfileController@viewProfile')->name('customerprofiles.view');
+// 	Route::get('/edit','Frontend\UserProfileController@editProfile')->name('customerprofiles.edit');
+// 	Route::get('/share-experience','Frontend\UserProfileController@shareExperience')->name('customerprofiles.share.experience');
+// 	Route::get('/create-event','Frontend\UserProfileController@createEvent')->name('customerprofiles.create.event');
 
-}); 
+// }); 
 
 //Tour event routes------------------------------------------------------------------------------------
 Route::prefix('tour')->group(function(){
@@ -39,7 +36,7 @@ Route::prefix('tour')->group(function(){
 
 }); 
 
-//Customer dashboard(Login/signup)
+//Customer(log in/signup/email verification)
 Route::get('/customer-login', 'Frontend\CheckoutController@customerLogin')->name('customer.login');
 Route::get('/customer-signup', 'Frontend\CheckoutController@customersignup')->name('customer.signup');
 Route::post('/customer-signup-store', 'Frontend\CheckoutController@signupStore')->name('signup.store');
@@ -55,6 +52,24 @@ Route::post('/contact-store', 'Frontend\FrontendController@storeContact')->name(
 
 Auth::routes();
 
+//Customer profile
+Route::group(['middleware'=> ['auth','customer']], function(){
+
+	Route::get('/customer-profile', 'Frontend\CustomerProfileController@customerProfile')
+				->name('customerprofiles.view');
+
+	Route::get('/customer-edit-profile','Frontend\CustomerProfileController@editProfile')
+				->name('customerprofiles.edit');
+
+	Route::get('/customer-share-experience','Frontend\CustomerProfileController@shareExperience')
+				->name('customerprofiles.share.experience');
+
+	Route::get('/create-event','Frontend\CustomerProfileController@createEvent')
+				->name('customerprofiles.create.event');
+
+});
+
+
 
 
 
@@ -63,10 +78,10 @@ Auth::routes();
 
 //Backend routes------------------------------------------------------------------------------
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware'=>['auth','admin'] ], function(){
 
-Route::group(['middleware'=>'auth'], function(){
-
+//Admin dashboard
+	Route::get('/home', 'HomeController@index')->name('home');
 
     //Manage user routes
 	Route::prefix('users')->group(function(){

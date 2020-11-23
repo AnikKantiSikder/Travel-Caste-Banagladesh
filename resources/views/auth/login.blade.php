@@ -16,7 +16,7 @@
         #login .container #login-row #login-column #login-box {
           margin-top: 120px;
           max-width: 600px;
-          height: 350px;
+          height: auto;
           border: 1px solid #9C9C9C;
           background-color: #EAEAEA;
         }
@@ -41,30 +41,37 @@
 
                             <h3 class="text-center text-info">Login</h3>
 
+                            @if ($errors->any())
+                                <div class="alert alert-danger alert-dismissible">
+                                   <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                   @foreach ($errors->all() as $error)
+                                       <strong>{{$error}}</strong><br>
+                                   @endforeach
+                                   
+                                </div>
+                            @endif
+
+                            @if (Session::get('message'))
+                                <div class="alert alert-danger alert-dismissible">
+                                   <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                   <strong>{{Session::get('message')}}</strong>
+                                </div>
+                            @endif
+
                             <!--User name-->
                             <div class="form-group">
                                 <label for="username" class="text-info">Username:</label><br>
 
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  autocomplete="email" autofocus>
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
 
                             <!--Password-->
                             <div class="form-group">
                                 <label for="password" class="text-info">Password:</label><br>
 
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"  autocomplete="current-password">
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
 
                             <!--Remember me-->

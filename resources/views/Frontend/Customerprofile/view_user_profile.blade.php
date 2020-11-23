@@ -1,12 +1,8 @@
 @extends('Frontend.Layouts.master')
 
-
-
 @section('content')
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <!------ Include the above in your HEAD tag ---------->
 
 <style type="text/css">
@@ -160,8 +156,8 @@
                          {{-- class="profile-edit-btn" --}}
 
                     </div>
-
                 </div>
+
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-work">
@@ -250,7 +246,7 @@
                                           <label>Your detail description</label><br/>
                                           <p style="text-align: justify;">
                                                     The Travel Episodes does not just take storytelling to the next level with their writings but also with video clips, sound effects, and photography. It's like reading a futuristic storybook that teleported you to the place.So i'm what i'm.         
-                                                </p>
+                                            </p>
                                       </div>
                                   </div>
                             </div>

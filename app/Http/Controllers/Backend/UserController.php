@@ -12,7 +12,7 @@ class UserController extends Controller
 
     	// $data['allData']= User::where('user_type', 'Admin')->where('status', '1')->get();
     	
-		$data['allData']= User::all();
+		$data['allData']= User::where('user_type', 'Admin')->get();
     	return view('Backend.User.view_user', $data);
     }
 

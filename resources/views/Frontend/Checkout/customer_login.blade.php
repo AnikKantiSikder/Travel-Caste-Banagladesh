@@ -29,7 +29,26 @@
 	            <div id="login-row" class="row justify-content-center align-items-center">
 	                <div id="login-column" class="col-md-6">
 	                    <div id="login-box" class="col-md-12">
-	                        <form id="login-form" class="form" action="" method="post">
+	                        <form id="login-form" class="form" action="{{ route('login') }}" method="post">
+	                        	@csrf
+
+	                        	@if ($errors->any())
+                                <div class="alert alert-danger alert-dismissible">
+                                   <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                   @foreach ($errors->all() as $error)
+                                       <strong>{{$error}}</strong><br>
+                                   @endforeach
+                                   
+                                </div>
+                            	@endif
+
+	                            @if (Session::get('message'))
+	                                <div class="alert alert-danger alert-dismissible">
+	                                   <button type="button" class="close" data-dismiss="alert">&times;</button>
+	                                   <strong>{{Session::get('message')}}</strong>
+	                                </div>
+	                            @endif
+
 	                            <h3 class="text-center text-info">Login</h3>
 
 	                            <div class="form-group">
@@ -40,6 +59,8 @@
 	                                <label for="password" class="text-info">Password:</label><br>
 	                                <input type="password" name="password" id="password" class="form-control">
 	                            </div>
+
+	                            
 	                            <div class="form-group">
 	                                <input type="submit" name="submit" class="btn btn-info btn-md"
 	                                value="Log in"><br><br>
