@@ -135,11 +135,11 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="btn btn primary"
-                                    href="{{ route('customerprofiles.share.experience') }}" role="tab" aria-controls="profile" aria-selected="false">Share experience</a>
+                                    href="{{ route('customer.add.post') }}" role="tab" aria-controls="profile" aria-selected="false">Share experience</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="btn"
-                                    href="{{ route('customerprofiles.create.event') }}" role="tab" aria-controls="profile" aria-selected="false">Create event</a>
+                                    href="{{ route('customer.create.event') }}" role="tab" aria-controls="profile" aria-selected="false">Create event</a>
                                 </li>
                             </ul>
                         </div>
@@ -228,28 +228,29 @@
                             </div>
 
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Total posts</label>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <span style="border: 3px solid black;padding:3px;">4</span>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <a class="btn btn-success" href="">See all posts</a>
-                                            </div>
-                                        </div>
-
-                                  <div class="row">
-                                      <div class="col-md-12">
-                                          <label>Your detail description</label><br/>
-                                          <p style="text-align: justify;">
-                                                    The Travel Episodes does not just take storytelling to the next level with their writings but also with video clips, sound effects, and photography. It's like reading a futuristic storybook that teleported you to the place.So i'm what i'm.         
-                                            </p>
-                                      </div>
+                            {{-- See all posts of customer --}}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Total posts</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <span style="border: 3px solid black;padding:3px;">4</span>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a class="btn btn-success" href="{{ route('posts.view') }}">See all posts</a>
+                                    </div>
+                                </div>
+                            {{-- See all posts of customer --}}
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      <label>Your detail description</label><br/>
+                                      <p style="text-align: justify;">
+                                                The Travel Episodes does not just take storytelling to the next level with their writings but also with video clips, sound effects, and photography. It's like reading a futuristic storybook that teleported you to the place.So i'm what i'm.         
+                                        </p>
                                   </div>
+                              </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

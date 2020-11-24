@@ -209,8 +209,24 @@
         });
       </script>
    @endif
+{{-- 
+  <script type="text/javascript">
+     $(document).ready(function(){
+        $("#butDisable").attr('disabled', true);
+        $("#butDisable").on('keyup', function(){
 
-
+          if($this.val()>=@Auth::user()->id !=NULL && @Auth::user()->user_type == 'Customer'){
+            $("#butDisable").attr('disabled', false);
+            document.getElementById("butDisable").style.color="green";
+            document.getElementById("butDisable").value={{ route('locations.list') }};
+          }else{
+            $("#butDisable").attr('disabled', true);
+            document.getElementById("butDisable").style.color="red";
+            document.getElementById("butDisable").value={{ route('customer.login') }};
+          }
+        });
+     });
+   </script> --}}
 
 
 </html>

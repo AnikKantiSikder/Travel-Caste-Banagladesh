@@ -82,6 +82,7 @@
               <b>All locations</b>
             </a>
 
+
             @foreach ($categories as $category)
               <a href="{{ route('category.wise.location',$category->category_id) }}" style="margin-left: 30px;"><b>{{$category['category']['name']}}</b></a>
             @endforeach

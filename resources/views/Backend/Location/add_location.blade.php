@@ -121,18 +121,6 @@
                                 }}
                               </font>
                             </div>
-      <!--Division name-->
-                            {{-- <div class="col-md-6">
-                              <label for="division">Division name</label>
-                              <input type="text" name="division_name" value="{{@$editLocationData->division_name }}"
-                              class="form-control" placeholder="Write division name">
-
-                              <font color="red">
-                                {{
-                                  ($errors->has('division_name'))?($errors->first('division_name')):''
-                                }}
-                              </font>
-                            </div> --}}
       <!--District name------------------------------------------------------------------------------------------->
                             <div class="col-md-6">
                               <label for="district">District name</label>

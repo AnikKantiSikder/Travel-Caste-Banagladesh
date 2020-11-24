@@ -7,26 +7,10 @@ use Illuminate\Support\Facades\Route;
 //Frontend routes---------------------------------------------------------------------------------------
 Route::get('/', 'Frontend\FrontendController@index');
 
-//Location routes
-Route::get('/location-list', 'Frontend\FrontendController@locationList')->name('locations.list');
-Route::get('/location-category/{category_id}', 'Frontend\FrontendController@categoryWiseLocationList')
-			->name('category.wise.location');
-			
+//Division wise locaiton view			
 Route::get('/location-division/{division_id}', 'Frontend\FrontendController@divisionWiseLocationList')
 			->name('division.wise.location');
 			
-Route::get('/location-details/{slug}', 'Frontend\FrontendController@locationDetails')->name('location.details.info');
-
-
-// //Profile routes----------------------------------------------------------------------------------------
-// Route::prefix('customerprofiles')->group(function(){
-
-// 	Route::get('/view','Frontend\UserProfileController@viewProfile')->name('customerprofiles.view');
-// 	Route::get('/edit','Frontend\UserProfileController@editProfile')->name('customerprofiles.edit');
-// 	Route::get('/share-experience','Frontend\UserProfileController@shareExperience')->name('customerprofiles.share.experience');
-// 	Route::get('/create-event','Frontend\UserProfileController@createEvent')->name('customerprofiles.create.event');
-
-// }); 
 
 //Tour event routes------------------------------------------------------------------------------------
 Route::prefix('tour')->group(function(){
@@ -55,17 +39,34 @@ Auth::routes();
 //Customer profile
 Route::group(['middleware'=> ['auth','customer']], function(){
 
+
 	Route::get('/customer-profile', 'Frontend\CustomerProfileController@customerProfile')
 				->name('customerprofiles.view');
 
 	Route::get('/customer-edit-profile','Frontend\CustomerProfileController@editProfile')
 				->name('customerprofiles.edit');
 
-	Route::get('/customer-share-experience','Frontend\CustomerProfileController@shareExperience')
-				->name('customerprofiles.share.experience');
 
-	Route::get('/create-event','Frontend\CustomerProfileController@createEvent')
-				->name('customerprofiles.create.event');
+	//Customer profile routes
+	Route::prefix('customer')->group(function(){
+
+		Route::get('/view-post','Frontend\CustomerPostController@viewPost')->name('posts.view');
+
+		Route::get('/add-post','Frontend\CustomerPostController@addPost')
+				->name('customer.add.post');
+
+		Route::get('/create-event','Frontend\CustomerPostController@createEvent')
+				->name('customer.create.event');
+
+	});
+
+
+
+	// Location, location details and category view(Home page)
+	Route::get('/location-list', 'Frontend\FrontendController@locationList')->name('locations.list');
+	Route::get('/location-category/{category_id}', 'Frontend\FrontendController@categoryWiseLocationList')
+				->name('category.wise.location');
+	Route::get('/location-details/{slug}', 'Frontend\FrontendController@locationDetails')->name('location.details.info');
 
 });
 

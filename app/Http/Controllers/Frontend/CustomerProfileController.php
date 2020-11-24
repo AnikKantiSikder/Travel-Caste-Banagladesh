@@ -39,19 +39,4 @@ class CustomerProfileController extends Controller
     }
 
 
-    //Share user experience
-    public function shareExperience(){
-        $data['logo']= Logo::first();
-        $data['contact']= Contact::first();
-        $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
-    	return view('Frontend.Customerprofile.share_experience',$data);
-    }
-
-    //Create event
-    public function createEvent(){
-        $data['logo']= Logo::first();
-        $data['contact']= Contact::first();
-        $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
-    	return view('Frontend.Customerprofile.create_event',$data);
-    }
 }
