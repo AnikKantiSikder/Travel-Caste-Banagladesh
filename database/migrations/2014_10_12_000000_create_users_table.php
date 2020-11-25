@@ -26,6 +26,13 @@ class CreateUsersTable extends Migration
             $table->string('address')->nullable();
             $table->string('gender')->nullable();
             $table->string('image')->nullable();
+            $table->string('profession')->nullable();
+            $table->longText('about')->nullable();
+            $table->string('bio')->nullable();
+            $table->longText('facebook')->nullable();
+            $table->longText('instagram')->nullable();
+            $table->longText('youtube')->nullable();
+            $table->string('skill')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->rememberToken();
             $table->timestamps();

@@ -13,7 +13,7 @@
 .emp-profile{
     padding: 3%;
     margin-top: 3%;
-    margin-bottom: 3%;
+    margin-bottom: 12%;
     border-radius: 0.5rem;
     background: #fff;
 }
@@ -109,21 +109,17 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="profile-img">
-                            <img src="{{asset('public/Frontend/image/a.jpg')}}" alt=""/>
-
-{{--                             <div class="file btn btn-lg btn-primary">
-                                Change Photo
-                                <input type="file" name="file"/>
-                            </div> --}}
+                            <img src="{{(!empty($userData->image))?url('public/Upload/User_images/'.$userData->image):url('public/Upload/no_image.png') }}"
+                            style="height: 160px; width: 180px; border: 1px solid #000;" alt=""/>
                         </div>
                     </div>
                     <div class="col-md-7">
                         <div class="profile-head">
                                     <h5>
-                                        Anik kanti sikder
+                                        {{$userData->name}}
                                     </h5>
                                     <h6>
-                                        Travel lover and blogger
+                                        {{$userData->bio}}
                                     </h6><br><br>
                                     {{-- <p class="proile-rating">RANKINGS : <span>8/10</span></p> --}}
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -165,15 +161,15 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="profile-work">
-                            <p>WORK LINK</p>
-                            <a href="">Facebook</a><br/>
-                            <a href="">Instagram</a><br/>
-                            <a href="">Twitter</a>
 
-                            <p>SKILLS</p>
-                            <a href="">Photography</a><br/>
-                            <a href="">Editing</a><br/>
-                            <a href="">Writing</a><br/>
+                            <p style="color: green;"><b>WORK LINK</b></p>
+                            <a href="{{$userData->facebook}}" target="_black">Facebook</a><br/>
+                            <a href="{{$userData->instagram}}" target="_blank">Instagram</a><br/>
+                            <a href="{{$userData->youtube}}" target="_blank">Youtube</a>
+                            <br>
+
+                            <p style="color: green;"><b>SKILLS</b></p>
+                            <p style="text-align: left;font-size: 14px;">{{$userData->skill}}</p>
 
                         </div>
                     </div>
@@ -186,7 +182,7 @@
                                                 <label>Name</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <p>Anik kanti sikder</p>
+                                                <p>{{$userData->name}}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -194,39 +190,43 @@
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <p>sikdermithu997@gmail.com</p>
+                                                <p>{{$userData->email}}</p>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <label>District</label>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <p>Patuakhali</p>
-                                            </div>
-                                        </div>
+                                        
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <label>Phone</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <p>01521451993</p>
+                                                <p>{{$userData->mobile}}</p>
                                             </div>
                                         </div>
+
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label>Address</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <p>{{$userData->address}}</p>
+                                            </div>
+                                        </div>
+
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <label>Profession</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <p>Web Developer and Designer</p>
+                                                <p>{{$userData->profession}}</p>
                                             </div>
                                         </div>
+                                        
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <label>My self</label>
+                                                <label>Gender</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <p>Trust people and love people</p>
+                                                <p>Male</p>
                                             </div>
                                         </div>
                             </div>
@@ -243,13 +243,13 @@
                                     <div class="col-md-3">
                                         <a class="btn btn-success" href="{{ route('posts.view') }}">See all posts</a>
                                     </div>
-                                </div>
+                                </div><br>
                             {{-- See all posts of customer --}}
                               <div class="row">
                                   <div class="col-md-12">
-                                      <label>Your detail description</label><br/>
+                                      <label>About yourself</label><br/>
                                       <p style="text-align: justify;">
-                                                The Travel Episodes does not just take storytelling to the next level with their writings but also with video clips, sound effects, and photography. It's like reading a futuristic storybook that teleported you to the place.So i'm what i'm.         
+                                            {{$userData->about}}        
                                         </p>
                                   </div>
                               </div>

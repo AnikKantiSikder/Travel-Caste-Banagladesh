@@ -157,9 +157,9 @@
                 <div class="tab-content profile-tab" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 {{-- Share experience(Customer) starts here --}}
-                    <form method="post" action="">
+                    <form method="post" action="{{ route('customer.password.update') }}">
                         @csrf
-        <!--Current password----------------------------------------------------------------------------------> 
+        <!--Current password-------------------------------------------------------------------> 
                         <div class="row">
                             <div class="col-md-3">
                                 <label>Current password</label>
@@ -167,11 +167,6 @@
                             <div class="col-md-8">
                                 <input type="password" name="current_password" class="form-control"
                                         placeholder="Your current password">
-                                <font color="red">
-                                    {{
-                                      ($errors->has('current_password'))?($errors->first('current_password')):''
-                                    }}
-                                </font>
                             </div>
                         </div><br>
         <!--New password-------------------------------------------------------------------------->
@@ -182,11 +177,6 @@
                             <div class="col-md-8">
                                 <input type="password" name="new_password" class="form-control"
                                         placeholder="Your new password">
-                                <font color="red">
-                                    {{
-                                      ($errors->has('new_password'))?($errors->first('new_password')):''
-                                    }}
-                                </font>
                             </div>
                         </div><br>
 		<!--Confirm new password------------------------------------------------------------------->
@@ -197,11 +187,6 @@
                             <div class="col-md-8">
                                 <input type="password" name="confirm_new_password" class="form-control"
                                         placeholder="Confirm new password">
-                                <font color="red">
-                                    {{
-                                      ($errors->has('confirm_new_password'))?($errors->first('confirm_new_password')):''
-                                    }}
-                                </font>
                             </div>
                         </div><br>
         <!--Update------------------------------------------------------------------->

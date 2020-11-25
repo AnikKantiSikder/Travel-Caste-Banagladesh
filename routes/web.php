@@ -46,8 +46,14 @@ Route::group(['middleware'=> ['auth','customer']], function(){
 	Route::get('/customer-edit-profile','Frontend\CustomerProfileController@editProfile')
 				->name('customerprofiles.edit');
 
+	Route::post('/customer-update-profile','Frontend\CustomerProfileController@updateProfile')
+				->name('customerprofiles.update');
+
 	Route::get('/customer-change-password','Frontend\CustomerProfileController@changeCustomerPassword')
 				->name('customer.change.password');
+
+	Route::post('/customer-update-password', 'Frontend\CustomerProfileController@updateCustomerPassword')
+	           ->name('customer.password.update');
 
 
 	//Customer profile routes

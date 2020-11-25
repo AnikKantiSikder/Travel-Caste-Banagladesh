@@ -112,19 +112,21 @@
 
 <div class="container emp-profile">
 
-            <form method="#">
-
+            <form method="POST" action="{{ route('customerprofiles.update') }}"
+                enctype="multipart/form-data">
+                @csrf
+                
             <!-- Row 1 starts -->
                 <div class="row">
                     <div class="col-md-4">
+
                         <div class="profile-img">
-                            <img src="{{asset('public/Frontend/image/a.jpg')}}" alt=""/><br><br>
-<!--                             <div class="file btn btn-lg btn-primary">
-                                Change Photo
-                                <input type="file" name="file"/>
-                            </div> -->
+                            <img id="show_image" src="{{(!empty($editData->image))?url('public/Upload/User_images/'.$editData->image):url('public/Upload/no_image.png') }}"
+                            style="height: 160px; width: 180px; border: 1px solid #000;" alt="User profile picture"> <br><br>
+
+                            <input type="file" name="image" class="form-control" id="image"
+                            style="margin-left:9vh;width: 23vh;">
                         </div>
-                        <input type="file" name="file" style="padding-left: 50px;">
                     </div>
 
                     <div class="col-md-6">
@@ -134,15 +136,17 @@
                             My profile
                         </a>
                       </div><br>
+
                         <div class="profile-head">
 
-                                    <h5>
-                                        Anik kanti sikder
-                                    </h5>
-                                    <label for="formGroupExampleInput">Bio</label>
-                                    <input type="text" name="name" class="form-control" placeholder=""  >
-
-                                    <br><br>
+                            <h5>
+                                {{$editData->name}}
+                            </h5>
+                        <!-- For bio-------------------------------------------------- -->
+                            <label for="formGroupExampleInput"><b>Bio</b></label>
+                            <input type="text" name="bio" value="{{$editData->bio}}" class="form-control"
+                                placeholder="Your bio">
+                            <br><br>
                                   
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
@@ -157,7 +161,7 @@
 
                 <!-- Submit button of update profile -->
                     <div class="col-md-2">
-                     <button type="submit" class="btn btn-md btn-success">Save changes</button>
+                        <button type="submit" class="btn btn-success btn-block">Save changes</button>
                     </div>
 
 
@@ -172,21 +176,24 @@
                           <p>WORK LINK</p>
 
                           <label for="formGroupExampleInput"><b>Social media</b></label>
-                          <input type="text" name="one" class="form-control" placeholder="One">
+
+                          <input type="text" name="facebook" value="{{$editData->facebook}}" class="form-control"
+                            placeholder="Facebook (Provide link)">
                           <br>
-                          <input type="text" name="two" class="form-control" placeholder="Two">
+                          <input type="text" name="instagram" value="{{$editData->instagram}}" class="form-control"
+                            placeholder="Instagram (Provide link)">
                           <br>
-                          <input type="text" name="three" class="form-control" placeholder="Three">
+                          <input type="text" name="youtube" value="{{$editData->youtube}}" class="form-control"
+                            placeholder="Youtube (Provide link)">
                           <br>
 
                           <label for="formGroupExampleInput"><b>Skills</b></label>
-
+                          <textarea rows="4" name="skill" class="form-control">
+                                            {{$editData->skill}}
+                          </textarea>
                           
-                          <input type="text" name="one" class="form-control" placeholder="One">
-                         <br>
-                          <input type="text" name="two" class="form-control" placeholder="Two">
                           <br>
-                          <input type="text" name="three" class="form-control" placeholder="Three">
+                          
                       </div>
                   </div>
 
@@ -195,43 +202,66 @@
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <label>Name</label>
                                     </div>
-                                    <div class="col-md-6">
-                                      <input type="text" name="name" class="form-control" placeholder="Edit name">
+                                    <div class="col-md-8">
+                                      <input type="text" name="name" value="{{$editData->name}}" class="form-control" placeholder="Edit name">
+                                        <font style="color: red;">
+                                            {{($errors->has('name'))?($errors->first('name')):''}}
+                                        </font>
                                     </div>
                                 </div><br>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <label>Email</label>
                                     </div>
-                                    <div class="col-md-6">
-                                      <input type="text" name="email" class="form-control" placeholder="Edit email">
+                                    <div class="col-md-8">
+                                      <input type="text" name="email" value="{{$editData->email}}" class="form-control" placeholder="Edit email">
+                                        <font style="color: red;">
+                                            {{($errors->has('email'))?($errors->first('email')):''}}
+                                        </font>
                                     </div>
                                 </div><br>
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <label>District</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                      <input type="text" name="district" class="form-control" placeholder="Edit district">
-                                    </div>
-                                </div><br>
-                                <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <label>Phone</label>
                                     </div>
-                                    <div class="col-md-6">
-                                    <input type="text" name="phone" class="form-control" placeholder="Edit phone">
+                                    <div class="col-md-8">
+                                    <input type="text" name="mobile" value="{{$editData->mobile}}" class="form-control" placeholder="Edit phone">
+                                        <font style="color: red;">
+                                            {{($errors->has('mobile'))?($errors->first('mobile')):''}}
+                                        </font>
                                     </div>
                                 </div><br>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
+                                        <label>Address</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                      <input type="text" name="address" value="{{$editData->address}}" class="form-control" placeholder="Edit address">
+                                    </div>
+                                </div><br>
+                                
+                                <div class="row">
+                                    <div class="col-md-4">
                                         <label>Profession</label>
                                     </div>
-                                    <div class="col-md-6">
-                                       <input type="text" name="profession" class="form-control" placeholder="Edit profession">
+                                    <div class="col-md-8">
+                                       <input type="text" name="profession" value="{{$editData->profession}}" class="form-control" placeholder="Edit profession">
+                                    </div>
+                                </div><br>
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Gender</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                    <select name="gender" class="form-control">
+                                        <option value="">Select gender</option>
+                                        <option value="Male" {{($editData->gender=="Male")?"selected":""}}>Male</option>
+                                        <option value="Female" {{($editData->gender=="Female")?"selected":""}}>Female</option>
+                                    </select>
                                     </div>
                                 </div><br>
 
@@ -240,8 +270,10 @@
 
                                   <div class="row">
                                       <div class="col-md-12">
-                                        <label for="shortTitle">Detail description</label>
-                                        <textarea rows="4" name="description" class="form-control"></textarea>
+                                        <label for="shortTitle">About yourself</label>
+                                        <textarea rows="4" name="about" class="form-control">
+                                            {{$editData->about}}
+                                        </textarea>
                                         
                                       </div>
                                   </div>
