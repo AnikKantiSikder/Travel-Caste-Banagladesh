@@ -113,7 +113,7 @@
             <form method="#">
 
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="profile-img">
                             <img src="{{asset('public/Frontend/image/a.jpg')}}" alt=""/>
 
@@ -123,7 +123,7 @@
                             </div> --}}
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-7">
                         <div class="profile-head">
                             <h5>
                                 Anik kanti sikder
@@ -150,7 +150,7 @@
 
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="profile-work">
                             <p>WORK LINK</p>
                             <a href="">Facebook</a><br/>
@@ -169,26 +169,26 @@
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <label>Event name</label>
                                     </div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-9">
                                         <input type="text" name="event_name" class="form-control" placeholder="Location name">
                                     </div>
                                 </div><br>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <label>Division</label>
                                     </div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-9">
                                         <input type="text" name="division_name" class="form-control" placeholder="Division you want to go">
                                     </div>
                                 </div><br>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <label>Location type</label>
                                     </div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-9">
                                         <select name="location_type" class="form-control">
                                           <option value="">Select type</option>
                                           <option value="Sea beach">Sea beach</option>
@@ -199,51 +199,51 @@
                                     </div>
                                 </div><br>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <label>Details</label>
                                     </div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-9">
                                         <textarea rows="3" name="details" class="form-control"></textarea>
                                     </div>
                                 </div><br>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <label>Number of day</label>
                                     </div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-9">
                                         <input type="number" name="number_of_day" class="form-control" placeholder="For how many days you want to go ">
                                     </div>
                                 </div><br>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <label>Number of allowed members</label>
                                     </div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-9">
                                         <input type="number" name="number_of_members" class="form-control" placeholder="How many mebers you want to take in ">
                                     </div>
                                 </div><br>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <label>Tour expense</label>
                                     </div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-9">
                                         <input type="number" name="expense" class="form-control" placeholder="Expanse per person">
                                     </div>
                                 </div><br>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <label>Contact number</label>
                                     </div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-9">
                                         <input type="text" name="event_name" class="form-control" placeholder="Your contact number">
                                     </div>
                                 </div><br>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <label for="formGroupExampleInput">Upload photos</label>
                                         <input type="file" name="image" class="form-control" id="image">
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-7">
                                         <img id="show_image"src="{{ asset('public/Upload/no_image.png') }}"style="height: 80px; width: 100px; border: 1px solid #000;" alt="User profile picture">
                                     </div>
                                 </div><br>

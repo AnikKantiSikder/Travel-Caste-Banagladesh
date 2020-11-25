@@ -75,10 +75,13 @@
                             </div>
 
                             <!--Remember me-->
+
                             <div class="form-group">
-                                
                             <!--Submit-->
                                 <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                                <br><br>
+                                <i class="fa fa-user"></i> No account yet?
+                                  <a href="{{ route('customer.signup') }}"><span>Create account</span></a>
                             </div>
                             <!--Submit-->
                            

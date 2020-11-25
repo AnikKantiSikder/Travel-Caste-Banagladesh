@@ -9,6 +9,13 @@ use App\Model\Slider;
 use App\Model\Contact;
 use App\Model\About;
 use App\Model\Location;
+use App\Model\Category;
+use App\Model\Division;
+use App\Model\Hotel;
+use App\Model\LocationSubImage;
+use DB;
+use Auth;
+use Mail;
 
 
 class TourEventController extends Controller

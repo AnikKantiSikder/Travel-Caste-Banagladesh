@@ -44,6 +44,7 @@ class CustomerPostController extends Controller
         $data['logo']= Logo::first();
         $data['contact']= Contact::first();
         $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
+        
     	return view('Frontend.Customerpost.create_event',$data);
     }
 }

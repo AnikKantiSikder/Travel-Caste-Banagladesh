@@ -110,12 +110,12 @@
     
             
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="profile-img">
                 <img src="{{asset('public/Frontend/image/a.jpg')}}" alt=""/>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-7">
             <div class="profile-head">
                 <h5>
                     Anik kanti sikder
@@ -140,7 +140,7 @@
 
     </div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="profile-work">
                 <p>WORK LINK</p>
                 <a href="">Facebook</a><br/>
@@ -155,7 +155,7 @@
             </div>
         </div>
 
-        <div class="col-md-8">
+        <div class="col-md-9">
                 <div class="tab-content profile-tab" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 {{-- Share experience(Customer) starts here --}}
@@ -163,7 +163,7 @@
                         @csrf
         <!--Location name----------------------------------------------------------------------------------> 
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label>Location name</label>
                             </div>
                             <div class="col-md-8">
@@ -178,7 +178,7 @@
                         </div><br>
         <!--Category----------------------------------------------------------------------------------------->
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label>Category</label>
                             </div>
                             <div class="col-md-8">
@@ -199,7 +199,7 @@
                         </div><br>
         <!--Division----------------------------------------------------------------------------------------->
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label>Division</label>
                             </div>
                             <div class="col-md-8">
@@ -220,7 +220,7 @@
                         </div><br>
         <!--District---------------------------------------------------------------------------------------->     
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label>District name</label>
                             </div>
                             <div class="col-md-8">
@@ -235,7 +235,7 @@
                         </div><br>
         <!--Description------------------------------------------------------------------------------------>
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label>Description</label>
                             </div>
                             <div class="col-md-8">
@@ -249,7 +249,7 @@
                         </div><br>
         <!--Suggestion------------------------------------------------------------------------------------>
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label>Suggestion</label>
                             </div>
                             <div class="col-md-8">
@@ -264,7 +264,7 @@
                         
         <!--Upload photos------------------------------------------------------------------------------------>
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label for="formGroupExampleInput">Upload photos</label>
                                 <input type="file" name="image" class="form-control" id="image">
                             </div>

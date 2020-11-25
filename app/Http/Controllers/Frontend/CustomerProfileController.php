@@ -27,7 +27,7 @@ class CustomerProfileController extends Controller
         $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
         $data['locations']= Location::orderBy('id','desc')->paginate(6);
         
-        return view('Frontend.Customerprofile.view_user_profile', $data);
+        return view('Frontend.Customerprofile.view_customer_profile', $data);
     }
 
     //Edit user profile
@@ -35,8 +35,16 @@ class CustomerProfileController extends Controller
         $data['logo']= Logo::first();
         $data['contact']= Contact::first();
         $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
-        return view('Frontend.Customerprofile.edit_user_profile',$data);
+        return view('Frontend.Customerprofile.edit_customer_profile',$data);
     }
 
+    //Edit user profile
+    public function changeCustomerPassword(){
+        $data['logo']= Logo::first();
+        $data['contact']= Contact::first();
+        $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
+
+        return view('Frontend.Customerprofile.customer_edit_passwprd',$data);
+    }
 
 }

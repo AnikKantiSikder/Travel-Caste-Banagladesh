@@ -107,7 +107,7 @@
 <div class="container emp-profile">
             <form>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="profile-img">
                             <img src="{{asset('public/Frontend/image/a.jpg')}}" alt=""/>
 
@@ -117,7 +117,7 @@
                             </div> --}}
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-7">
                         <div class="profile-head">
                                     <h5>
                                         Anik kanti sikder
@@ -141,6 +141,10 @@
                                     <a class="btn"
                                     href="{{ route('customer.create.event') }}" role="tab" aria-controls="profile" aria-selected="false">Create event</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="btn"
+                                    href="{{ route('customer.change.password') }}" role="tab" aria-controls="profile" aria-selected="false">Change password</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -159,7 +163,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="profile-work">
                             <p>WORK LINK</p>
                             <a href="">Facebook</a><br/>
@@ -174,54 +178,54 @@
                         </div>
                     </div>
 
-                    <div class="col-md-8">
+                    <div class="col-md-9">
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-3">
                                                 <label>Name</label>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-9">
                                                 <p>Anik kanti sikder</p>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-3">
                                                 <label>Email</label>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-9">
                                                 <p>sikdermithu997@gmail.com</p>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-3">
                                                 <label>District</label>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-9">
                                                 <p>Patuakhali</p>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-3">
                                                 <label>Phone</label>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-9">
                                                 <p>01521451993</p>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-3">
                                                 <label>Profession</label>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-9">
                                                 <p>Web Developer and Designer</p>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-3">
                                                 <label>My self</label>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-9">
                                                 <p>Trust people and love people</p>
                                             </div>
                                         </div>

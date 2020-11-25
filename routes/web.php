@@ -46,6 +46,9 @@ Route::group(['middleware'=> ['auth','customer']], function(){
 	Route::get('/customer-edit-profile','Frontend\CustomerProfileController@editProfile')
 				->name('customerprofiles.edit');
 
+	Route::get('/customer-change-password','Frontend\CustomerProfileController@changeCustomerPassword')
+				->name('customer.change.password');
+
 
 	//Customer profile routes
 	Route::prefix('customer')->group(function(){
