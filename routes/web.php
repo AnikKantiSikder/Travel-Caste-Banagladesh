@@ -61,8 +61,9 @@ Route::group(['middleware'=> ['auth','customer']], function(){
 
 		Route::get('/view-post','Frontend\CustomerPostController@viewPost')->name('posts.view');
 
-		Route::get('/add-post','Frontend\CustomerPostController@addPost')
-				->name('customer.add.post');
+		Route::get('/add-post','Frontend\CustomerPostController@addPost')->name('customer.add.post');
+
+		Route::post('/store-post','Frontend\CustomerPostController@storePost')->name('customer.store.post');
 
 		Route::get('/create-event','Frontend\CustomerPostController@createEvent')
 				->name('customer.create.event');
@@ -212,6 +213,22 @@ Route::group(['middleware'=>['auth','admin'] ], function(){
 		Route::get('/view','Backend\CustomerController@view')->name('customers.view');
 		Route::get('/draft/view','Backend\CustomerController@draftView')->name('customers.draft.view');
 		Route::get('/delete/{id}','Backend\CustomerController@delete')->name('customers.delete');
+	});
+
+	//Manage customer post request routes
+	Route::prefix('customerspost')->group(function(){
+
+		Route::get('/pending/list','Backend\CustomerPostRequestController@pendingList')
+				->name('posts.pending.list');
+		Route::get('/approved/list','Backend\CustomerPostRequestController@approvedList')
+				->name('posts.approved.list');
+        Route::get('/post/details/{id}','Backend\CustomerPostRequestController@details')
+        		->name('posts.details');
+        Route::get('/approve/{id}','Backend\CustomerPostRequestController@approvePost')
+        		->name('posts.approve');
+        Route::get('/delete/{id}','Backend\CustomerPostRequestController@deletePost')
+        		->name('posts.delete');
+
 	});
 
 

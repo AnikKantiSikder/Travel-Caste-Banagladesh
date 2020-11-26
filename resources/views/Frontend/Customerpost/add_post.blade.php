@@ -159,7 +159,7 @@
                 <div class="tab-content profile-tab" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 {{-- Share experience(Customer) starts here --}}
-                    <form method="post" action="">
+                    <form method="post" action="{{ route('customer.store.post') }}" enctype="multipart/form-data">
                         @csrf
         <!--Location name----------------------------------------------------------------------------------> 
                         <div class="row">
@@ -247,7 +247,7 @@
                               </font>
                             </div>
                         </div><br>
-        <!--Suggestion------------------------------------------------------------------------------------>
+        <!--Suggestion------------------------------------------------------------------------------>
                         <div class="row">
                             <div class="col-md-3">
                                 <label>Suggestion</label>
@@ -262,7 +262,7 @@
                             </div>
                         </div><br>
                         
-        <!--Upload photos------------------------------------------------------------------------------------>
+        <!--Upload photos----------------------------------------------------------------------------->
                         <div class="row">
                             <div class="col-md-3">
                                 <label for="formGroupExampleInput">Upload photos</label>
@@ -297,6 +297,36 @@
         </div>
     </div>
 </div>
-           
+
+
+{{-- Jquery validation --}}
+<script>
+$(function () {
+  
+  $('#myForm').validate({
+    rules: {
+
+      category_id: {
+        required: true,
+      }
+    },
+    messages: {
+
+    },
+
+    errorElement: 'span',
+    errorPlacement: function (error, element) {
+      error.addClass('invalid-feedback');
+      element.closest('.form-group').append(error);
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).addClass('is-invalid');
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).removeClass('is-invalid');
+    }
+  });
+});
+</script>
 
 @endsection

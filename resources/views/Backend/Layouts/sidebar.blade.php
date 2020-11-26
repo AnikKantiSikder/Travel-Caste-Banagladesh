@@ -246,12 +246,40 @@ $route= Route:: current()->getName();
                   <p>Draft customer</p>
                 </a>
               </li>
-              <li class="nav-item"> <br><br> </li>
+              
 
             </ul>
           </li>
 
 
+      <!--Manage customer post request-->
+          <li class="nav-item has-treeview {{($prefix=='/customerspost')?'menu-open':''}}">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Manage customer post
+                <i class="fas fa-angle-left right"></i>
+                {{-- <span class="badge badge-info right">6</span> --}}
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+
+              <li class="nav-item">
+                <a href="{{ route('posts.pending.list') }}" class="nav-link {{($route=='posts.pending.list')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pending posts</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('posts.approved.list') }}" class="nav-link {{($route=='posts.approved.list')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Approved posts</p>
+                </a>
+              </li>
+              <li class="nav-item"> <br><br> </li>
+
+            </ul>
+          </li>
 
 <!-- Layout options -->
 

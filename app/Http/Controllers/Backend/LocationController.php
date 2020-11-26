@@ -58,6 +58,7 @@ class LocationController extends Controller
     	$location->suggestion= $request->suggestion;
         $location->latitude= $request->latitude;
         $location->longitude= $request->longitude;
+        $location->approval= 1 ;
     	$location->created_by= Auth::user()->id;
     	$img= $request->file('image');
 

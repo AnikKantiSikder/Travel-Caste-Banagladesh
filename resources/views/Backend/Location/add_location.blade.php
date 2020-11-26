@@ -228,7 +228,6 @@
   <!-- /.content-wrapper -->
 
 <script>
-  
 $(function () {
   
 
