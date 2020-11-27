@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
 use Auth;
+use Mail;
+use App\User;
 use App\Model\Location;
 use App\Model\Category;
 use App\Model\Division;
@@ -40,12 +42,17 @@ class CustomerPostRequestController extends Controller
     //Approve customer post
     public function approvePost(Request $request){
 
-    	
+    	$approve= Location::find($request->id);
+        $approve->approval= '1';
+        $approve->save();
+        return redirect()->route('posts.pending.list')->with('success', 'Post approved successfully');
     }
 
     //Delete customer post
-    public function deletePost(Request $request){
+    public function deletePost($id){
 
+        $deletePost= Location::find($request->id);
+        $deletePost->delete();
     	return redirect()->route('posts.pending.list')->with('success', 'Post deleted successfully');
     }
 }

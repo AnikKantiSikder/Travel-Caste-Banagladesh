@@ -220,12 +220,16 @@ Route::group(['middleware'=>['auth','admin'] ], function(){
 
 		Route::get('/pending/list','Backend\CustomerPostRequestController@pendingList')
 				->name('posts.pending.list');
+
 		Route::get('/approved/list','Backend\CustomerPostRequestController@approvedList')
 				->name('posts.approved.list');
+				
         Route::get('/post/details/{id}','Backend\CustomerPostRequestController@details')
         		->name('posts.details');
+
         Route::get('/approve/{id}','Backend\CustomerPostRequestController@approvePost')
         		->name('posts.approve');
+
         Route::get('/delete/{id}','Backend\CustomerPostRequestController@deletePost')
         		->name('posts.delete');
 

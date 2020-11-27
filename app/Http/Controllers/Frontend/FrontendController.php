@@ -27,7 +27,7 @@ class FrontendController extends Controller
         $data['contact']= Contact::first();
         $data['categories']= Location::select('category_id')->groupBy('category_id')->get();
         $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
-        $data['locations']= Location::orderBy('id','desc')->paginate(6);
+        $data['locations']= Location::where('approval','1')->orderBy('id','desc')->paginate(6);
 
     	return view('Frontend.Layouts.home',$data);
     }

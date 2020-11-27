@@ -19,7 +19,8 @@ class LocationController extends Controller
     //View location-----------------------------------------------------------------------
     public function view(){
 
-    	$data['allData']= Location::orderBy('id','desc')->get();
+        //View only approved posts
+    	$data['allData']= Location::where('approval','1')->orderBy('id','desc')->get();
 
     	return view('Backend.Location.view_location', $data);
     }

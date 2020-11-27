@@ -296,6 +296,35 @@
 </script>
 {{-- Sweat aleart for delete --}}
 
+{{-- Sweat aleart for approve --}}
+<script type="text/javascript">
+  $(function(){
+    $(document).on('click', '#approve', function(e){
+      
+      e.preventDefault();
+      var link= $(this).attr("href");
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#23b634',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, approve it!'
+        }).then((result) => {
+          if (result.value) {
+            window.location.href= link;
+            Swal.fire(
+              'approved!',
+              'Your file has been approved.',
+              'success'
+            )
+          }
+        })
+    });
+  });
+</script>
+{{-- Sweat aleart for approve --}}
 
 {{-- <script type="text/javascript">
   $(document).ready(function(){

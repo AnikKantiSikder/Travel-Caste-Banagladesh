@@ -103,10 +103,10 @@
                         <td>
                           <a title="Details" href="{{route('posts.details',$post->id)}}" class="btn btn-primary btn-sm"> Details</a>
 
-                          <a title="Approve" href="{{ route('posts.approve', $post->id) }}" class="btn btn-sm btn-success"
+                          <a title="Approve" id="approve" href="{{ route('posts.approve', $post->id) }}" class="btn btn-sm btn-success"
                            >Approve</a>
 
-                           <a title="Delete" id="delete" href="{{ route('posts.cancel', $post->id) }}" class="btn btn-sm btn-danger"
+                           <a title="Delete" id="delete" href="{{ route('posts.delete', $post->id) }}" class="btn btn-sm btn-danger"
                            >Delete</a>
                         </td>
                       </tr>
