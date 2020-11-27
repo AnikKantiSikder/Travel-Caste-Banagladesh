@@ -27,8 +27,8 @@ class CustomerPostController extends Controller
         $data['categories']= Category::all();
         $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
 
-        $customerId= User::find(Auth::user()->id);
-        $data['allData']= Location::select('id')->where('created_by',$customerId)->get();
+        $data['allData']= Location::where('created_by',auth()->user()->id)->get();
+        
         return view('Frontend.Customerpost.view_personal_post_list', $data);
     }
 

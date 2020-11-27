@@ -28,7 +28,9 @@ class CustomerPostRequestController extends Controller
     //Approved post list
     public function approvedList(){
 
-        $data['posts']= Location::where('approval','1')->get();
+
+        $data['posts']= Location::join('users','locations.created_by','=','users.id')->select('locations.*')->where(['users.user_type'=>'Customer','locations.approval'=>'1'])->get();
+        
         return view('Backend.CustomerPostRequest.approved_post_list', $data);
     }
 
