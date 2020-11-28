@@ -27,6 +27,8 @@ class CustomerProfileController extends Controller
         $data['categories']= Location::select('category_id')->groupBy('category_id')->get();
         $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
         $data['locations']= Location::orderBy('id','desc')->paginate(6);
+        $data['postCount']= Location::select('id')->where('created_by',auth()->user()->id)->where('approval','1')->count();
+        
         //User data 
         $data['userData']= Auth::user();
 

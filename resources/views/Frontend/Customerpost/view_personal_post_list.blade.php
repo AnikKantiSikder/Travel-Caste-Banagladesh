@@ -12,7 +12,9 @@
     <div class="container">
             <div class="row">
                 <div class=" col-md-10 mx-auto">
-                   <h2>Posts by Anik kanti sikder</h2>
+                   <h2>
+                     
+                   </h2>
                   <br><br>
                 </div>
 
@@ -37,29 +39,29 @@
 
                       <tbody>
 
-                      @foreach ($allData as $key=> $locationData)
+                      @foreach ($allData as $key=> $customerPostData)
                       <tr>
                         <td> {{$key+1}} </td>
 
-                        <td style="text-align: center;">{{$locationData->location_name}}</td>
-                        <td style="text-align: center;">{{$locationData['category']['name'] }}</td>
+                        <td style="text-align: center;">{{$customerPostData->location_name}}</td>
+                        <td style="text-align: center;">{{$customerPostData['category']['name'] }}</td>
                         <td>
-                         <img src="{{(!empty($locationData->image))?url('public/Upload/Location_images/'.$locationData->image):
+                         <img src="{{(!empty($customerPostData->image))?url('public/Upload/Location_images/'.$customerPostData->image):
                          url('public/Upload/no_image.png') }}"
                          style="height: 60px; width: 100px; border: 1px solid #000;" alt="User profile picture">
                         </td>
 
                         <td>
                           <a title="Details" class="btn btn-sm btn-success"
-                           href="{{ route('locations.details', $locationData->id) }}">
+                           href="{{ route('location.details.info',$customerPostData->slug) }}">
                           <i class="fa fa-eye"></i></a>
 
                           <a title="Edit" class="btn btn-sm btn-info"
-                           href="{{ route('locations.edit', $locationData->id) }}">
+                           href="{{ route('customer.edit.post', $customerPostData->id) }}">
                           <i class="fa fa-edit"></i></a>
                           
                           <a title="Delete" id="delete" class="btn btn-sm btn-danger"
-                           href="{{ route('locations.delete', $locationData->id) }}">
+                           href="{{ route('customer.delete.post', $customerPostData->id) }}">
                           <i class="fa fa-trash"></i></a>
                         </td>
                       </tr>

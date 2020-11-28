@@ -33,6 +33,9 @@
 
   <!-- Notify js -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+
+  {{-- Sweat alert --}}
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   
   <style type="text/css">
     .notify-corner{
@@ -139,6 +142,9 @@
   <!-- jquery-validation -->
   <script src="{{asset('public/Backend')}}/plugins/jquery-validation/jquery.validate.min.js"></script>
 
+  {{-- Sweat alert --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
   <script>
     $('.js-addwish-b2').on('click', function(e){
       e.preventDefault();
@@ -176,6 +182,7 @@
   
   </script>
   <script src="{{asset('public/Frontend/ProductDetail')}}/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+
   <script>
     $('.js-pscroll').each(function(){
       $(this).css('position','relative');
@@ -191,7 +198,38 @@
       })
     });
   </script>
+
   <script src="{{asset('public/Frontend/ProductDetail')}}/js/main.js"></script>
+
+  {{-- Sweat aleart for delete --}}
+<script type="text/javascript">
+  $(function(){
+    $(document).on('click', '#delete', function(e){
+      
+      e.preventDefault();
+      var link= $(this).attr("href");
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.value) {
+            window.location.href= link;
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+          }
+        })
+    });
+  });
+</script>
+{{-- Sweat aleart for delete --}}
 
 {{-- Notify js message --}}
     @if(session()->has('success'))
@@ -209,24 +247,7 @@
         });
       </script>
    @endif
-{{-- 
-  <script type="text/javascript">
-     $(document).ready(function(){
-        $("#butDisable").attr('disabled', true);
-        $("#butDisable").on('keyup', function(){
 
-          if($this.val()>=@Auth::user()->id !=NULL && @Auth::user()->user_type == 'Customer'){
-            $("#butDisable").attr('disabled', false);
-            document.getElementById("butDisable").style.color="green";
-            document.getElementById("butDisable").value={{ route('locations.list') }};
-          }else{
-            $("#butDisable").attr('disabled', true);
-            document.getElementById("butDisable").style.color="red";
-            document.getElementById("butDisable").value={{ route('customer.login') }};
-          }
-        });
-     });
-   </script> --}}
 
 
 </html>

@@ -189,7 +189,7 @@
 
                           <label for="formGroupExampleInput"><b>Skills</b></label>
                           <textarea rows="4" name="skill" class="form-control">
-                                            {{$editData->skill}}
+                                {{$editData->skill}}
                           </textarea>
                           
                           <br>

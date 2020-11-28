@@ -89,8 +89,10 @@
 
                                 @foreach ($categories as $category)
                                   <option value="{{$category->id}}"
+
                                     {{(@$editLocationData->category_id==$category->id)?"selected":""}}>
                                     {{$category->name}}
+                                    
                                   </option>
                                 @endforeach
                               </select>

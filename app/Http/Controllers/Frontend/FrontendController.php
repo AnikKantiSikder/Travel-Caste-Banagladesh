@@ -76,9 +76,26 @@ class FrontendController extends Controller
         $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
         $data['location']= Location::where('slug', $slug)->first();
         $data['hotels']= Hotel::where('location_id',$data['location']->id)->get();
+        
         $data['location_sub_images']= LocationSubImage::where('location_id',$data['location']->id)->get();
 
     	return view('Frontend.Location.location_details',$data);
+    }
+
+    //Tour events
+    public function tourEvent(){
+        $data['logo']= Logo::first();
+        $data['contact']= Contact::first();
+        $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
+        return view('Frontend.Tourevent.tour_events',$data);
+    }
+
+    //Tour event details
+    public function tourEventDetails(){
+        $data['logo']= Logo::first();
+        $data['contact']= Contact::first();
+        $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
+        return view('Frontend.Tourevent.tour_events_details',$data);
     }
 
     //Contact us

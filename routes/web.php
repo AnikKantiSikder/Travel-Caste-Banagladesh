@@ -10,15 +10,6 @@ Route::get('/', 'Frontend\FrontendController@index');
 //Division wise locaiton view			
 Route::get('/location-division/{division_id}', 'Frontend\FrontendController@divisionWiseLocationList')
 			->name('division.wise.location');
-			
-
-//Tour event routes------------------------------------------------------------------------------------
-Route::prefix('tour')->group(function(){
-
-	Route::get('/event', 'Frontend\TourEventController@tourEvent')->name('tour.events');
-	Route::get('/event-details', 'Frontend\TourEventController@tourEventDetails')->name('tour.event.details');
-
-}); 
 
 //Customer(log in/signup/email verification)
 Route::get('/customer-login', 'Frontend\CheckoutController@customerLogin')->name('customer.login');
@@ -63,7 +54,17 @@ Route::group(['middleware'=> ['auth','customer']], function(){
 
 		Route::get('/add-post','Frontend\CustomerPostController@addPost')->name('customer.add.post');
 
-		Route::post('/store-post','Frontend\CustomerPostController@storePost')->name('customer.store.post');
+		Route::post('/store-post','Frontend\CustomerPostController@storePost')
+					->name('customer.store.post');
+
+		Route::get('/edit-post/{id}','Frontend\CustomerPostController@editPost')
+					->name('customer.edit.post');
+
+		Route::post('/update-post/{id}','Frontend\CustomerPostController@updatePost')
+					->name('customer.update.post');
+
+		Route::get('/delete-post/{id}','Frontend\CustomerPostController@deletePost')
+					->name('customer.delete.post');
 
 		Route::get('/create-event','Frontend\CustomerPostController@createEvent')
 				->name('customer.create.event');
@@ -72,11 +73,14 @@ Route::group(['middleware'=> ['auth','customer']], function(){
 
 
 
-	// Location, location details and category view(Home page)
+	//Home page (Location, location details, category view, tour event, tour event details)
 	Route::get('/location-list', 'Frontend\FrontendController@locationList')->name('locations.list');
 	Route::get('/location-category/{category_id}', 'Frontend\FrontendController@categoryWiseLocationList')
 				->name('category.wise.location');
 	Route::get('/location-details/{slug}', 'Frontend\FrontendController@locationDetails')->name('location.details.info');
+
+	Route::get('/tour-event', 'Frontend\FrontendController@tourEvent')->name('tour.events');
+	Route::get('/tour-event-details', 'Frontend\FrontendController@tourEventDetails')->name('tour.event.details');
 
 });
 

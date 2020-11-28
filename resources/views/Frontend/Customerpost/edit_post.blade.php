@@ -126,7 +126,7 @@
                 <h6>
                     {{$userData->bio}}
                 </h6><br><br>
-                <h3><b>Share your visited experience</b></h3>
+                <h3><b>Edit post</b></h3>
                 <br>
             </div>
         </div>
@@ -162,7 +162,8 @@
                 <div class="tab-content profile-tab" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 {{-- Share experience(Customer) starts here --}}
-                    <form method="post" action="{{ route('customer.store.post') }}" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('customer.update.post',$editPostData->id) }}"
+                        enctype="multipart/form-data">
                         @csrf
         <!--Location name----------------------------------------------------------------------------------> 
                         <div class="row">
@@ -170,7 +171,7 @@
                                 <label>Location name</label>
                             </div>
                             <div class="col-md-8">
-                                <input type="text" name="location_name" class="form-control"
+                                <input type="text" name="location_name" value="{{$editPostData->location_name}}" class="form-control"
                                         placeholder="Write location name">
                                 <font color="red">
                                     {{
@@ -188,9 +189,14 @@
                                <select name="category_id" class="form-control">
                                 <option>Select category</option>
                                 @foreach ($categories as $category)
-                                  <option value="{{$category->id}}">
+
+                                  <option value="{{$category->id}}"
+
+                                    {{($editPostData->category_id==$category->id)?"selected":""}}>
                                     {{$category->name}}
+
                                   </option>
+
                                 @endforeach
                               </select>
                               <font color="red">
@@ -209,9 +215,13 @@
                                <select name="division_id" class="form-control">
                                 <option>Select division</option>
                                 @foreach ($divisionData as $division)
-                                  <option value=" {{$division->id}}">
+
+                                  <option value=" {{$division->id}}"
+                                    {{($editPostData->division_id==$division->id)?"selected":""}}>
                                     {{$division->name}}
+
                                   </option>
+
                                 @endforeach
                               </select>
                               <font color="red">
@@ -227,7 +237,7 @@
                                 <label>District name</label>
                             </div>
                             <div class="col-md-8">
-                                <input type="text" name="district_name" class="form-control"
+                                <input type="text" name="district_name" value="{{$editPostData->district_name}}" class="form-control"
                                         placeholder="Write district name">
                                 <font color="red">
                                     {{
@@ -242,7 +252,9 @@
                                 <label>Description</label>
                             </div>
                             <div class="col-md-8">
-                                <textarea rows="3" name="description" class="form-control"></textarea>
+                                <textarea rows="5" name="description" class="form-control">
+                                    {{$editPostData->description}}
+                                </textarea>
                                 <font color="red">
                                 {{
                                   ($errors->has('description'))?($errors->first('description')):''
@@ -256,7 +268,9 @@
                                 <label>Suggestion</label>
                             </div>
                             <div class="col-md-8">
-                                <textarea rows="3" name="suggestion" class="form-control"></textarea>
+                                <textarea rows="5" name="suggestion" class="form-control">
+                                    {{$editPostData->suggestion}}
+                                </textarea>
                                 <font color="red">
                                 {{
                                   ($errors->has('suggestion'))?($errors->first('suggestion')):''
@@ -274,7 +288,7 @@
                             <div class="col-md-2">
                                 <img id="show_image"
 
-                               src="{{(!empty($editLocationData->image))?url('public/Upload/Location_images/'.$editLocationData->image):url('public/Upload/no_image.png') }}"
+                               src="{{(!empty($editPostData->image))?url('public/Upload/Location_images/'.$editPostData->image):url('public/Upload/no_image.png') }}"
                                style="height: 70px; width: 80px; border: 1px solid #000;" alt="User profile picture">
                             </div>
 
@@ -289,7 +303,7 @@
                             <div class="col-md-12">
                             
                                 <button type="submit" class="btn btn-success" style="float:right;">
-                                <i class="fa fa-share"></i> Share</button>
+                                <i class="fa fa-refresh"></i> Update</button>
 
                               </div>
                           </div>

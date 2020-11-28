@@ -326,51 +326,6 @@
 </script>
 {{-- Sweat aleart for approve --}}
 
-{{-- <script type="text/javascript">
-  $(document).ready(function(){
-    $(document).on('click', '#delete', function(){
-      var actionTo= $(this).attr('href');
-      var token= $(this).attr('data-token');
-      var id= $(this).attr('data-id');
-      swal({
-        title: "Are you sure ?",
-        type: "success",
-        showCancelButton: true,
-        confirmButtonClass: 'btn-danger',
-        confirmButtonText: 'Yes',
-        cancelButtonText: "No",
-        closeOnConfirm: false,
-        closeOnCancel: false
-      },
-        function(isConfirm){
-          if(isConfirm){
-            $.ajax({
-              url:actionTo,
-              type: 'post',
-              data: {id:id, _token:token},
-              success: function(data) {
-                swal({
-                  title: "Deleted!",
-                  type: "success"
-                },
-                function(isConfirm){
-                  if(isConfirm){
-                    $('.' + id).fadeOut();
-                  }
-                });
-              }
-            });
-          } else{
-            swal("cancelled", "", "error");
-          }
-        });
-      return false;
-    });
-  });
-</script>
- --}}
-
-
 {{-- Sweat aleart for approve --}}
 <script type="text/javascript">
   $(function(){

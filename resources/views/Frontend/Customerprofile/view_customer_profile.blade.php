@@ -238,7 +238,9 @@
                                         <label>Total posts</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <span style="border: 3px solid black;padding:3px;">4</span>
+                                        <span style="border: 3px solid black;padding:3px;">
+                                            {{$postCount}}
+                                        </span>
                                     </div>
                                     <div class="col-md-3">
                                         <a class="btn btn-success" href="{{ route('posts.view') }}">See all posts</a>
