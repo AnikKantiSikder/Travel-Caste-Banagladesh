@@ -7,84 +7,30 @@
     <div class="container">
       
       
-            <div class="row">
-                <div class=" col-md-12 mx-auto">
-                   <h2>Current tour events</h2>
-                  <br><br>
-                </div>
-            </div>
-            <br>
+  <div class="row">
+      <div class=" col-md-12 mx-auto">
+         <h2>Current tour events</h2>
+        <br><br>
+      </div>
+  </div>
+  <br>
    <div class="jumbotron text-center ">
       <div class="container">
           <div class="row">
-                <div class="col-sm-4">
+            @foreach ($events as $allEventData)
+              <div class="col-sm-4">
                   <div class="card" style="background-color: #76d7c4;height: auto;">
                     <div class="card-body">
-                      <h5 class="card-title">Barisal to Kuakata</h5>
-                      <p class="card-text">3 days and 4 nights</p>
-                      <p class="card-text">Date: 15/9/2020 to 17/9/2020</p>
-                      <a href="#" class="btn btn-success">See details</a>
+                      <h5 class="card-title">{{$allEventData->event_name}}</h5>
+                      <p class="card-text">{{$allEventData->event_date}}</p>
+                      <p class="card-text">{{$allEventData->cost}} Tk</p>
+                      <a href="{{ route('tour.event.details',$allEventData->slug) }}" class="btn btn-success">See details</a>
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-4">
-                  <div class="card" style="background-color: #76d7c4;height: auto;">
-                    <div class="card-body">
-                      <h5 class="card-title">Dhaka to Sundarban</h5>
-                      <p class="card-text">2 days and 3 nights</p>
-                      <p class="card-text">Date: 15/9/2020 to 17/9/2020</p>
-                      <a href="#" class="btn btn-success">See details</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="card" style="background-color: #76d7c4;height: auto;">
-                    <div class="card-body">
-                      <h5 class="card-title">Syllhet to Khulna</h5>
-                      <p class="card-text">4 days and 5 nights</p>
-                      <p class="card-text">Date: 15/9/2020 to 17/9/2020</p>
-                      <a href="#" class="btn btn-success">See details</a>
-                    </div>
-                  </div>
-                </div>
-            
+            @endforeach
           </div>
-          <br>
-            <div class="row">
-                <div class="col-sm-4">
-                  <div class="card" style="background-color: #76d7c4;height: auto;">
-                    <div class="card-body">
-                      <h5 class="card-title">Barisal to Kuakata</h5>
-                      <p class="card-text">3 days and 4 nights</p>
-                      <p class="card-text">Date: 15/9/2020 to 17/9/2020</p>
-                      <a href="#" class="btn btn-success">See details</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="card" style="background-color: #76d7c4;height: auto;">
-                    <div class="card-body">
-                      <h5 class="card-title">Dhaka to Sundarban</h5>
-                      <p class="card-text">2 days and 3 nights</p>
-                      <p class="card-text">Date: 15/9/2020 to 17/9/2020</p>
-                      <a href="#" class="btn btn-success">See details</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="card" style="background-color: #76d7c4;height: auto;">
-                    <div class="card-body">
-                      <h5 class="card-title">Syllhet to Khulna</h5>
-                      <p class="card-text">5 days and 6 nights</p>
-                      <p class="card-text">Date: 15/9/2020 to 17/9/2020</p>
-                      <a href="#" class="btn btn-success">See details</a>
-                    </div>
-                  </div>
-                </div>
-            
-          </div>
-          
-           
+          <br> 
 
       </div>
     </div>

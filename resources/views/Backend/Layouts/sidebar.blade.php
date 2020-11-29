@@ -276,6 +276,12 @@ $route= Route:: current()->getName();
                   <p>Approved posts</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{ route('posts.approved.list') }}" class="nav-link {{($route=='posts.approved.list')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pending edited posts</p>
+                </a>
+              </li>
               <li class="nav-item"> <br><br> </li>
 
             </ul>

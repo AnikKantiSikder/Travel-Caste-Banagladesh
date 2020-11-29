@@ -50,6 +50,7 @@ Route::group(['middleware'=> ['auth','customer']], function(){
 	//Customer profile routes
 	Route::prefix('customer')->group(function(){
 
+	    //Customer post
 		Route::get('/view-post','Frontend\CustomerPostController@viewPost')->name('posts.view');
 
 		Route::get('/add-post','Frontend\CustomerPostController@addPost')->name('customer.add.post');
@@ -66,21 +67,43 @@ Route::group(['middleware'=> ['auth','customer']], function(){
 		Route::get('/delete-post/{id}','Frontend\CustomerPostController@deletePost')
 					->name('customer.delete.post');
 
-		Route::get('/create-event','Frontend\CustomerPostController@createEvent')
+		// Customer event
+		Route::get('/view-event','Frontend\CustomerEventController@viewEvents')->name('events.view');
+
+		Route::get('/create-event','Frontend\CustomerEventController@createEvent')
 				->name('customer.create.event');
+
+		Route::post('/store-event','Frontend\CustomerEventController@storeEvent')
+					->name('customer.store.event');
+
+		Route::get('/edit-event/{id}','Frontend\CustomerEventController@editEvent')
+					->name('customer.edit.event');
+
+		Route::post('/update-event/{id}','Frontend\CustomerEventController@updateEvent')
+					->name('customer.update.event');
+
+		Route::get('/delete-post/{id}','Frontend\CustomerEventController@deleteEvent')
+					->name('customer.delete.event');
 
 	});
 
 
 
-	//Home page (Location, location details, category view, tour event, tour event details)
+
+
+	//Home page (Location, location details, category view)
 	Route::get('/location-list', 'Frontend\FrontendController@locationList')->name('locations.list');
 	Route::get('/location-category/{category_id}', 'Frontend\FrontendController@categoryWiseLocationList')
 				->name('category.wise.location');
+
 	Route::get('/location-details/{slug}', 'Frontend\FrontendController@locationDetails')->name('location.details.info');
 
+	//Tour event
+	//Navbar menu
 	Route::get('/tour-event', 'Frontend\FrontendController@tourEvent')->name('tour.events');
-	Route::get('/tour-event-details', 'Frontend\FrontendController@tourEventDetails')->name('tour.event.details');
+
+	Route::get('/tour-event-details/{slug}', 'Frontend\FrontendController@tourEventDetails')
+				->name('tour.event.details');
 
 });
 

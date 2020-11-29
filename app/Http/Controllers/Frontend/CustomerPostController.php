@@ -113,8 +113,6 @@ class CustomerPostController extends Controller
     //Customer edit post------------------------------------------------
     public function editPost($id){
 
-        
-
         $data['logo']= Logo::first();
         $data['contact']= Contact::first();
         $data['categories']= Category::all();
@@ -226,14 +224,4 @@ class CustomerPostController extends Controller
 
 
 
-
-
-    //Create event
-    public function createEvent(){
-        $data['logo']= Logo::first();
-        $data['contact']= Contact::first();
-        $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
-        
-    	return view('Frontend.Customerpost.create_event',$data);
-    }
 }

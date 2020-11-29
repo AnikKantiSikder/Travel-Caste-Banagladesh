@@ -12,6 +12,8 @@ use App\Model\Category;
 use App\Model\Division;
 use App\Model\Hotel;
 use App\Model\LocationSubImage;
+use App\Model\Event;
+use App\Model\EventSubImage;
 use App\User;
 use DB;
 use Auth;
@@ -28,6 +30,7 @@ class CustomerProfileController extends Controller
         $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
         $data['locations']= Location::orderBy('id','desc')->paginate(6);
         $data['postCount']= Location::select('id')->where('created_by',auth()->user()->id)->where('approval','1')->count();
+        $data['eventCount']= Event::where('created_by',auth()->user()->id)->where('approval','1')->count();
         
         //User data 
         $data['userData']= Auth::user();

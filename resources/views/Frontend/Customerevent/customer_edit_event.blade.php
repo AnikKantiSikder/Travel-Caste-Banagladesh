@@ -4,10 +4,7 @@
 
 @section('content')
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+
 
 <style type="text/css">
     body{
@@ -109,29 +106,23 @@
 </style>
 
 <div class="container emp-profile">
-    {{-- Form starts here --}}
-            <form method="#">
 
                 <div class="row">
                     <div class="col-md-3">
                         <div class="profile-img">
-                            <img src="{{asset('public/Frontend/image/a.jpg')}}" alt=""/>
-
-{{--                             <div class="file btn btn-lg btn-primary">
-                                Change Photo
-                                <input type="file" name="file"/>
-                            </div> --}}
+                            <img src="{{(!empty($userData->image))?url('public/Upload/User_images/'.$userData->image):url('public/Upload/no_image.png') }}"
+                    style="height: 160px; width: 180px; border: 1px solid #000;" alt=""/>
                         </div>
                     </div>
                     <div class="col-md-7">
                         <div class="profile-head">
                             <h5>
-                                Anik kanti sikder
+                                {{$userData->name}}
                             </h5>
                             <h6>
-                                Travel lover and blogger
+                               {{$userData->bio}}
                             </h6><br><br>
-                            <h3><b>Create event</b></h3>
+                            <h3><b>Edit event</b></h3>
                             <br>
                         </div>
                     </div>
@@ -168,103 +159,161 @@
                     <div class="col-md-8">
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        {{-- Form starts --}}
+                            <form method="post" action="{{ route('customer.update.event',$editEventData->id) }}"
+                            enctype="multipart/form-data">
+                                    @csrf
+                <!--Event name-------------------------------------------------------------------------->
                                 <div class="row">
                                     <div class="col-md-3">
                                         <label>Event name</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" name="event_name" class="form-control" placeholder="Location name">
+                                        <input type="text" name="event_name" value="{{$editEventData->event_name}}" class="form-control"
+                                                placeholder="Write event or location name">
                                     </div>
                                 </div><br>
+                <!--Event date--------------------------------------------------------------------------->
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <label>Division</label>
+                                        <label>Event date</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" name="division_name" class="form-control" placeholder="Division you want to go">
+                                        <input type="text" name="event_date" value="{{$editEventData->event_date}}" class="form-control" placeholder="From... To....">
                                     </div>
                                 </div><br>
+                <!--Location type----------------------------------------------------------------------------->
                                 <div class="row">
                                     <div class="col-md-3">
                                         <label>Location type</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <select name="location_type" class="form-control">
-                                          <option value="">Select type</option>
-                                          <option value="Sea beach">Sea beach</option>
-                                          <option value="Hill tract">Hill tract</option>
-                                          <option value="Historical">Historical</option>
-                                          <option value="Religious">Religious</option>
-                                        </select>
+                                       <select name="category_id" class="form-control">
+                                        <option>Select category</option>
+                                        @foreach ($categories as $category)
+
+                                          <option value="{{$category->id}}"
+                                            {{($editEventData->category_id==$category->id)?"selected":""}}>
+                                            {{$category->name}}
+                                          </option>
+
+                                        @endforeach
+                                      </select>
                                     </div>
                                 </div><br>
+                <!--Division----------------------------------------------------------------------------->
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <label>Details</label>
+                                        <label>Division</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <textarea rows="3" name="details" class="form-control"></textarea>
+                                       <select name="division_id" class="form-control">
+                                        <option>Select division</option>
+                                        @foreach ($divisionData as $division)
+
+                                          <option value=" {{$division->id}}"
+                                            {{($editEventData->division_id==$division->id)?"selected":""}}>
+                                            {{$division->name}}
+                                          </option>
+
+                                        @endforeach
+                                      </select>
                                     </div>
                                 </div><br>
+                <!--District------------------------------------------------------------------------------>   
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <label>Number of day</label>
+                                        <label>District name</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="number" name="number_of_day" class="form-control" placeholder="For how many days you want to go ">
+                                        <input type="text" name="district_name" value="{{$editEventData->district_name}}" class="form-control"
+                                                placeholder="Write district name">
                                     </div>
                                 </div><br>
+                <!--Details------------------------------------------------------------------------------->
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>Event details</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <textarea rows="3" name="details" class="form-control">
+                                            {{$editEventData->details}}
+                                        </textarea>
+                                    </div>
+                                </div><br>
+
+                <!--Suggestion------------------------------------------------------------------------------->
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>Suggestion</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <textarea rows="3" name="suggestion" class="form-control">
+                                            {{$editEventData->suggestion}}
+                                        </textarea>
+                                    </div>
+                                </div><br>
+                <!--Number of allowed numbers--------------------------------------------------------------->
                                 <div class="row">
                                     <div class="col-md-3">
                                         <label>Number of allowed members</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="number" name="number_of_members" class="form-control" placeholder="How many mebers you want to take in ">
+                                        <input type="text" name="no_members" value="{{$editEventData->no_members}}" class="form-control" placeholder="How many members you want to take in ">
                                     </div>
                                 </div><br>
+                <!--Tour cost------------------------------------------------------------------------------->
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <label>Tour expense</label>
+                                        <label>Cost</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="number" name="expense" class="form-control" placeholder="Expanse per person">
+                                        <input type="text" name="cost" value="{{$editEventData->cost}}" class="form-control" placeholder="Cost per member">
                                     </div>
                                 </div><br>
+                <!--Contact number---------------------------------------------------------------------------->
                                 <div class="row">
                                     <div class="col-md-3">
                                         <label>Contact number</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" name="event_name" class="form-control" placeholder="Your contact number">
+                                        <input type="text" name="contact_number" value="{{$editEventData->contact_number}}" class="form-control" placeholder="Your contact number">
                                     </div>
                                 </div><br>
+                <!--Upload photos----------------------------------------------------------------------------->
                                 <div class="row">
                                     <div class="col-md-3">
                                         <label for="formGroupExampleInput">Upload photos</label>
                                         <input type="file" name="image" class="form-control" id="image">
                                     </div>
-                                    <div class="col-md-7">
-                                        <img id="show_image"src="{{ asset('public/Upload/no_image.png') }}"style="height: 80px; width: 100px; border: 1px solid #000;" alt="User profile picture">
+                                    <div class="col-md-2">
+                                        <img id="show_image"
+
+                                           src="{{(!empty($editEventData->image))?url('public/Upload/Event_images/'.$editEventData->image):url('public/Upload/no_image.png') }}"
+                                           style="height: 70px; width: 80px; border: 1px solid #000;" alt="User profile picture">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                      <label for="image">Select multiple</label>
+                                      <input type="file" name="sub_image[]" class="form-control" multiple>
                                     </div>
                                 </div><br>
+
                                   <div class="row">
                                     <div class="col-md-12">
-                                    
-                                          <a class="btn btn-success btn-smd float-right" href="">
-                                            <i class="fa fa-create"></i>
-                                            Create
-                                          </a>
+                                        <button type="submit" class="btn btn-success" style="float:right;">
+                                        <i class="fa fa-refresh"></i> Update</button>
                                       </div>
                                   </div>
+                            </form>
+                                
                                 </div><br>
                             </div>
 
                         </div>
                     </div>
                 </div>
-
-                {{-- Form ends here --}}
-            </form>           
+         
         </div>
 
 @endsection

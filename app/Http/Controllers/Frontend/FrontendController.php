@@ -13,6 +13,8 @@ use App\Model\Category;
 use App\Model\Division;
 use App\Model\Hotel;
 use App\Model\LocationSubImage;
+use App\Model\Event;
+use App\Model\EventSubImage;
 use DB;
 use Auth;
 use Mail;
@@ -28,6 +30,8 @@ class FrontendController extends Controller
         $data['categories']= Location::select('category_id')->groupBy('category_id')->get();
         $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
         $data['locations']= Location::where('approval','1')->orderBy('id','desc')->paginate(6);
+        $data['events']= Event::where('approval','1')->orderBy('id','desc')->paginate(2);
+
 
     	return view('Frontend.Layouts.home',$data);
     }
@@ -82,21 +86,38 @@ class FrontendController extends Controller
     	return view('Frontend.Location.location_details',$data);
     }
 
-    //Tour events
+    //Tour events(home page section)
     public function tourEvent(){
         $data['logo']= Logo::first();
         $data['contact']= Contact::first();
-        $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
+        $data['categories']= Event::select('category_id')->groupBy('category_id')->get();
+        $data['divisions']= Event::select('division_id')->groupBy('division_id')->get();
+        $data['events']= Event::where('approval','1')->orderBy('id','desc')->get();
+
         return view('Frontend.Tourevent.tour_events',$data);
     }
 
     //Tour event details
-    public function tourEventDetails(){
+    public function tourEventDetails($slug){
         $data['logo']= Logo::first();
         $data['contact']= Contact::first();
-        $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
+        $data['divisions']= Event::select('division_id')->groupBy('division_id')->get();
+        $data['categories']= Event::select('category_id')->groupBy('category_id')->get();
+
+        $data['event']= Event::where('slug', $slug)->first();
+        $data['event_sub_images']= EventSubImage::where('event_id',$data['event']->id)->get();
+
         return view('Frontend.Tourevent.tour_events_details',$data);
     }
+
+
+
+
+
+
+
+
+
 
     //Contact us
     public function contactUs(){

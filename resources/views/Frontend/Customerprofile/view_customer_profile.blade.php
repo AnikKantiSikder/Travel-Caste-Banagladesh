@@ -234,7 +234,7 @@
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                             {{-- See all posts of customer --}}
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-3">
                                         <label>Total posts</label>
                                     </div>
                                     <div class="col-md-3">
@@ -243,9 +243,25 @@
                                         </span>
                                     </div>
                                     <div class="col-md-3">
-                                        <a class="btn btn-success" href="{{ route('posts.view') }}">See all posts</a>
+                                        <a class="btn btn-success" href="{{ route('posts.view') }}" style="width: 20vh;">
+                                        View your posts</a>
                                     </div>
                                 </div><br>
+                                {{-- Customer's events --}}
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>Running events</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <span style="border: 3px solid black;padding:3px;">
+                                            {{$eventCount}}
+                                        </span>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a class="btn btn-success" href="{{ route('events.view') }}" style="width: 20vh;">
+                                        View your events</a>
+                                    </div>
+                                </div>
                             {{-- See all posts of customer --}}
                               <div class="row">
                                   <div class="col-md-12">

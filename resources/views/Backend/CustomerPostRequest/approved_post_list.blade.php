@@ -82,6 +82,7 @@
                           <th>Sl.</th>
                           <th>Location name</th>
                           <th>Division</th>
+                          <th>Division</th>
                           <th>Image</th>
                           <th>Action</th>
                         </tr>

@@ -34,6 +34,19 @@
       .card{
         margin-bottom: 30px;
       }
+
+      .homeEvent{
+        height: auto;
+        padding: 20px;
+        background-color: #dede19;
+        border: 2px solid #c2c2ab;
+        border-radius: 20px;
+        color: black;
+      }
+      .homeEvent img{
+        height: 15vh;
+        width: 100%;
+      }
     </style>
     <br><br>
 
@@ -139,31 +152,30 @@
      <div class="jumbotron text-center ">
         <div class="container">
             <div class="row">
-              <div class="col-sm-6">
-                <div class="card" style="background-color: #f1c40f;">
-                  <div class="card-body">
-                    <h5 class="card-title">Dhaka to Cox'x bazar</h5>
-                    <p class="card-text">3 days and 4 nights</p>
-                    <p class="card-text">Date: 11/9/2020 to 14/9/2020</p>
-                    <a href="{{ route('tour.event.details') }}" class="btn btn-success">See details</a>
+              @foreach ($events as $allEventData)
+
+              <div class="col-md-6 homeEvent">
+                <div class="row">
+                  <div class="col-md-4">
+                    <img class="" src="{{url('public/Upload/Event_images/'.$allEventData->image) }}">
+                  </div>
+
+                  <div class="col-md-6">
+                      <h5>{{$allEventData->event_name}}</h5>
+                      <p class="card-text">{{$allEventData->event_date}}</p>
+                      <p class="card-text">{{$allEventData->cost}} Tk</p>
+                      <a href="{{ route('tour.event.details',$allEventData->slug) }}"
+                        class="btn btn-success">See details</a>
                   </div>
                 </div>
               </div>
-              <div class="col-sm-6">
-                <div class="card" style="background-color: #f1c40f;">
-                  <div class="card-body">
-                    <h5 class="card-title">Rajshahi to Bandarban</h5>
-                    <p class="card-text">2 days and 3 nights</p>
-                    <p class="card-text">Date: 15/9/2020 to 17/9/2020</p>
-                    <a href="#" class="btn btn-success">See details</a>
-                  </div>
-                </div>
-              </div>
+
+              @endforeach
             </div>
             <br><br>
             
-            <a href="{{ route('tour.events') }}" class="btn btn-lg btn-secondary">See more>></a>
-
+            <a href="{{ route('tour.events') }}" class="btn btn-lg btn-secondary">
+              See more <i class="fa fa-plus-circle"></i></a>
         </div>
       </div>
 
