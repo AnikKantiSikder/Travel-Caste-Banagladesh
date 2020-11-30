@@ -49,21 +49,38 @@
                   <form method="POST" action="{{ route('abouts.store') }}" id="myForm" enctype="multipart/form-data">
                   @csrf
                   
-
                     <div class="row">
 
-                      
-
+                      {{-- Introduction --}}
                       <div class="col-md-12">
-                        <label for="description">Description</label>
-                        <textarea rows="6" name="description" class="form-control"></textarea>
+                        <label for="introduction">Introduction</label>
+                        <textarea rows="3" name="introduction" class="form-control"></textarea>
+                      </div>
+                      {{-- Services --}}
+                      <div class="col-md-12">
+                        <label for="service">Service</label>
+                        <textarea rows="3" name="service" class="form-control"></textarea>
+                      </div>
+                      {{-- Instruction --}}
+                      <div class="col-md-12">
+                        <label for="instruction">Instruction</label>
+                        <textarea rows="3" name="instruction" class="form-control"></textarea>
+                      </div>
+                      {{-- Enjoy --}}
+                      <div class="col-md-12">
+                        <label for="enjoy">Enjoy</label>
+                        <textarea rows="3" name="enjoy" class="form-control"></textarea>
+                      </div>
+                      {{-- Conclusion --}}
+                      <div class="col-md-12">
+                        <label for="conclusion">Conclusion</label>
+                        <textarea rows="3" name="conclusion" class="form-control"></textarea>
                       </div>
 
                       <div class="row" style="padding-top: 20px;">
                          <div class="col-md-12">
-                          
-                        <input type="submit" value="submit" class="btn btn-md btn-primary"
-                         style="width: 200px;text-align: center;">
+                          <input type="submit" value="save" class="btn btn-md btn-primary"
+                           style="width: 200px;text-align: center;">
                         </div>
                       </div>
 

@@ -20,8 +20,9 @@ Route::post('/verification-store', 'Frontend\CheckoutController@storeVerificatio
 
 //About us and contact us
 Route::get('/about-us', 'Frontend\FrontendController@aboutUs')->name('about.us');
-Route::get('/contact-us', 'Frontend\FrontendController@contactUs')->name('contact.us');
-Route::post('/contact-store', 'Frontend\FrontendController@storeContact')->name('contact.store');
+
+Route::get('/contact-us', 'Frontend\CustomerContactController@contactUs')->name('contact.us');
+Route::post('/contact-store', 'Frontend\CustomerContactController@contactStore')->name('contact.store');
 
 
 
@@ -94,16 +95,16 @@ Route::group(['middleware'=> ['auth','customer']], function(){
 	//Home page (Location, location details, category view)
 	Route::get('/location-list', 'Frontend\FrontendController@locationList')->name('locations.list');
 	Route::get('/location-category/{category_id}', 'Frontend\FrontendController@categoryWiseLocationList')
-				->name('category.wise.location');
+					->name('category.wise.location');
+	Route::get('/location-details/{slug}', 'Frontend\FrontendController@locationDetails')
+					->name('location.details.info');
 
-	Route::get('/location-details/{slug}', 'Frontend\FrontendController@locationDetails')->name('location.details.info');
-
-	//Tour event
+	//Tour event----------------------------------------------------------------------------
 	//Navbar menu
 	Route::get('/tour-event', 'Frontend\FrontendController@tourEvent')->name('tour.events');
 
 	Route::get('/tour-event-details/{slug}', 'Frontend\FrontendController@tourEventDetails')
-				->name('tour.event.details');
+					->name('tour.event.details');
 
 });
 
@@ -173,8 +174,14 @@ Route::group(['middleware'=>['auth','admin'] ], function(){
 		Route::get('/edit/{id}','Backend\ContactController@edit')->name('contacts.edit');
 		Route::post('/update/{id}','Backend\ContactController@update')->name('contacts.update');
 		Route::get('/delete/{id}','Backend\ContactController@delete')->name('contacts.delete');
+		//Communicate customer
 		Route::get('/view/communicate','Backend\ContactController@viewCommunicate')->name('contacts.communicate');
-		Route::get('/delete/communicate/{id}','Backend\ContactController@deleteCommunicate')->name('communicates.delete');
+
+		Route::get('/reply/communicate','Backend\ContactController@replyCommunicate')
+					->name('communicates.reply');
+
+		Route::get('/delete/communicate/{id}','Backend\ContactController@deleteCommunicate')
+					->name('communicates.delete');
 	});
 
 	//About us routes

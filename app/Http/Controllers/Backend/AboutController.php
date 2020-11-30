@@ -29,7 +29,11 @@ class AboutController extends Controller
 
     	$data= new About();
 
-    	$data->description= $request->description;
+    	$data->introduction= $request->introduction;
+        $data->service= $request->service;
+        $data->instruction= $request->instruction;
+        $data->enjoy= $request->enjoy;
+        $data->conclusion= $request->conclusion;
         $data->created_by= Auth::user()->id;
 
     	// return response()->json($data);
@@ -53,7 +57,11 @@ class AboutController extends Controller
 
     	$data= About:: find($id);
 
-    	$data->description= $request->description;
+    	$data->introduction= $request->introduction;
+        $data->service= $request->service;
+        $data->instruction= $request->instruction;
+        $data->enjoy= $request->enjoy;
+        $data->conclusion= $request->conclusion;
 
     	$data->updated_by= Auth::user()->id;
 
@@ -69,6 +77,6 @@ class AboutController extends Controller
 
     	$about->delete(); 
 
-    	return redirect()->route('abouts.view')->with('success', 'Slider deleted successfully');
+    	return redirect()->route('abouts.view')->with('success', 'Data deleted successfully');
     }
 }

@@ -47,7 +47,7 @@
               </div><!-- /.card-header -->
 
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-hover" style="text-align: center;">
+                <table  class="table table-bordered table-hover table-responsive" style="text-align: center;">
                       <thead>
                         <tr>
                           <th>SL.</th>
@@ -79,7 +79,7 @@
                         <td>
                           <a title="Edit" class="btn btn-sm btn-info"
                            href="{{ route('contacts.edit', $contact->id) }}">
-                          <i class="fa fa-edit"></i></a>
+                          <i class="fa fa-edit"></i></a><br><br>
                           
                           <a title="Delete" id="delete" class="btn btn-sm btn-danger"
                            href="{{ route('contacts.delete', $contact->id) }}">

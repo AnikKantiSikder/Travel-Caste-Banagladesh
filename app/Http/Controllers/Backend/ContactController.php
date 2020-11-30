@@ -92,6 +92,12 @@ class ContactController extends Controller
         return view('Backend.Contact.view_communicate', compact('allData'));
     }
 
+    //Reply customer communicate(messsage)
+    public function replyCommunicate(){
+
+        return view('Backend.Contact.add_reply');
+    }
+
     //Delete user communicate
     public function deleteCommunicate($id){
 

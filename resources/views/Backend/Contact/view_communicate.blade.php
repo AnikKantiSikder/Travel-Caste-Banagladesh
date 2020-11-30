@@ -2,6 +2,11 @@
 @extends('Backend.Layouts.master')
 
 @section('content')
+<style type="text/css">
+  .btn{
+    width: 10vh;
+  }
+</style>
 <!-- Main contents starts here -->
 
   <!-- Content Wrapper. Contains page content -->
@@ -39,7 +44,7 @@
               </div><!-- /.card-header -->
 
               <div class="card-body">
-                <table id="datatable" class="table table-bordered table-striped" style="text-align: center;">
+                <table id="datatable" class="table table-bordered table-striped table-responsive" style="text-align: center;">
                       <thead>
                         <tr>
                           <th>SL.</th>
@@ -67,12 +72,10 @@
 
                         <td>
                           <a title="Edit" class="btn btn-sm btn-info"
-                           href="{{-- {{ route('contacts.edit', $communicate->id) }} --}}">
-                          <i class="fa fa-edit"></i></a>
+                           href="{{ route('communicates.reply') }}">Reply</a><br><br>
                           
                           <a title="Delete" id="delete" class="btn btn-sm btn-danger"
-                           href="{{ route('communicates.delete', $communicate->id) }}">
-                          <i class="fa fa-trash"></i></a>
+                           href="{{ route('communicates.delete', $communicate->id) }}">Delete</a>
                         </td>
                       </tr>
                       @endforeach

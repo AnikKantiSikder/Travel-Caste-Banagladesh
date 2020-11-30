@@ -110,30 +110,16 @@ class FrontendController extends Controller
         return view('Frontend.Tourevent.tour_events_details',$data);
     }
 
-
-
-
-
-
-
-
-
-
-    //Contact us
-    public function contactUs(){
-        $data['logo']= Logo::first();
-        $data['contact']= Contact::first();
-        $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
-        return view('Frontend.SinglePages.contact_us', $data);
-    }
-
     //About us
     public function aboutUs(){
         $data['logo']= Logo::first();
         $data['contact']= Contact::first();
-        $data['aboutUs']= About::first();
         $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
-        return view('Frontend.SinglePages.about_us', $data);
+
+        $data['aboutData']= About::all();
+        // $aboutData= About::all();
+
+        return view('Frontend.Aboutus.about_us', $data);
     }
 
 

@@ -47,11 +47,15 @@
               </div><!-- /.card-header -->
 
               <div class="card-body">
-                <table id="datatable" class="table table-bordered table-striped" style="text-align: center;">
+                <table id="datatable" class="table table-bordered table-striped table-responsive" style="text-align: center;">
                       <thead>
                         <tr>
                           <th>SL.</th>
-                          <th>Description</th>
+                          <th>Introduction</th>
+                          <th>Service</th>
+                          <th>Instruction</th>
+                          <th>Enjoy</th>
+                          <th>Conclusion</th>
                           <th>Action</th>
                         </tr>
                       </thead>
@@ -62,7 +66,11 @@
                       <tr>
                         <td> {{$key+1}} </td>
 
-                        <td style="text-align: justify;">{{$about->description}}</td>
+                        <td style="text-align: justify;">{{$about->introduction}}</td>
+                        <td style="text-align: justify;">{{$about->service}}</td>
+                        <td style="text-align: justify;">{{$about->instruction}}</td>
+                        <td style="text-align: justify;">{{$about->enjoy}}</td>
+                        <td style="text-align: justify;">{{$about->conclusion}}</td>
 
 
                         <td>

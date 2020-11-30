@@ -52,12 +52,39 @@
 
                     <div class="row">
 
-                      
-
+                      {{-- Introduction --}}
                       <div class="col-md-12">
-                        <label for="description">Description</label>
-                        <textarea rows="6" name="description" class="form-control">
-                          {{$editAboutData->description}}
+                        <label for="introduction">Introduction</label>
+                        <textarea rows="3" name="introduction" class="form-control">
+                          {{$editAboutData->introduction}}
+                        </textarea>
+                      </div>
+                      {{-- Services --}}
+                      <div class="col-md-12">
+                        <label for="service">Service</label>
+                        <textarea rows="3" name="service" class="form-control">
+                          {{$editAboutData->service}}
+                        </textarea>
+                      </div>
+                      {{-- Instruction --}}
+                      <div class="col-md-12">
+                        <label for="instruction">Instruction</label>
+                        <textarea rows="3" name="instruction" class="form-control">
+                          {{$editAboutData->instruction}}
+                        </textarea>
+                      </div>
+                      {{-- Enjoy --}}
+                      <div class="col-md-12">
+                        <label for="enjoy">Enjoy</label>
+                        <textarea rows="3" name="enjoy" class="form-control">
+                          {{$editAboutData->enjoy}}
+                        </textarea>
+                      </div>
+                      {{-- Conclusion --}}
+                      <div class="col-md-12">
+                        <label for="conclusion">Conclusion</label>
+                        <textarea rows="3" name="conclusion" class="form-control">
+                          {{$editAboutData->conclusion}}
                         </textarea>
                       </div>
 
@@ -68,8 +95,6 @@
                          style="width: 200px;text-align: center;">
                         </div>
                       </div>
-
-
                       
                     </div> 
                   </form>
