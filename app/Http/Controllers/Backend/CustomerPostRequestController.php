@@ -9,10 +9,12 @@ use Auth;
 use Mail;
 use App\User;
 use App\Model\Location;
+use App\Model\Event;
 use App\Model\Category;
 use App\Model\Division;
 use App\Model\LocationCategory;
 use App\Model\LocationSubImage;
+use App\Model\EventSubImage;
 use App\Http\Requests\LocationRequest;
 
 class CustomerPostRequestController extends Controller
@@ -53,8 +55,10 @@ class CustomerPostRequestController extends Controller
     //Delete customer post
     public function deletePost($id){
 
-        $deletePost= Location::find($request->id);
+        $deletePost= Location::find($id);
         $deletePost->delete();
     	return redirect()->route('posts.pending.list')->with('success', 'Post deleted successfully');
     }
+
+
 }

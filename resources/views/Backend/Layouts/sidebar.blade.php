@@ -257,7 +257,7 @@ $route= Route:: current()->getName();
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Manage customer post
+                Manage post request
                 <i class="fas fa-angle-left right"></i>
                 {{-- <span class="badge badge-info right">6</span> --}}
               </p>
@@ -276,10 +276,33 @@ $route= Route:: current()->getName();
                   <p>Approved posts</p>
                 </a>
               </li>
+              <li class="nav-item"> <br><br> </li>
+
+            </ul>
+          </li>
+
+          <!--Manage customer event request-->
+          <li class="nav-item has-treeview {{($prefix=='/customersevent')?'menu-open':''}}">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Manage event request
+                <i class="fas fa-angle-left right"></i>
+                {{-- <span class="badge badge-info right">6</span> --}}
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+
               <li class="nav-item">
-                <a href="{{ route('posts.approved.list') }}" class="nav-link {{($route=='posts.approved.list')?'active':''}}">
+                <a href="{{ route('events.pending.list') }}" class="nav-link {{($route=='events.pending.list')?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Pending edited posts</p>
+                  <p>Pending events</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('events.approved.list') }}" class="nav-link {{($route=='events.approved.list')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Approved events</p>
                 </a>
               </li>
               <li class="nav-item"> <br><br> </li>

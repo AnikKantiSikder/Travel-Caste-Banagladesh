@@ -259,7 +259,26 @@ Route::group(['middleware'=>['auth','admin'] ], function(){
 
         Route::get('/delete/{id}','Backend\CustomerPostRequestController@deletePost')
         		->name('posts.delete');
+	});
 
+	//Manage customer post request routes
+	Route::prefix('customersevent')->group(function(){
+
+        //Event requests
+        Route::get('/pending/list','Backend\CustomerEventRequestController@pendingEventList')
+				->name('events.pending.list');	
+
+		Route::get('/approved/list','Backend\CustomerEventRequestController@approvedEventList')
+				->name('events.approved.list');
+
+		Route::get('/details/{id}','Backend\CustomerEventRequestController@details')
+        		->name('events.details');
+
+        Route::get('/approve/{id}','Backend\CustomerEventRequestController@approveEvent')
+        		->name('events.approve');
+
+        Route::get('/delete/{id}','Backend\CustomerEventRequestController@deleteEvent')
+        		->name('events.delete');
 	});
 
 
