@@ -110,16 +110,17 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="profile-img">
-                            <img src="{{asset('public/Frontend/image/a.jpg')}}" alt=""/>
+                            <img src="{{(!empty($userData->image))?url('public/Upload/User_images/'.$userData->image):url('public/Upload/no_image.png') }}"
+                    style="height: 160px; width: 180px; border: 1px solid #000;" alt=""/>
                         </div>
                     </div>
                     <div class="col-md-7">
                         <div class="profile-head">
                             <h5>
-                                Anik kanti sikder
+                                {{$userData->name}}
                             </h5>
                             <h6>
-                                Travel lover and blogger
+                                {{$userData->bio}}
                             </h6><br><br>
                             <h3><b>Create event</b></h3>
                             <br>

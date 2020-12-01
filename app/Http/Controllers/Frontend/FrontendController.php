@@ -15,10 +15,10 @@ use App\Model\Hotel;
 use App\Model\LocationSubImage;
 use App\Model\Event;
 use App\Model\EventSubImage;
+use App\Model\Communicate;
 use DB;
 use Auth;
 use Mail;
-
 class FrontendController extends Controller
 {
     //All home page contents(logo,slider,contact us,about us,home page locations.tour events)
@@ -30,7 +30,8 @@ class FrontendController extends Controller
         $data['categories']= Location::select('category_id')->groupBy('category_id')->get();
         $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
         $data['locations']= Location::where('approval','1')->orderBy('id','desc')->paginate(6);
-        $data['events']= Event::where('approval','1')->orderBy('id','desc')->paginate(2);
+        $data['eventsData']= Event::where('approval','1')->orderBy('created_at','desc')->paginate(2);
+
 
 
     	return view('Frontend.Layouts.home',$data);
@@ -112,14 +113,15 @@ class FrontendController extends Controller
 
     //About us
     public function aboutUs(){
-        $data['logo']= Logo::first();
-        $data['contact']= Contact::first();
-        $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
+        $logo= Logo::first();
+        $contact= Contact::first();
+        $divisions= Location::select('division_id')->groupBy('division_id')->get();
 
-        $data['aboutData']= About::all();
-        // $aboutData= About::all();
+        
+         $aboutUs= About::first();
 
-        return view('Frontend.Aboutus.about_us', $data);
+
+        return view('Frontend.Aboutus.about_us',compact('logo','contact','divisions','aboutUs'));
     }
 
 

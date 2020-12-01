@@ -83,7 +83,7 @@ Route::group(['middleware'=> ['auth','customer']], function(){
 		Route::post('/update-event/{id}','Frontend\CustomerEventController@updateEvent')
 					->name('customer.update.event');
 
-		Route::get('/delete-post/{id}','Frontend\CustomerEventController@deleteEvent')
+		Route::get('/delete-event/{id}','Frontend\CustomerEventController@deleteEvent')
 					->name('customer.delete.event');
 
 	});
@@ -268,7 +268,7 @@ Route::group(['middleware'=>['auth','admin'] ], function(){
         		->name('posts.delete');
 	});
 
-	//Manage customer post request routes
+	//Manage customer event request routes
 	Route::prefix('customersevent')->group(function(){
 
         //Event requests

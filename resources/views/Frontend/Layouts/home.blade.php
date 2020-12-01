@@ -47,8 +47,18 @@
         height: 15vh;
         width: 100%;
       }
+      .card{
+      filter: grayscale(50%);
+      transition: 1s;
+      }
+      .card:hover{
+        filter: grayscale(0);
+        transform: scale(1.1);
+        background-color: #fff407;
+      }
     </style>
-    <br><br>
+    <br><br>  
+    {{--  #0ffae2  ffc707--}}
 
   <section class="notice">
       <div class="container">
@@ -152,7 +162,7 @@
      <div class="jumbotron text-center ">
         <div class="container">
             <div class="row">
-              @foreach ($events as $allEventData)
+              @foreach ($eventsData as $allEventData)
 
               <div class="col-md-6 homeEvent">
                 <div class="row">

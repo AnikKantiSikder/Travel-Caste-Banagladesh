@@ -5,6 +5,21 @@
 <style type="text/css">
   .container{
     padding-top: 20px;
+    height: auto;
+  }
+
+  .postSection{
+    margin-bottom: 50vh;
+  }
+
+  .card{
+    filter: grayscale(50%);
+    transition: 1s;
+  }
+  .card:hover{
+    filter: grayscale(0);
+    transform: scale(1.1);
+    background-color: #60dee0 ;
   }
 </style>
 
@@ -13,7 +28,7 @@
             <div class="row">
                 <div class=" col-md-10 mx-auto">
                    <h2>
-                     
+                     <h2>Apurva sikder</h2>
                    </h2>
                   <br><br>
                 </div>
@@ -24,53 +39,43 @@
                     My profile
                   </a>
                 </div>
-            </div><br>
+            </div><hr><br>
 
-                    <table id="example1" class="table table-bordered table-hover" style="text-align: center;">
-                      <thead>
-                        <tr>
-                          <th>SL.</th>
-                          <th>Location name</th>
-                          <th>Category</th>
-                          <th>Image</th>
-                          <th>Action</th>
-                        </tr>
-                      </thead>
+            {{-- View personal posts --}}
 
-                      <tbody>
+            <div class="row postSection">
+              @foreach ($allData as $key=> $customerPostData)
+              <div class="col-md-6">
+                <div class="card">
+                    <img class="card-img-top" src="{{(!empty($customerPostData->image))?url('public/Upload/Location_images/'.$customerPostData->image):
+                         url('public/Upload/no_image.png') }}" alt="Card image cap"style="height: 250px;">
+                    <div class="card-body">
+                      <h5 class="card-title"><b>{{$customerPostData->location_name}}</b></h5>
+                      <p class="card-text">{{str_limit($customerPostData->description)}}</p>
+                    </div>
+                    <div class="card-footer">
+                      <a title="Details" class="btn btn-success"
+                      href="{{ route('location.details.info',$customerPostData->slug) }}">
+                      <i class="fa fa-eye"></i></a>
 
-                      @foreach ($allData as $key=> $customerPostData)
-                      <tr>
-                        <td> {{$key+1}} </td>
+                      <a title="Edit" class="btn btn-primary"
+                      href="{{ route('customer.edit.post', $customerPostData->id) }}">
+                      <i class="fa fa-edit"></i></a>
 
-                        <td style="text-align: center;">{{$customerPostData->location_name}}</td>
-                        <td style="text-align: center;">{{$customerPostData['category']['name'] }}</td>
-                        <td>
-                         <img src="{{(!empty($customerPostData->image))?url('public/Upload/Location_images/'.$customerPostData->image):
-                         url('public/Upload/no_image.png') }}"
-                         style="height: 60px; width: 100px; border: 1px solid #000;" alt="User profile picture">
-                        </td>
+                      <a title="Delete" id="delete" class="btn btn-danger"
+                      href="{{ route('customer.delete.post', $customerPostData->id) }}">
+                      <i class="fa fa-trash"></i></a>
+                    </div>
+                </div>
+              </div>
+              @endforeach
+           </div>
 
-                        <td>
-                          <a title="Details" class="btn btn-sm btn-success"
-                           href="{{ route('location.details.info',$customerPostData->slug) }}">
-                          <i class="fa fa-eye"></i></a>
 
-                          <a title="Edit" class="btn btn-sm btn-info"
-                           href="{{ route('customer.edit.post', $customerPostData->id) }}">
-                          <i class="fa fa-edit"></i></a>
-                          
-                          <a title="Delete" id="delete" class="btn btn-sm btn-danger"
-                           href="{{ route('customer.delete.post', $customerPostData->id) }}">
-                          <i class="fa fa-trash"></i></a>
-                        </td>
-                      </tr>
-                      @endforeach
 
-                    </tbody>
 
-                </table>
-            
+
+
       </div>
   </section>
 

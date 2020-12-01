@@ -118,7 +118,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-5">
             <div class="profile-head">
                 <h5>
                     {{$userData->name}}
@@ -130,15 +130,20 @@
                 <br>
             </div>
         </div>
+        <div class="col-md-2">
+            <a class="btn btn-secondary btn-sm float-right" href="{{ route('posts.view')}}">
+                <i class="fa fa-user"></i>
+                My posts
+            </a>
+        </div>
 
         {{-- Edit your profile --}}
         <div class="col-md-2">
 
-            <a class="btn btn-secondary btn-sm float-right" href="{{ route('customerprofiles.view')}}">
+            <a class="btn btn-secondary btn-sm float-left" href="{{ route('customerprofiles.view')}}">
                 <i class="fa fa-user"></i>
                 My profile
             </a>
-
         </div>
 
     </div>

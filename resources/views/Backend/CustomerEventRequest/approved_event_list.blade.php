@@ -81,7 +81,7 @@
                         <tr>
                           <th>Sl.</th>
                           <th>Event name</th>
-                          <th>Division</th>
+                          <th>Date</th>
                           <th>Image</th>
                           <th>Action</th>
                         </tr>
@@ -93,7 +93,7 @@
                       <tr>
                         <td>{{$key+1}}</td>
                         <td>{{$event->event_name}}</td>
-                        <td>{{$event['division']['name'] }}</td>
+                        <td>{{$event->event_date }}</td>
                         <td>
                             <img src="{{(!empty($event->image))?url('public/Upload/Event_images/'.$event->image):
                            url('public/Upload/no_image.png') }}"

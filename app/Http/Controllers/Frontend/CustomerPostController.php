@@ -107,7 +107,7 @@ class CustomerPostController extends Controller
         });
         
 
-        return redirect()->route('posts.view')->with('success','Data added successfully');
+        return redirect()->route('posts.view')->with('success','Post added successfully.Please wait for admin approval');
     }
 
     //Customer edit post------------------------------------------------

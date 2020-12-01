@@ -102,6 +102,15 @@
     font-weight: 600;
     color: #0062cc;
 }
+  .timeline{
+    filter: grayscale(50%);
+    transition: 1s;
+  }
+  .timeline:hover{
+    filter: grayscale(0);
+    transform: scale(1.1);
+    background-color: #15199c; 
+  }
 </style>
 
 <div class="container emp-profile">
@@ -243,7 +252,7 @@
                                         </span>
                                     </div>
                                     <div class="col-md-3">
-                                        <a class="btn btn-success" href="{{ route('posts.view') }}" style="width: 20vh;">
+                                        <a class="btn btn-success timeline" href="{{ route('posts.view') }}" style="width: 20vh;">
                                         View your posts</a>
                                     </div>
                                 </div><br>
@@ -258,7 +267,7 @@
                                         </span>
                                     </div>
                                     <div class="col-md-3">
-                                        <a class="btn btn-success" href="{{ route('events.view') }}" style="width: 20vh;">
+                                        <a class="btn btn-success timeline" href="{{ route('events.view') }}" style="width: 20vh;">
                                         View your events</a>
                                     </div>
                                 </div>
