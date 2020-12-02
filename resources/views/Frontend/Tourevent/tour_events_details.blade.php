@@ -18,7 +18,11 @@
 <div class="container" style="padding-top:50px;padding-bottom: 300px;">
     <div class="row">
 		<div class="col-md-6">
-
+		   <h4><b>Organized by:</b>
+		   	<a title="View profile" href="{{ route('blogger.profile.view',$eventBy->id) }}">
+		   		{{$eventBy->name}}
+		   	</a>
+		   </h4>
 		   <h4><b>Location type:</b> {{$event['category']['name']}}</h4>
 		   <h4><b>Division:</b> {{$event['division']['name']}}</h4>
 		   <h4><b>Date:</b> {{$event->event_date}}</h4>

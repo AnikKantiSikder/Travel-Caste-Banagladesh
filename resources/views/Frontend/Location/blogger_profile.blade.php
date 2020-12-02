@@ -118,17 +118,17 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="profile-img">
-                            <img src="{{(!empty($userData->image))?url('public/Upload/User_images/'.$userData->image):url('public/Upload/no_image.png') }}"
+                            <img src="{{(!empty($bloggerData->image))?url('public/Upload/User_images/'.$bloggerData->image):url('public/Upload/no_image.png') }}"
                             style="height: 160px; width: 180px; border: 1px solid #000;" alt=""/>
                         </div>
                     </div>
                     <div class="col-md-7">
                         <div class="profile-head">
                                     <h5>
-                                        {{$userData->name}}
+                                        {{$bloggerData->name}}
                                     </h5>
                                     <h6>
-                                        {{$userData->bio}}
+                                        {{$bloggerData->bio}}
                                     </h6><br><br>
                                     {{-- <p class="proile-rating">RANKINGS : <span>8/10</span></p> --}}
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -138,32 +138,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="btn btn primary"
-                                    href="{{ route('customer.add.post') }}" role="tab" aria-controls="profile" aria-selected="false">Share experience</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="btn"
-                                    href="{{ route('customer.create.event') }}" role="tab" aria-controls="profile" aria-selected="false">Create event</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="btn"
-                                    href="{{ route('customer.change.password') }}" role="tab" aria-controls="profile" aria-selected="false">Change password</a>
-                                </li>
+                                
                             </ul>
                         </div>
-                    </div>
-
-                {{-- Edit your profile --}}
-                    <div class="col-md-2">
-
-                  <a class="btn btn-secondary btn-sm float-right" href="{{ route('customerprofiles.edit')}}">
-                    <i class="fa fa-user"></i>
-                    Edit profile
-                  </a>
-
-                         {{-- class="profile-edit-btn" --}}
-
                     </div>
                 </div>
 
@@ -172,13 +149,13 @@
                         <div class="profile-work">
 
                             <p style="color: green;"><b>WORK LINK</b></p>
-                            <a href="{{$userData->facebook}}" target="_black">Facebook</a><br/>
-                            <a href="{{$userData->instagram}}" target="_blank">Instagram</a><br/>
-                            <a href="{{$userData->youtube}}" target="_blank">Youtube</a>
+                            <a href="{{$bloggerData->facebook}}" target="_black">Facebook</a><br/>
+                            <a href="{{$bloggerData->instagram}}" target="_blank">Instagram</a><br/>
+                            <a href="{{$bloggerData->youtube}}" target="_blank">Youtube</a>
                             <br>
 
                             <p style="color: green;"><b>SKILLS</b></p>
-                            <p style="text-align: left;font-size: 14px;">{{$userData->skill}}</p>
+                            <p style="text-align: left;font-size: 14px;">{{$bloggerData->skill}}</p>
 
                         </div>
                     </div>
@@ -191,7 +168,7 @@
                                                 <label>Name</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <p>{{$userData->name}}</p>
+                                                <p>{{$bloggerData->name}}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -199,7 +176,7 @@
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <p>{{$userData->email}}</p>
+                                                <p>{{$bloggerData->email}}</p>
                                             </div>
                                         </div>
                                         
@@ -208,7 +185,7 @@
                                                 <label>Phone</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <p>{{$userData->mobile}}</p>
+                                                <p>{{$bloggerData->mobile}}</p>
                                             </div>
                                         </div>
 
@@ -217,7 +194,7 @@
                                                 <label>Address</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <p>{{$userData->address}}</p>
+                                                <p>{{$bloggerData->address}}</p>
                                             </div>
                                         </div>
 
@@ -226,7 +203,7 @@
                                                 <label>Profession</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <p>{{$userData->profession}}</p>
+                                                <p>{{$bloggerData->profession}}</p>
                                             </div>
                                         </div>
                                         
@@ -252,8 +229,10 @@
                                         </span>
                                     </div>
                                     <div class="col-md-3">
-                                        <a class="btn btn-success timeline" href="{{ route('posts.view') }}" style="width: 20vh;">
-                                        View your posts</a>
+                                        <a class="btn btn-success timeline"
+                                            href="{{ route('blogger.posts.view',$bloggerData->id) }}"
+                                            style="width: 20vh;">
+                                        Posts</a>
                                     </div>
                                 </div><br>
                                 {{-- Customer's events --}}
@@ -267,8 +246,9 @@
                                         </span>
                                     </div>
                                     <div class="col-md-3">
-                                        <a class="btn btn-success timeline" href="{{ route('events.view') }}" style="width: 20vh;">
-                                        View your events</a>
+                                        <a class="btn btn-success timeline"
+                                            href="{{ route('blogger.events.view',$bloggerData->id) }}" style="width: 20vh;">
+                                        Events</a>
                                     </div>
                                 </div>
                             {{-- See all posts of customer --}}
@@ -276,7 +256,7 @@
                                   <div class="col-md-12">
                                       <label>About yourself</label><br/>
                                       <p style="text-align: justify;">
-                                            {{$userData->about}}        
+                                            {{$bloggerData->about}}        
                                         </p>
                                   </div>
                               </div>

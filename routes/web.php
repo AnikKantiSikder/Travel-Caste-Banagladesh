@@ -99,6 +99,14 @@ Route::group(['middleware'=> ['auth','customer']], function(){
 	Route::get('/location-details/{slug}', 'Frontend\FrontendController@locationDetails')
 					->name('location.details.info');
 
+	//View blogger's profile(Who has an account on the site and shared experiences)
+	Route::get('/blogger-profile/{id}', 'Frontend\FrontendController@bloggerProfile')
+					->name('blogger.profile.view');
+	Route::get('/blogger-posts/{id}', 'Frontend\FrontendController@bloggerPosts')
+					->name('blogger.posts.view');
+	Route::get('/blogger-events/{id}', 'Frontend\FrontendController@bloggerEvents')
+					->name('blogger.events.view');
+
 	//Tour event----------------------------------------------------------------------------
 	//Navbar menu
 	Route::get('/tour-event', 'Frontend\FrontendController@tourEvent')->name('tour.events');

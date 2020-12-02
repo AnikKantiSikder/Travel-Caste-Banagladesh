@@ -95,6 +95,7 @@ class CustomerProfileController extends Controller
     public function changeCustomerPassword(){
         $data['logo']= Logo::first();
         $data['contact']= Contact::first();
+        $data['userData']= Auth::user();
         $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
 
         return view('Frontend.Customerprofile.customer_edit_passwprd',$data);

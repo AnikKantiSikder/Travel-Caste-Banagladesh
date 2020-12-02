@@ -15,9 +15,9 @@ $route= Route:: current()->getName();
         <!-- Manage user -->
           <li class="nav-item has-treeview {{($prefix=='/users')?'menu-open':''}}">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-user"></i>
               <p>
-                Manage user
+                User
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -25,7 +25,7 @@ $route= Route:: current()->getName();
               <li class="nav-item">
                 <a href="{{ route('users.view') }}" class="nav-link {{($route=='users.view')?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View user</p>
+                  <p>View</p>
                 </a>
               </li>
 
@@ -36,9 +36,9 @@ $route= Route:: current()->getName();
         <!-- Manage profile -->
           <li class="nav-item has-treeview {{($prefix=='/profiles')?'menu-open':''}}">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-user-circle"></i>
               <p>
-                Manage profile
+                Profile
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -46,7 +46,7 @@ $route= Route:: current()->getName();
               <li class="nav-item">
                 <a href="{{ route('profiles.view')}}" class="nav-link {{($route=='profiles.view')?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View profile</p>
+                  <p>View</p>
                 </a>
                 <a href="{{ route('profiles.password.change') }}" class="nav-link {{($route=='profiles.password.change')?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
@@ -60,9 +60,9 @@ $route= Route:: current()->getName();
         <!-- Manage logo -->
           <li class="nav-item has-treeview {{($prefix=='/logos')?'menu-open':''}}">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-copyright"></i>
               <p>
-                Manage logo
+                Logo
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -70,7 +70,7 @@ $route= Route:: current()->getName();
               <li class="nav-item">
                 <a href="{{ route('logos.view') }}" class="nav-link {{($route=='logos.view')?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View logo</p>
+                  <p>View</p>
                 </a>
               </li>
 
@@ -79,9 +79,9 @@ $route= Route:: current()->getName();
         <!-- Manage slider -->
           <li class="nav-item has-treeview {{($prefix=='/sliders')?'menu-open':''}}">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-sliders-h"></i>
               <p>
-                Manage slider
+                Slider
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -89,7 +89,7 @@ $route= Route:: current()->getName();
               <li class="nav-item">
                 <a href="{{ route('sliders.view') }}" class="nav-link {{($route=='sliders.view')?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View slider</p>
+                  <p>View</p>
                 </a>
               </li>
             </ul>
@@ -97,9 +97,9 @@ $route= Route:: current()->getName();
         <!-- Manage contact -->
           <li class="nav-item has-treeview {{($prefix=='/contacts')?'menu-open':''}}">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-address-book"></i>
               <p>
-                Manage contact
+                Contact
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -107,7 +107,7 @@ $route= Route:: current()->getName();
               <li class="nav-item">
                 <a href="{{ route('contacts.view') }}" class="nav-link {{($route=='contacts.view')?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View contact</p>
+                  <p>View</p>
                 </a>
                 <a href="{{ route('contacts.communicate') }}"
                 class="nav-link {{($route=='contacts.communicate')?'active':''}}">
@@ -121,9 +121,9 @@ $route= Route:: current()->getName();
         <!-- Manage about us -->
           <li class="nav-item has-treeview {{($prefix=='/abouts')?'menu-open':''}}">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-address-card"></i>
               <p>
-                Manage abouts
+                About
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -131,7 +131,7 @@ $route= Route:: current()->getName();
               <li class="nav-item">
                 <a href="{{ route('abouts.view') }}" class="nav-link {{($route=='abouts.view')?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View abouts</p>
+                  <p>View</p>
                 </a>
               </li>
 
@@ -141,9 +141,9 @@ $route= Route:: current()->getName();
           <!-- Manage division -->
           <li class="nav-item has-treeview {{($prefix=='/divisions.view')?'menu-open':''}}">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-flag"></i>
               <p>
-                Manage division
+                Division
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -152,7 +152,7 @@ $route= Route:: current()->getName();
                 <a href="{{ route('divisions.view') }}"
                 class="nav-link {{($route=='divisions.view')?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View division</p>
+                  <p>View</p>
                 </a>
               </li>
 
@@ -162,9 +162,9 @@ $route= Route:: current()->getName();
         <!-- Manage category -->
           <li class="nav-item has-treeview {{($prefix=='/categories.view')?'menu-open':''}}">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-list-alt"></i>
               <p>
-                Manage category
+                Category
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -173,7 +173,7 @@ $route= Route:: current()->getName();
                 <a href="{{ route('categories.view') }}"
                 class="nav-link {{($route=='categories.view')?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View category</p>
+                  <p>View</p>
                 </a>
               </li>
 
@@ -183,9 +183,9 @@ $route= Route:: current()->getName();
         <!-- Manage hotel -->
           <li class="nav-item has-treeview {{($prefix=='/hotels.view')?'menu-open':''}}">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-hotel"></i>
               <p>
-                Manage hotel
+                Hotel
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -194,7 +194,7 @@ $route= Route:: current()->getName();
                 <a href="{{ route('hotels.view') }}"
                 class="nav-link {{($route=='hotels.view')?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View hotels</p>
+                  <p>View</p>
                 </a>
               </li>
 
@@ -204,9 +204,9 @@ $route= Route:: current()->getName();
         <!-- Manage location -->
           <li class="nav-item has-treeview {{($prefix=='/locations.view')?'menu-open':''}}">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-map-marker-alt"></i>
               <p>
-                Manage location
+                Location
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -215,7 +215,7 @@ $route= Route:: current()->getName();
                 <a href="{{ route('locations.view') }}"
                 class="nav-link {{($route=='locations.view')?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View locations</p>
+                  <p>View</p>
                 </a>
               </li>
 
@@ -225,9 +225,9 @@ $route= Route:: current()->getName();
         <!--Manage customer-->
           <li class="nav-item has-treeview {{($prefix=='/customers')?'menu-open':''}}">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-users"></i>
               <p>
-                Manage customer
+                Customer
                 <i class="fas fa-angle-left right"></i>
                 {{-- <span class="badge badge-info right">6</span> --}}
               </p>
@@ -237,13 +237,13 @@ $route= Route:: current()->getName();
               <li class="nav-item">
                 <a href="{{ route('customers.view') }}" class="nav-link {{($route=='customers.view')?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View customer</p>
+                  <p>View</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('customers.draft.view') }}" class="nav-link {{($route=='customers.draft.view')?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Draft customer</p>
+                  <p>Draft</p>
                 </a>
               </li>
               
@@ -255,9 +255,9 @@ $route= Route:: current()->getName();
       <!--Manage customer post request-->
           <li class="nav-item has-treeview {{($prefix=='/customerspost')?'menu-open':''}}">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-clipboard-list"></i>
               <p>
-                Manage post request
+                Post request
                 <i class="fas fa-angle-left right"></i>
                 {{-- <span class="badge badge-info right">6</span> --}}
               </p>
@@ -276,7 +276,6 @@ $route= Route:: current()->getName();
                   <p>Approved posts</p>
                 </a>
               </li>
-              <li class="nav-item"> <br><br> </li>
 
             </ul>
           </li>
@@ -284,9 +283,9 @@ $route= Route:: current()->getName();
           <!--Manage customer event request-->
           <li class="nav-item has-treeview {{($prefix=='/customersevent')?'menu-open':''}}">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-calendar-alt"></i>
               <p>
-                Manage event request
+                Event request
                 <i class="fas fa-angle-left right"></i>
                 {{-- <span class="badge badge-info right">6</span> --}}
               </p>

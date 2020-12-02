@@ -9,6 +9,15 @@
     .section-heading{
       margin-top: 30px;
     }
+    .card{
+      filter: grayscale(50%);
+      transition: 1s;
+      }
+      .card:hover{
+        filter: grayscale(0);
+        transform: scale(1.1);
+        background-color: #fff407;
+      }
 </style>
 
 

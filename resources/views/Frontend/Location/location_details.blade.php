@@ -13,7 +13,18 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 txt-center anik">
-					<h2>{{$location->location_name}}</h2><hr>
+					<h2>{{$location->location_name}}</h2>
+					<hr>
+				</div>
+			</div>
+			<div class="row txt-right">
+				<div class="col-md-12">
+					<h5>Posted by:
+						<a title="See profile"
+							href="{{ route('blogger.profile.view',$postedBy->id) }}">
+								<b>{{$postedBy->name}}</b>
+						</a>
+					</h5>
 				</div>
 			</div>
 		</div>

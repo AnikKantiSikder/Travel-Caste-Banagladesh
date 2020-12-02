@@ -16,6 +16,7 @@ use App\Model\LocationSubImage;
 use App\Model\Event;
 use App\Model\EventSubImage;
 use App\Model\Communicate;
+use App\User;
 use DB;
 use Auth;
 use Mail;
@@ -29,7 +30,7 @@ class FrontendController extends Controller
         $data['contact']= Contact::first();
         $data['categories']= Location::select('category_id')->groupBy('category_id')->get();
         $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
-        $data['locations']= Location::where('approval','1')->orderBy('id','desc')->paginate(6);
+        $data['locations']= Location::where('approval','1')->orderBy('id','desc')->paginate(9);
         $data['eventsData']= Event::where('approval','1')->orderBy('created_at','desc')->paginate(2);
 
 
@@ -81,8 +82,10 @@ class FrontendController extends Controller
         $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
         $data['location']= Location::where('slug', $slug)->first();
         $data['hotels']= Hotel::where('location_id',$data['location']->id)->get();
-        
         $data['location_sub_images']= LocationSubImage::where('location_id',$data['location']->id)->get();
+
+        //The user who posted the location or post
+        $data['postedBy']= User::where('id',$data['location']->created_by)->first();
 
     	return view('Frontend.Location.location_details',$data);
     }
@@ -91,8 +94,8 @@ class FrontendController extends Controller
     public function tourEvent(){
         $data['logo']= Logo::first();
         $data['contact']= Contact::first();
-        $data['categories']= Event::select('category_id')->groupBy('category_id')->get();
-        $data['divisions']= Event::select('division_id')->groupBy('division_id')->get();
+        $data['categories']= Location::select('category_id')->groupBy('category_id')->get();
+        $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
         $data['events']= Event::where('approval','1')->orderBy('id','desc')->get();
 
         return view('Frontend.Tourevent.tour_events',$data);
@@ -104,9 +107,11 @@ class FrontendController extends Controller
         $data['contact']= Contact::first();
         $data['divisions']= Event::select('division_id')->groupBy('division_id')->get();
         $data['categories']= Event::select('category_id')->groupBy('category_id')->get();
-
         $data['event']= Event::where('slug', $slug)->first();
         $data['event_sub_images']= EventSubImage::where('event_id',$data['event']->id)->get();
+
+        //The user who created the event
+        $data['eventBy']= User::where('id',$data['event']->created_by)->first();
 
         return view('Frontend.Tourevent.tour_events_details',$data);
     }
@@ -122,6 +127,50 @@ class FrontendController extends Controller
 
 
         return view('Frontend.Aboutus.about_us',compact('logo','contact','divisions','aboutUs'));
+    }
+
+
+
+    //View blogger's profile(Who has an account on the site and shared experiences)
+    public function bloggerProfile($id){
+        $data['logo']= Logo::first();
+        $data['aboutUs']= About::first();
+        $data['contact']= Contact::first();
+        $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
+        $data['postCount']= Location::select('id')->where('created_by',$id)
+                            ->where('approval','1')->count();
+        $data['eventCount']= Event::where('created_by',$id)->where('approval','1')->count();
+        
+        
+
+        $data['bloggerData']= User::where('id',$id)->first();
+
+        return view('Frontend.Location.blogger_profile', $data);
+    }
+
+
+    //View all posts(blogger)
+    public function bloggerPosts($id){
+        $data['logo']= Logo::first();
+        $data['contact']= Contact::first();
+        $data['categories']= Category::all();
+        $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
+
+        $data['bloggerPostsData']= Location::where('created_by',$id)->where('approval','1')->get();
+        
+        return view('Frontend.Location.bloggers_post_list', $data);
+    }
+
+    //View all events(blogger)
+    public function bloggerEvents($id){
+        $data['logo']= Logo::first();
+        $data['contact']= Contact::first();
+        $data['categories']= Category::all();
+        $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
+
+        $data['bloggerEventsData']= Event::where('created_by',$id)->where('approval','1')->get();
+        
+        return view('Frontend.Location.bloggers_event_list', $data);
     }
 
 
