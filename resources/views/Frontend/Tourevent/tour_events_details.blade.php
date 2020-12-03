@@ -3,20 +3,30 @@
 @section('content')
 
 <style type="text/css">
-	h4{
+	.eventName{
+		text-align: center;
+		padding-top: 40px;
+	}
+	.container{
+		font-family: Arial, Helvetica, sans-serif;
+		padding-top: 50px;
+		height: auto;
+	}
+	.container h4{
 		margin-bottom: 10px;
 	}
+
 </style>
 
-<div class="row" style="text-align: center;padding-top: 40px;">
+<div class="row eventName">
 	<div class="col-md-12">
 		<h3><b>Event: </b>{{$event->event_name}}</h3>
 	</div>
 </div>
 
 
-<div class="container" style="padding-top:50px;padding-bottom: 300px;">
-    <div class="row">
+<div class="container">
+    <div class="row" style="margin-bottom: 10vh;">
 		<div class="col-md-6">
 		   <h4><b>Organized by:</b>
 		   	<a title="View profile" href="{{ route('blogger.profile.view',$eventBy->id) }}">

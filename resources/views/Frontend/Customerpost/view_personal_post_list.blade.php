@@ -6,6 +6,7 @@
   .container{
     padding-top: 20px;
     height: auto;
+    font-family: Arial, Helvetica, sans-serif;
   }
 
   .postSection{
@@ -15,20 +16,25 @@
   .card{
     filter: grayscale(50%);
     transition: 1s;
+    margin-bottom: 30px;
   }
   .card:hover{
     filter: grayscale(0);
     transform: scale(1.1);
-    background-color: #60dee0 ;
+    background-color: #d9e009;
+    color: black;
   }
 </style>
 
-<section class="bg-light page-section ok" id="exploreCard" style="margin-top: 50px;">
+<section class="page-section ok" id="exploreCard" style="margin-top: 50px;">
     <div class="container">
             <div class="row">
+              {{-- @php
+                $userName= App\User::where('id',auth()->user()->id)->first();
+              @endphp --}}
                 <div class=" col-md-10 mx-auto">
                    <h2>
-                     <h2>Apurva sikder</h2>
+                     <h2>Your posts</h2>
                    </h2>
                   <br><br>
                 </div>

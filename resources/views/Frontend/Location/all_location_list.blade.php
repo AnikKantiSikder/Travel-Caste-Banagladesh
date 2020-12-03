@@ -5,6 +5,7 @@
 <style type="text/css">
     .card{
         margin-bottom: 30px;
+        font-family: Arial, Helvetica, sans-serif;
     }
     .section-heading{
       margin-top: 30px;

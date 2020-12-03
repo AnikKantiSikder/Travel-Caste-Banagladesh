@@ -1,7 +1,5 @@
   <style type="text/css">
-    .footer{
-      margin-bottom: 10px;
-    }
+
   </style>
 
   <!-- Footer Part -->

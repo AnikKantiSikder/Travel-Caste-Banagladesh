@@ -10,6 +10,7 @@
     body{
     background: -webkit-linear-gradient(left, #78e4d0, #ace5da);
     height: auto;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .emp-profile{
     padding: 3%;

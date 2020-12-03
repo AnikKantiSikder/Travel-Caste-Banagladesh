@@ -8,6 +8,7 @@
 		  padding: 0;
 		  background-color: #4fd6cc;
 		  height: 150vh;
+      font-family: Arial, Helvetica, sans-serif;
 		}
 		#login .container #login-row #login-column #login-box {
 		  margin-top: 40px;

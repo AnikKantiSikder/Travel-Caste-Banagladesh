@@ -6,6 +6,7 @@
   .blogger{
     background: -webkit-linear-gradient(left, #128c6a, #ace5da);
     height: auto;
+    font-family: Arial, Helvetica, sans-serif;
   }
   .container{
     padding-top: 20px;

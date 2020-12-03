@@ -11,6 +11,7 @@
         margin-bottom: 50px;
         background-color: #7DC242;
         margin-bottom: 1px solid blue;
+        font-family: Arial, Helvetica, sans-serif;
       }
       .notice h2{
         color: black;
@@ -33,6 +34,7 @@
 
       .card{
         margin-bottom: 30px;
+        font-family: Arial, Helvetica, sans-serif;
       }
 
       .homeEvent{
@@ -42,6 +44,7 @@
         border: 2px solid #c2c2ab;
         border-radius: 20px;
         color: black;
+        font-family: Arial, Helvetica, sans-serif;
       }
       .homeEvent img{
         height: 15vh;
@@ -55,6 +58,7 @@
         filter: grayscale(0);
         transform: scale(1.1);
         background-color: #fff407;
+        color: black;
       }
     </style>
     <br><br>  
