@@ -141,7 +141,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="btn btn primary"
-                                    href="{{ route('customer.add.post') }}" role="tab" aria-controls="profile" aria-selected="false">Share experience</a>
+                                    href="{{ route('customer.add.post') }}" role="tab" aria-controls="profile" aria-selected="false">Create post</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="btn"

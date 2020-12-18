@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Logo;
 use App\Model\Slider;
+use App\Model\Notice;
 use App\Model\Contact;
 use App\Model\About;
 use App\Model\Location;
@@ -27,13 +28,12 @@ class FrontendController extends Controller
 
     	$data['logo']= Logo::first();
         $data['sliders']= Slider::all();
+        $data['notices']= Notice::all();
         $data['contact']= Contact::first();
         $data['categories']= Location::select('category_id')->groupBy('category_id')->get();
         $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
         $data['locations']= Location::where('approval','1')->orderBy('id','desc')->paginate(9);
         $data['eventsData']= Event::where('approval','1')->orderBy('created_at','desc')->paginate(2);
-
-
 
     	return view('Frontend.Layouts.home',$data);
     }
@@ -122,9 +122,7 @@ class FrontendController extends Controller
         $contact= Contact::first();
         $divisions= Location::select('division_id')->groupBy('division_id')->get();
 
-        
-         $aboutUs= About::first();
-
+        $aboutUs= About::first();
 
         return view('Frontend.Aboutus.about_us',compact('logo','contact','divisions','aboutUs'));
     }

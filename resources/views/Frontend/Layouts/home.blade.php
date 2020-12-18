@@ -20,15 +20,11 @@
         color: black;
         text-align: right;
       }
-      .notice .infoOne{
+      .notice .info{
         color: black;
         text-align: justify;
       }
-      .notice .infoTwo{
-        color: black;
-        text-align: justify;
-      }
-      .notice .infoTwo h3{
+      .notice .info h3{
         color: white;
       }
 
@@ -62,8 +58,8 @@
       }
     </style>
     <br><br>  
-    {{--  #0ffae2  ffc707--}}
 
+  <!-- Noticeboard -->
   <section class="notice">
       <div class="container">
         <div class="row">
@@ -74,19 +70,15 @@
         </div>
 
         <div class="row">
-          <div class="col-md-6 infoOne">
-            <h3>Covid 19 (Bangladesh)</h3><hr>
-            Confirmed: 436,684<br>New cases: +2,212<br>Recovered: 352,895<br>Death: +6,254 
+          <div class="col-md-2"></div>
+          <div class="col-md-8 info">
+            @foreach ($notices as $noticeData)
+              <h3>{{$noticeData->heading}}</h3>
+              <p>{{$noticeData->details}}</p>
+              <hr>
+            @endforeach
           </div>
 
-          <div class="col-md-6 infoTwo">
-            <h3>Notice 1:</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.</p>
-            <h3>Notice 2:</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.</p>
-          </div>
         </div>
       </div>
   </section>

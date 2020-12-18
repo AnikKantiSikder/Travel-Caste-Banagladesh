@@ -173,6 +173,17 @@ Route::group(['middleware'=>['auth','admin'] ], function(){
 		Route::get('/delete/{id}','Backend\SliderController@delete')->name('sliders.delete');
 	});
 
+	//Noticeboard routes
+	Route::prefix('notices')->group(function(){
+
+		Route::get('/view','Backend\NoticeController@view')->name('notices.view');
+		Route::get('/add','Backend\NoticeController@add')->name('notices.add');
+		Route::post('/store','Backend\NoticeController@store')->name('notices.store');
+		Route::get('/edit/{id}','Backend\NoticeController@edit')->name('notices.edit');
+		Route::post('/update/{id}','Backend\NoticeController@update')->name('notices.update');
+		Route::get('/delete/{id}','Backend\NoticeController@delete')->name('notices.delete');
+	});
+
 	//Contact routes
 	Route::prefix('contacts')->group(function(){
 

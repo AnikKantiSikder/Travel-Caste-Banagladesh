@@ -123,7 +123,7 @@
                             <h6>
                                 {{$userData->bio}}
                             </h6><br><br>
-                            <h3><b>Create event</b></h3>
+                            <h3><b>Create tour event</b></h3>
                             <br>
                         </div>
                     </div>

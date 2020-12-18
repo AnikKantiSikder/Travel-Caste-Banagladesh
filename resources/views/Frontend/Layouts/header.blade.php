@@ -44,7 +44,7 @@
             <div class="nav-item dropdown">
               <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" style="color: #DAEBE8;">My Account</a>
               <div class="dropdown-menu" style="background: #BADDFB;">
-
+                
                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();" class="dropdown-item">Log out</a>
 

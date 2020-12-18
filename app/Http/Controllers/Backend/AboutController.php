@@ -9,7 +9,7 @@ use App\Model\About;
 
 class AboutController extends Controller
 {
-        //View about us-----------------------------------------------------------------------
+    //View about us-----------------------------------------------------------------------
     public function view(){
 
     	$data['countAbout']= About::count();
