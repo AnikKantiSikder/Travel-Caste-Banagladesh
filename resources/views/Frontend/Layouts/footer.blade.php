@@ -24,10 +24,10 @@
           <h4 style="color: white">Follow Us</h4><br>
           <div class="social">
             <ul>
-              <li><a href="{{$contact->facebook}}" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
-              <li><a href="{{$contact->twitter}}" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
-              <li><a href="{{$contact->youtube}}" target="_blank"><i class="fa fa-youtube-square"></i></a></li>
-              <li><a href="{{$contact->google_plus}}" target="_blank"><i class="fa fa-google-plus-square"></i></a></li>
+              <li><a href="{{$contact->facebook}}" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
+              <li><a href="{{$contact->twitter}}" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
+              <li><a href="{{$contact->youtube}}" target="_blank"><i class="fab fa-youtube"></i></a></li>
+              <li><a href="{{$contact->google_plus}}" target="_blank"><i class="fab fa-google-plus-square"></i></a></li>
             </ul>
           </div>
         </div>

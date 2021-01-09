@@ -89,15 +89,16 @@ Route::group(['middleware'=> ['auth','customer']], function(){
 	});
 
 
-
-
-
 	//Home page (Location, location details, category view)
 	Route::get('/location-list', 'Frontend\FrontendController@locationList')->name('locations.list');
 	Route::get('/location-category/{category_id}', 'Frontend\FrontendController@categoryWiseLocationList')
 					->name('category.wise.location');
 	Route::get('/location-details/{slug}', 'Frontend\FrontendController@locationDetails')
 					->name('location.details.info');
+	//Search location
+	Route::post('/search-location', 'Frontend\FrontendController@searchLocation')
+					->name('search.location');
+	Route::get('/get-location', 'Frontend\FrontendController@getLocation')->name('get.location');
 
 	//View blogger's profile(Who has an account on the site and shared experiences)
 	Route::get('/blogger-profile/{id}', 'Frontend\FrontendController@bloggerProfile')

@@ -1,15 +1,15 @@
 
-
 @extends('Frontend.Layouts.master')
   @section('content')
     @include('Frontend.Layouts.slider')
+
 
     <style type="text/css">
       .notice .container{
         height: auto;
         padding: 20px;
         margin-bottom: 50px;
-        background-color: #7DC242;
+        background-color: #49a9c9;
         margin-bottom: 1px solid blue;
         font-family: Arial, Helvetica, sans-serif;
       }
@@ -56,6 +56,7 @@
         background-color: #fff407;
         color: black;
       }
+
     </style>
     <br><br>  
 
@@ -83,17 +84,23 @@
       </div>
   </section>
 
-
+ 
 
   <!-- Location category -->
     <section>
       <div class="container">
 
-        <div class="col-lg-12 text-center">
+        <div class="col-lg-12 text-center" id="lol">
             <h2 class="section-heading text-uppercase"><b>Explore Bangladesh</b></h2>
             <h3 class="section-subheading text-muted">welcome to heaven</h3>
-        </div><br><br><hr>
+        </div>
+      <br><br><hr>
 
+    <!-- Search location -->
+      @include('Frontend.Layouts.search')
+    <!-- Search location -->
+
+      <br><br><hr>
         <div class="row" style="padding: 10px;">
           <div class="col-md-12">
 
@@ -155,7 +162,7 @@
           </div>
         </div><hr>
 
-     <div class="jumbotron text-center ">
+     <div class="jumbotron text-center">
         <div class="container">
             <div class="row">
               @foreach ($eventsData as $allEventData)

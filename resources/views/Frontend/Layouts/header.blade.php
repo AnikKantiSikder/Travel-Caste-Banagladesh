@@ -14,7 +14,7 @@
             <a href="{{ url(' ') }}" class="nav-item nav-link active" style="color: #ece519;">Home</a>
 
         @if (@Auth::user()->id !=NULL && @Auth::user()->user_type == 'Customer')
-          {{-- Find best place --}}
+    {{-- Find best place --}}
             <div class="nav-item dropdown">
               <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" style="color: #DAEBE8;">
                 Find Best Places
@@ -28,18 +28,18 @@
                 
               </div>
             </div>
-          {{-- Find best place --}}
+    {{-- Find best place --}}
 
-          {{-- Profile --}}
+    {{-- Profile --}}
 
             <a href="{{ route('customerprofiles.view')}}" class="nav-item nav-link" style="color: #DAEBE8;">Profile</a>
-          {{-- Profile --}}
+    {{-- Profile --}}
 
-          {{-- Tour events --}}
+    {{-- Tour events --}}
             <a href="{{ route('tour.events') }}" class="nav-item nav-link" style="color: #DAEBE8;">Tour Events</a>
-          {{-- Tour events --}}
+    {{-- Tour events --}}
 
-          {{--Log in menu --}}
+    {{--Log in menu --}}
             
             <div class="nav-item dropdown">
               <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" style="color: #DAEBE8;">My Account</a>
@@ -53,22 +53,19 @@
                 </form>
               </div>
             </div>
-            {{-- Log in menu--}}
+    {{-- Log in menu--}}
             @else
               <a href="{{ route('customer.login') }}" class="nav-item nav-link" style="color: #DAEBE8;">Login</a>
             @endif
           
 
           </div>
+          
           {{-- Search --}}
           <div class="navbar-nav">
             <form class="form-inline">
-              <div class="input-group">
-                <input type="text" name="search" placeholder="Search" style="width: 25vh;">
-                <div class="input-group-append">
-                  <button type="button" class="btn btn-warning">Search</button>
-                </div>
-              </div>
+              <a href="#lol" class="btn btn-warning">Search</a>
+              
             </form>
           </div>
           {{-- Search --}}

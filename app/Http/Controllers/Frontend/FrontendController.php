@@ -171,6 +171,49 @@ class FrontendController extends Controller
         return view('Frontend.Location.bloggers_event_list', $data);
     }
 
+    //Search location
+    public function searchLocation(Request $request){
+        $slug= $request->slug;
+        $data['location']= Location::where('slug', $slug)->first();
+
+        if ($data['location']) {
+
+            $data['logo']= Logo::first();
+            $data['contact']= Contact::first();
+            $data['location']= Location::where('slug', $slug)->first();
+            $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
+            $data['hotels']= Hotel::where('location_id',$data['location']->id)->get();
+            $data['location_sub_images']= LocationSubImage::where('location_id',$data['location']->id)->get();
+            //The user who posted the location or post
+            $data['postedBy']= User::where('id',$data['location']->created_by)->first();
+
+            return view('Frontend.Location.find_location',$data);
+
+        }else{
+            return redirect()->back()->with('error','Location does not exist');
+        }
+
+        
+    }
+
+    //Get location with ajax
+    public function getLocation(Request $request){
+
+        $slug= $request->slug;
+        $locationData= DB::table('locations')->where('slug', 'LIKE', '%'.$slug.'%')->get();
+
+        $html= '';
+        $html .= '<div><ul>';
+
+        if ($locationData) {
+            foreach ($locationData as $v) {
+                $html .= '<li>'.$v->slug.'</li>';
+            }
+         }
+        $html .= '</ul></div>';
+        return response()->json($html);
+    }
+
 
 
 }
