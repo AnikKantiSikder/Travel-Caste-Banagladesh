@@ -131,19 +131,28 @@ class FrontendController extends Controller
 
     //View blogger's profile(Who has an account on the site and shared experiences)
     public function bloggerProfile($id){
-        $data['logo']= Logo::first();
-        $data['aboutUs']= About::first();
-        $data['contact']= Contact::first();
-        $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
-        $data['postCount']= Location::select('id')->where('created_by',$id)
-                            ->where('approval','1')->count();
-        $data['eventCount']= Event::where('created_by',$id)->where('approval','1')->count();
-        
-        
 
-        $data['bloggerData']= User::where('id',$id)->first();
+        // $data['bloggerData']= User::where('id',$id)->first();
 
-        return view('Frontend.Location.blogger_profile', $data);
+        // if ($data['bloggerData']->id == auth()->user()->id) {
+            
+        //     return view('Frontend.Customerprofile.view_customer_profile');
+            
+        // }else{
+            $data['logo']= Logo::first();
+            $data['aboutUs']= About::first();
+            $data['contact']= Contact::first();
+            $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
+            $data['postCount']= Location::select('id')->where('created_by',$id)
+                                ->where('approval','1')->count();
+            $data['eventCount']= Event::where('created_by',$id)->where('approval','1')->count();
+            
+            $data['bloggerData']= User::where('id',$id)->first();
+
+            return view('Frontend.Location.blogger_profile', $data);
+        // }
+
+        
     }
 
 

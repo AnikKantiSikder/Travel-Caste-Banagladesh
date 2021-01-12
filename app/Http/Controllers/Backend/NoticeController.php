@@ -53,17 +53,13 @@ class NoticeController extends Controller
     }
 
 
-    //Update contact--------------------------------------------------------------------------
+    //Update notice--------------------------------------------------------------------------
     public function update(Request $request, $id){
 
     	$data= Notice:: find($id);
 
-    	$data->introduction= $request->introduction;
-        $data->service= $request->service;
-        $data->instruction= $request->instruction;
-        $data->enjoy= $request->enjoy;
-        $data->conclusion= $request->conclusion;
-
+    	$data->heading= $request->heading;
+        $data->details= $request->details;
     	$data->updated_by= Auth::user()->id;
 
     	$data->save();
@@ -71,7 +67,7 @@ class NoticeController extends Controller
     	return redirect()->route('notices.view')->with('success', 'Data updated successfully');
     }
 
-    //Delete contact-------------------------------------------------------------------------------
+    //Delete notice-------------------------------------------------------------------------------
     public function delete($id){
 
     	$Notice= Notice:: find($id);
