@@ -62,12 +62,12 @@
           </div>
           
           {{-- Search --}}
-          <div class="navbar-nav">
+          {{-- <div class="navbar-nav">
             <form class="form-inline">
               <a href="#lol" class="btn btn-warning">Search</a>
               
             </form>
-          </div>
+          </div> --}}
           {{-- Search --}}
         </div>
       </nav>

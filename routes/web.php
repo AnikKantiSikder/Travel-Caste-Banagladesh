@@ -95,7 +95,7 @@ Route::group(['middleware'=> ['auth','customer']], function(){
 					->name('category.wise.location');
 	Route::get('/location-details/{slug}', 'Frontend\FrontendController@locationDetails')
 					->name('location.details.info');
-	//Search location
+	// //Search location
 	Route::post('/search-location', 'Frontend\FrontendController@searchLocation')
 					->name('search.location');
 	Route::get('/get-location', 'Frontend\FrontendController@getLocation')->name('get.location');

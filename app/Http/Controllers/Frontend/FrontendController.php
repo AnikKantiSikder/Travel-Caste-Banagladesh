@@ -59,6 +59,8 @@ class FrontendController extends Controller
         $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
         $data['locations']= Location::where('category_id', $category_id)->orderBy('id','desc')->get();
 
+        $data['categoryName']= Category::where('id', $category_id)->first();
+
         return view('Frontend.Location.category_wise_location_list',$data);
     }
 
@@ -71,7 +73,11 @@ class FrontendController extends Controller
         $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
         $data['locations']= Location::where('division_id', $division_id)->orderBy('id','desc')->get();
 
-        return view('Frontend.Location.division_wise_location_list',$data);
+        $data['divisionName']= Division::where('id', $division_id)->first();
+
+
+
+        return view('Frontend.Location.division_wise_location_list', $data);
     }
 
     //Location details
@@ -201,8 +207,6 @@ class FrontendController extends Controller
         }else{
             return redirect()->back()->with('error','Location does not exist');
         }
-
-        
     }
 
     //Get location with ajax

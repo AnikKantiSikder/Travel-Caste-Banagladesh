@@ -32,8 +32,8 @@
         <div class="row" style="padding: 10px;">
           <div class="col-md-12">
 
-            <a href="{{ url(' ') }}" class="btn btn-secondary">
-              <b>Home</b>
+            <a href="" class="btn btn-primary">
+              <b>Categories</b>
             </a>
 
             @foreach ($categories as $category)

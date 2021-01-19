@@ -27,7 +27,9 @@
     <section>
       <div class="container">
         <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase"><b>Division wise location</b></h2>
+            <h2 class="section-heading text-uppercase" style="color: #e70d38;">
+              <b>{{$divisionName->name}}</b>
+            </h2>
         </div><br><br><hr>
 
         <div class="row" style="padding: 10px;">

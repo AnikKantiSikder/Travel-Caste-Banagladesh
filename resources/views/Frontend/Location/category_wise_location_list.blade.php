@@ -27,14 +27,16 @@
     <section>
       <div class="container">
         <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase"><b></b></h2>
+            <h2 class="section-heading text-uppercase" style="color: #5eaa08;">
+              <b>{{$categoryName->name}}</b>
+            </h2>
         </div><br><br><hr>
 
         <div class="row" style="padding: 10px;">
           <div class="col-md-12">
 
-            <a href="{{ url(' ') }}" class="btn btn-secondary">
-              <b>Home</b>
+            <a href="" class="btn btn-primary">
+              <b>Categories</b>
             </a>
 
             @foreach ($categories as $category)
