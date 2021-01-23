@@ -138,13 +138,22 @@ class FrontendController extends Controller
     //View blogger's profile(Who has an account on the site and shared experiences)
     public function bloggerProfile($id){
 
-        // $data['bloggerData']= User::where('id',$id)->first();
+        $data['userData']= User::where('id',$id)->first();
 
-        // if ($data['bloggerData']->id == auth()->user()->id) {
+        if ($data['userData']->id == auth()->user()->id) {
+
+            $data['logo']= Logo::first();
+            $data['aboutUs']= About::first();
+            $data['contact']= Contact::first();
+            $data['divisions']= Location::select('division_id')->groupBy('division_id')->get();
+            $data['postCount']= Location::select('id')->where('created_by',$id)
+                                ->where('approval','1')->count();
+            $data['eventCount']= Event::where('created_by',$id)->where('approval','1')->count();
+            $data['bloggerData']= User::where('id',$id)->first();
             
-        //     return view('Frontend.Customerprofile.view_customer_profile');
+            return view('Frontend.Customerprofile.view_customer_profile', $data);
             
-        // }else{
+        }else{
             $data['logo']= Logo::first();
             $data['aboutUs']= About::first();
             $data['contact']= Contact::first();
@@ -156,7 +165,7 @@ class FrontendController extends Controller
             $data['bloggerData']= User::where('id',$id)->first();
 
             return view('Frontend.Location.blogger_profile', $data);
-        // }
+        }
 
         
     }

@@ -40,6 +40,7 @@ class CustomerEventRequestController extends Controller
     public function details($id){
 
    		$data['eventDetails']= Event::find($id);
+        $data['eventCreatedBy']= User::where('id', $data['eventDetails']->created_by)->first();
         return view('Backend.CustomerEventRequest.customer_event_details', $data);
     }
 
@@ -57,6 +58,6 @@ class CustomerEventRequestController extends Controller
 
         $deleteEvent= Event::find($id);
         $deleteEvent->delete();
-    	return redirect()->route('posts.pending.list')->with('success', 'Event deleted successfully');
+    	return redirect()->route('events.pending.list')->with('success', 'Event deleted successfully');
     }
 }

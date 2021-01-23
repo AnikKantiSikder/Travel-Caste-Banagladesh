@@ -112,7 +112,7 @@ class CustomerEventController extends Controller
         });
         
 
-        return redirect()->route('events.view')->with('success','Event created successfully');
+        return redirect()->route('events.view')->with('success','Event created successfully! Please wait for the admin approval');
     }
 
 

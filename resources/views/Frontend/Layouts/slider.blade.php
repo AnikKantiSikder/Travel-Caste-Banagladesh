@@ -20,8 +20,8 @@
             <div class="carousel-item @if($count==0){ active } @endif"
             style="background-image: url({{asset('public/Upload/Slider_images/'.$slider->image)}}); height: 500px;">
               <div class="carousel-caption d-none d-md-block">
-                <h2 class="display-4">{{$slider->short_title}}</h2>
-                <p class="lead">{{$slider->long_title}}</p>
+                <h2 class="display-4" style="color: yellow;">{{$slider->short_title}}</h2>
+                <p class="lead" style="color: white;">{{$slider->long_title}}</p>
               </div>
             </div>
             @php

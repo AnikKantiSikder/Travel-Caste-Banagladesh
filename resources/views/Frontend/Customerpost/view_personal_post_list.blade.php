@@ -51,7 +51,7 @@
 
             <div class="row postSection">
               @foreach ($allData as $key=> $customerPostData)
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="card">
                     <img class="card-img-top" src="{{(!empty($customerPostData->image))?url('public/Upload/Location_images/'.$customerPostData->image):
                          url('public/Upload/no_image.png') }}" alt="Card image cap"style="height: 250px;">

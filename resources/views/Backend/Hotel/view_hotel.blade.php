@@ -45,7 +45,8 @@
               </div><!-- /.card-header -->
 
               <div class="card-body">
-                <table id="datatable" class="table table-bordered table-striped" style="text-align: center;">
+                <table id="datatable" class="table table-bordered table-striped"
+                        style="text-align: center;width: auto%;">
                       <thead>
                         <tr>
                           <th>SL.</th>

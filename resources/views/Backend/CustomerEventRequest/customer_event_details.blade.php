@@ -61,7 +61,7 @@
                    <tbody>
                     <tr style="text-align: justify;">
                        <td width="20%"><b>Created by</b></td>
-                       <td width="80%" class="data">{{$eventDetails->created_by}}</td>
+                       <td width="80%" class="data">{{$eventCreatedBy->name}}</td>
                     </tr>
                      <tr>
                        <td width="20%"><b>Event name</b></td>
